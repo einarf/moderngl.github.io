@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>VertexArray &mdash; ModernGL 3.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
+        <link rel="up" title="ModernGL" href="ModernGL.html"/>
+        <link rel="prev" title="Version" href="Version.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VertexArray</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">ModernGL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
+      
+    <li>VertexArray</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/VertexArray.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vertexarray">
+<h1>VertexArray<a class="headerlink" href="#vertexarray" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ModernGL.VertexArray">
+<em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">VertexArray</code><a class="headerlink" href="#ModernGL.VertexArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></p>
+<p>The VertexArray.</p>
+<dl class="method">
+<dt id="ModernGL.VertexArray.release">
+<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.VertexArray.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.VertexArray.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>mode</em>, <em>vertices</em>, <em>first</em>, <em>instances</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.VertexArray.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.VertexArray.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>output</em>, <em>mode</em>, <em>vertices</em>, <em>first</em>, <em>instances</em>, <em>output_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.VertexArray.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.content">
+<code class="descname">content</code><a class="headerlink" href="#ModernGL.VertexArray.content" title="Permalink to this definition">¶</a></dt>
+<dd><p>The content.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.context">
+<code class="descname">context</code><a class="headerlink" href="#ModernGL.VertexArray.context" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.index_buffer">
+<code class="descname">index_buffer</code><a class="headerlink" href="#ModernGL.VertexArray.index_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The index buffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.program">
+<code class="descname">program</code><a class="headerlink" href="#ModernGL.VertexArray.program" title="Permalink to this definition">¶</a></dt>
+<dd><p>The program.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.vertices">
+<code class="descname">vertices</code><a class="headerlink" href="#ModernGL.VertexArray.vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vertices.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Version.html" class="btn btn-neutral" title="Version" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

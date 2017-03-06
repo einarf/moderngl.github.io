@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Context &mdash; ModernGL 3.1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
+        <link rel="up" title="ModernGL" href="ModernGL.html"/>
+        <link rel="next" title="EnableFlag" href="EnableFlag.html"/>
+        <link rel="prev" title="BufferAccess" href="BufferAccess.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">ModernGL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
+      
+    <li>Context</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/Context.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="context">
+<h1>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ModernGL.Context">
+<em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Context</code><a class="headerlink" href="#ModernGL.Context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></p>
+<p>An instance can be created using ~ModernGL.create_context.</p>
+<dl class="method">
+<dt id="ModernGL.Context.Buffer">
+<code class="descname">Buffer</code><span class="sig-paren">(</span><em>data</em>, <em>reserve = 0</em>, <em>dynamic = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> &#8211; Content of the new buffer.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>reserve</strong> &#8211; doc.</li>
+<li><strong>dynamic</strong> &#8211; doc.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Buffer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.DepthTexture">
+<code class="descname">DepthTexture</code><span class="sig-paren">(</span><em>size</em>, <em>data = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.DepthTexture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DepthTexture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> &#8211; doc.</li>
+<li><strong>data</strong> (<em>optional</em>) &#8211; doc.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Texture</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.FragmentShader">
+<code class="descname">FragmentShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.FragmentShader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.Framebuffer">
+<code class="descname">Framebuffer</code><span class="sig-paren">(</span><em>attachments</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Framebuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attachments</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Framebuffer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.GeometryShader">
+<code class="descname">GeometryShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.GeometryShader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.Program">
+<code class="descname">Program</code><span class="sig-paren">(</span><em>shaders</em>, <em>varyings = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shaders</strong> &#8211; doc.</li>
+<li><strong>varyings</strong> (<em>optional</em>) &#8211; doc.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Program</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.SimpleVertexArray">
+<code class="descname">SimpleVertexArray</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>format</em>, <em>attributes</em>, <em>index_buffer = None</em>, <em>skip_errors = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.SimpleVertexArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a SimpleVertexArray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>program</strong> &#8211; doc.</li>
+<li><strong>buffer</strong> &#8211; doc.</li>
+<li><strong>format</strong> &#8211; doc.</li>
+<li><strong>attributes</strong> &#8211; doc.</li>
+<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; doc.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; doc.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">VertexArray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.TessControlShader">
+<code class="descname">TessControlShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.TessControlShader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.TessEvaluationShader">
+<code class="descname">TessEvaluationShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.TessEvaluationShader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.Texture">
+<code class="descname">Texture</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>data = None</em>, <em>floats = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Texture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> &#8211; Width, height.</li>
+<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
+<li><strong>data</strong> (<em>optional</em>) &#8211; Content of the image.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; doc.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Texture</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.VertexArray">
+<code class="descname">VertexArray</code><span class="sig-paren">(</span><em>program</em>, <em>content</em>, <em>index_buffer = None</em>, <em>skip_errors = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.VertexArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a VertexArray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>program</strong> &#8211; doc.</li>
+<li><strong>content</strong> &#8211; doc.</li>
+<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; doc.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; doc.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">VertexArray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.VertexShader">
+<code class="descname">VertexShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.VertexShader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>r = 0</em>, <em>g = 0</em>, <em>b = 0</em>, <em>a = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the framebuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong><strong>, </strong><strong>g</strong><strong>, </strong><strong>b</strong> (<em>optional</em>) &#8211; color components.</li>
+<li><strong>a</strong> (<em>optional</em>) &#8211; alpha component.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.copy_buffer">
+<code class="descname">copy_buffer</code><span class="sig-paren">(</span><em>dst</em>, <em>src</em>, <em>size</em>, <em>read_offset = 0</em>, <em>write_offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy buffer content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dst</strong> &#8211; Destination buffer.</li>
+<li><strong>src</strong> &#8211; Source buffer.</li>
+<li><strong>size</strong> (<em>optional</em>) &#8211; Size to copy.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>read_offset</strong> &#8211; Read offset.</li>
+<li><strong>write_offset</strong> &#8211; Write offset.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.disable">
+<code class="descname">disable</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable flags.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to disable.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.enable">
+<code class="descname">enable</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable flags.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to enable.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.finish">
+<code class="descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not used.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.default_texture_unit">
+<code class="descname">default_texture_unit</code><a class="headerlink" href="#ModernGL.Context.default_texture_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default texture unit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.line_width">
+<code class="descname">line_width</code><a class="headerlink" href="#ModernGL.Context.line_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default line width.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.max_texture_units">
+<code class="descname">max_texture_units</code><a class="headerlink" href="#ModernGL.Context.max_texture_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>The max texture units.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.point_size">
+<code class="descname">point_size</code><a class="headerlink" href="#ModernGL.Context.point_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default point size.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.viewport">
+<code class="descname">viewport</code><a class="headerlink" href="#ModernGL.Context.viewport" title="Permalink to this definition">¶</a></dt>
+<dd><p>The viewport.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.vsync">
+<code class="descname">vsync</code><a class="headerlink" href="#ModernGL.Context.vsync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="EnableFlag.html" class="btn btn-neutral float-right" title="EnableFlag" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="BufferAccess.html" class="btn btn-neutral" title="BufferAccess" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
