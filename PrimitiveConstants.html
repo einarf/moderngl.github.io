@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>BufferAccess &mdash; ModernGL 3.1.0 documentation</title>
+  <title>PrimitiveConstants &mdash; ModernGL 3.1.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
-        <link rel="up" title="Buffer" href="Buffer.html"/>
-        <link rel="next" title="VertexArray" href="VertexArray.html"/>
-        <link rel="prev" title="Buffer" href="Buffer.html"/> 
+        <link rel="up" title="Constants" href="Constants.html"/>
+        <link rel="next" title="VersionConstants" href="VersionConstants.html"/>
+        <link rel="prev" title="EnableConstants" href="EnableConstants.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -93,17 +93,19 @@
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="Buffer.html">Buffer</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">BufferAccess</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Constants.html">Constants</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="EnableConstants.html">EnableConstants</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PrimitiveConstants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VersionConstants.html">VersionConstants</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
 </ul>
@@ -141,13 +143,13 @@
       
           <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
       
-          <li><a href="Buffer.html">Buffer</a> &raquo;</li>
+          <li><a href="Constants.html">Constants</a> &raquo;</li>
       
-    <li>BufferAccess</li>
+    <li>PrimitiveConstants</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/BufferAccess.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/PrimitiveConstants.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -157,88 +159,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bufferaccess">
-<h1>BufferAccess<a class="headerlink" href="#bufferaccess" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="ModernGL.BufferAccess">
-<em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">BufferAccess</code><a class="headerlink" href="#ModernGL.BufferAccess" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="Object.html#ModernGL.Object" title="ModernGL.Object"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></a></p>
-<dl class="method">
-<dt id="ModernGL.BufferAccess.close">
-<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unmap the buffer.</p>
+  <div class="section" id="primitiveconstants">
+<h1>PrimitiveConstants<a class="headerlink" href="#primitiveconstants" title="Permalink to this headline">¶</a></h1>
+<dl class="data">
+<dt id="ModernGL.TRIANGLES">
+<code class="descclassname">ModernGL.</code><code class="descname">TRIANGLES</code><em class="property"> = &lt;Primitive: TRIANGLES&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="ModernGL.BufferAccess.open">
-<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.open" title="Permalink to this definition">¶</a></dt>
-<dd><p>Map the buffer.</p>
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_STRIP">
+<code class="descclassname">ModernGL.</code><code class="descname">TRIANGLE_STRIP</code><em class="property"> = &lt;Primitive: TRIANGLE_STRIP&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="ModernGL.BufferAccess.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>size</em>, <em>offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read the content.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; The size. Value <cite>-1</cite> means all.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">binary data</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
-</tr>
-</tbody>
-</table>
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_FAN">
+<code class="descclassname">ModernGL.</code><code class="descname">TRIANGLE_FAN</code><em class="property"> = &lt;Primitive: TRIANGLE_FAN&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_FAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="ModernGL.BufferAccess.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>data</em>, <em>offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the content.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; The data.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
-</tr>
-</tbody>
-</table>
+<dl class="data">
+<dt id="ModernGL.LINES">
+<code class="descclassname">ModernGL.</code><code class="descname">LINES</code><em class="property"> = &lt;Primitive: LINES&gt;</em><a class="headerlink" href="#ModernGL.LINES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="ModernGL.BufferAccess.buffer">
-<code class="descname">buffer</code><a class="headerlink" href="#ModernGL.BufferAccess.buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The buffer.</p>
+<dl class="data">
+<dt id="ModernGL.LINE_STRIP">
+<code class="descclassname">ModernGL.</code><code class="descname">LINE_STRIP</code><em class="property"> = &lt;Primitive: LINE_STRIP&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="ModernGL.BufferAccess.offset">
-<code class="descname">offset</code><a class="headerlink" href="#ModernGL.BufferAccess.offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>The offset.</p>
+<dl class="data">
+<dt id="ModernGL.LINE_LOOP">
+<code class="descclassname">ModernGL.</code><code class="descname">LINE_LOOP</code><em class="property"> = &lt;Primitive: LINE_LOOP&gt;</em><a class="headerlink" href="#ModernGL.LINE_LOOP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="ModernGL.BufferAccess.readonly">
-<code class="descname">readonly</code><a class="headerlink" href="#ModernGL.BufferAccess.readonly" title="Permalink to this definition">¶</a></dt>
-<dd><p>Is readonly.</p>
+<dl class="data">
+<dt id="ModernGL.POINTS">
+<code class="descclassname">ModernGL.</code><code class="descname">POINTS</code><em class="property"> = &lt;Primitive: POINTS&gt;</em><a class="headerlink" href="#ModernGL.POINTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="ModernGL.BufferAccess.size">
-<code class="descname">size</code><a class="headerlink" href="#ModernGL.BufferAccess.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>The size.</p>
+<dl class="data">
+<dt id="ModernGL.LINE_STRIP_ADJACENCY">
+<code class="descclassname">ModernGL.</code><code class="descname">LINE_STRIP_ADJACENCY</code><em class="property"> = &lt;Primitive: LINE_STRIP_ADJACENCY&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
+<dl class="data">
+<dt id="ModernGL.LINES_ADJACENCY">
+<code class="descclassname">ModernGL.</code><code class="descname">LINES_ADJACENCY</code><em class="property"> = &lt;Primitive: LINES_ADJACENCY&gt;</em><a class="headerlink" href="#ModernGL.LINES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_STRIP_ADJACENCY">
+<code class="descclassname">ModernGL.</code><code class="descname">TRIANGLE_STRIP_ADJACENCY</code><em class="property"> = &lt;Primitive: TRIANGLE_STRIP_ADJACENCY&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLES_ADJACENCY">
+<code class="descclassname">ModernGL.</code><code class="descname">TRIANGLES_ADJACENCY</code><em class="property"> = &lt;Primitive: TRIANGLES_ADJACENCY&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Primitive</p>
+<p>Rendering primitives.</p>
 </dd></dl>
 
 </div>
@@ -250,10 +247,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="VertexArray.html" class="btn btn-neutral float-right" title="VertexArray" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="VersionConstants.html" class="btn btn-neutral float-right" title="VersionConstants" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Buffer.html" class="btn btn-neutral" title="Buffer" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="EnableConstants.html" class="btn btn-neutral" title="EnableConstants" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

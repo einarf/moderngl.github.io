@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="EnableFlag" href="EnableFlag.html"/>
-        <link rel="prev" title="BufferAccess" href="BufferAccess.html"/> 
+        <link rel="next" title="Program" href="Program.html"/>
+        <link rel="prev" title="ModernGL" href="ModernGL.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,25 +90,22 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 </ul>
 
             
@@ -160,8 +157,29 @@
 <dl class="class">
 <dt id="ModernGL.Context">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Context</code><a class="headerlink" href="#ModernGL.Context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></p>
-<p>An instance can be created using ~ModernGL.create_context.</p>
+<dd><p>Bases: <a class="reference internal" href="Object.html#ModernGL.Object" title="ModernGL.Object"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></a></p>
+<p>Create a <a class="reference internal" href="#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">Context</span></code></a> using:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="ModernGL.html#ModernGL.create_context" title="ModernGL.create_context"><code class="xref py py-func docutils literal"><span class="pre">create_context()</span></code></a></li>
+<li><a class="reference internal" href="ModernGL.html#ModernGL.create_standalone_context" title="ModernGL.create_standalone_context"><code class="xref py py-func docutils literal"><span class="pre">create_standalone_context()</span></code></a></li>
+</ul>
+</div></blockquote>
+<p>Members:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#ModernGL.Context.Buffer" title="ModernGL.Context.Buffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Buffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.DepthRenderbuffer" title="ModernGL.Context.DepthRenderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.DepthRenderbuffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.DepthTexture" title="ModernGL.Context.DepthTexture"><code class="xref py py-meth docutils literal"><span class="pre">Context.DepthTexture()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.Framebuffer" title="ModernGL.Context.Framebuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Framebuffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.Program" title="ModernGL.Context.Program"><code class="xref py py-meth docutils literal"><span class="pre">Context.Program()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.Renderbuffer" title="ModernGL.Context.Renderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Renderbuffer()</span></code></a></li>
+<li><code class="xref py py-meth docutils literal"><span class="pre">Context.Shader()</span></code></li>
+<li><a class="reference internal" href="#ModernGL.Context.SimpleVertexArray" title="ModernGL.Context.SimpleVertexArray"><code class="xref py py-meth docutils literal"><span class="pre">Context.SimpleVertexArray()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.Texture" title="ModernGL.Context.Texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.Texture()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.VertexArray" title="ModernGL.Context.VertexArray"><code class="xref py py-meth docutils literal"><span class="pre">Context.VertexArray()</span></code></a></li>
+</ul>
+</div></blockquote>
 <dl class="method">
 <dt id="ModernGL.Context.Buffer">
 <code class="descname">Buffer</code><span class="sig-paren">(</span><em>data</em>, <em>reserve = 0</em>, <em>dynamic = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Buffer" title="Permalink to this definition">¶</a></dt>
@@ -175,12 +193,38 @@
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>reserve</strong> &#8211; doc.</li>
-<li><strong>dynamic</strong> &#8211; doc.</li>
+<li><strong>reserve</strong> &#8211; The number of bytes to reserve.</li>
+<li><strong>dynamic</strong> &#8211; Treat buffer as dynamic.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Buffer</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Buffer.html#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.DepthRenderbuffer">
+<code class="descname">DepthRenderbuffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.DepthRenderbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renderbuffer(size, components, floats = True)</p>
+<p>Create a Renderbuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> &#8211; Width, height.</li>
+<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -196,12 +240,12 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> &#8211; doc.</li>
-<li><strong>data</strong> (<em>optional</em>) &#8211; doc.</li>
+<li><strong>size</strong> &#8211; The width and height.</li>
+<li><strong>data</strong> (<em>optional</em>) &#8211; The pixels.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Texture</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -216,9 +260,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -232,9 +276,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attachments</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attachments</strong> &#8211; A list of <a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a> or <a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Framebuffer</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Framebuffer.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -248,9 +292,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -265,12 +309,37 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>shaders</strong> &#8211; doc.</li>
-<li><strong>varyings</strong> (<em>optional</em>) &#8211; doc.</li>
+<li><strong>shaders</strong> &#8211; A list of <a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a> objects.</li>
+<li><strong>varyings</strong> (<em>optional</em>) &#8211; A list of varying names.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Program</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Program.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.Renderbuffer">
+<code class="descname">Renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>floats = True</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Renderbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Renderbuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> &#8211; Width, height.</li>
+<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -286,19 +355,19 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> &#8211; doc.</li>
-<li><strong>buffer</strong> &#8211; doc.</li>
-<li><strong>format</strong> &#8211; doc.</li>
-<li><strong>attributes</strong> &#8211; doc.</li>
-<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; doc.</li>
+<li><strong>program</strong> &#8211; The program used by <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>buffer</strong> &#8211; The buffer.</li>
+<li><strong>format</strong> &#8211; The buffer format string.</li>
+<li><strong>attributes</strong> &#8211; A list of attribute names.</li>
+<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; An index buffer.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; doc.</p>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; Ignore missing attributes.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">VertexArray</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArray.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -313,9 +382,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -329,9 +398,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -353,10 +422,10 @@
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; doc.</p>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Texture</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -372,17 +441,17 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> &#8211; doc.</li>
-<li><strong>content</strong> &#8211; doc.</li>
-<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; doc.</li>
+<li><strong>program</strong> &#8211; The program used by <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>content</strong> &#8211; A list of (buffer, format, attributes).</li>
+<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; An index buffer.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; doc.</p>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; Ignore missing attributes.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">VertexArray</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArray.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a></p>
 </td>
 </tr>
 </tbody>
@@ -397,9 +466,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; doc.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Shader</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -419,7 +488,7 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
 </td>
 </tr>
 </tbody>
@@ -448,12 +517,17 @@
 </ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
 </td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.copy_texture">
+<code class="descname">copy_texture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_texture" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="ModernGL.Context.disable">
@@ -465,7 +539,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to disable.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -481,7 +555,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to enable.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -492,6 +566,16 @@
 <code class="descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.finish" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not used.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.release">
+<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.default_framebuffer">
+<code class="descname">default_framebuffer</code><a class="headerlink" href="#ModernGL.Context.default_framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.default_texture_unit">
@@ -539,10 +623,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="EnableFlag.html" class="btn btn-neutral float-right" title="EnableFlag" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Program.html" class="btn btn-neutral float-right" title="Program" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="BufferAccess.html" class="btn btn-neutral" title="BufferAccess" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ModernGL.html" class="btn btn-neutral" title="ModernGL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Subroutine" href="Subroutine.html"/>
-        <link rel="prev" title="Program" href="Program.html"/> 
+        <link rel="next" title="Buffer" href="Buffer.html"/>
+        <link rel="prev" title="ProgramMember" href="ProgramMember.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,25 +90,22 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 </ul>
 
             
@@ -160,7 +157,17 @@
 <dl class="class">
 <dt id="ModernGL.Shader">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Shader</code><a class="headerlink" href="#ModernGL.Shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="ContextMember.html#ModernGL.ContextMember" title="ModernGL.ContextMember"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></a></p>
+<p>Create a <a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a> using:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="Context.html#ModernGL.Context.VertexShader" title="ModernGL.Context.VertexShader"><code class="xref py py-meth docutils literal"><span class="pre">VertexShader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.FragmentShader" title="ModernGL.Context.FragmentShader"><code class="xref py py-meth docutils literal"><span class="pre">FragmentShader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.GeometryShader" title="ModernGL.Context.GeometryShader"><code class="xref py py-meth docutils literal"><span class="pre">GeometryShader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.TessEvaluationShader" title="ModernGL.Context.TessEvaluationShader"><code class="xref py py-meth docutils literal"><span class="pre">TessEvaluationShader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.TessControlShader" title="ModernGL.Context.TessControlShader"><code class="xref py py-meth docutils literal"><span class="pre">TessControlShader()</span></code></a></li>
+</ul>
+</div></blockquote>
 <dl class="method">
 <dt id="ModernGL.Shader.release">
 <code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Shader.release" title="Permalink to this definition">¶</a></dt>
@@ -169,12 +176,27 @@
 <dl class="attribute">
 <dt id="ModernGL.Shader.context">
 <code class="descname">context</code><a class="headerlink" href="#ModernGL.Shader.context" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The Context object used for creation.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Shader.source">
 <code class="descname">source</code><a class="headerlink" href="#ModernGL.Shader.source" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The source code of the shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Shader.typename">
+<code class="descname">typename</code><a class="headerlink" href="#ModernGL.Shader.typename" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type of the shader. The return value is a string.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">'VertexShader'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'FragmentShader'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'GeometryShader'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'TessEvaluationShader'</span></code></li>
+<li><code class="docutils literal"><span class="pre">'TessControlShader'</span></code></li>
+</ul>
+</dd></dl>
 
 </dd></dl>
 
@@ -187,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Subroutine.html" class="btn btn-neutral float-right" title="Subroutine" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Buffer.html" class="btn btn-neutral float-right" title="Buffer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Program.html" class="btn btn-neutral" title="Program" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ProgramMember.html" class="btn btn-neutral" title="ProgramMember" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

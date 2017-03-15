@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Uniform" href="Uniform.html"/>
-        <link rel="prev" title="Subroutine" href="Subroutine.html"/> 
+        <link rel="next" title="Renderbuffer" href="Renderbuffer.html"/>
+        <link rel="prev" title="VertexArray" href="VertexArray.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,25 +90,22 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 </ul>
 
             
@@ -160,31 +157,35 @@
 <dl class="class">
 <dt id="ModernGL.Texture">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Texture</code><a class="headerlink" href="#ModernGL.Texture" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></p>
-<dl class="method">
-<dt id="ModernGL.Texture.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.read" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.FramebufferAttachment</span></code></p>
 <dl class="method">
 <dt id="ModernGL.Texture.release">
 <code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.release" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Release the texture.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ModernGL.Texture.use">
 <code class="descname">use</code><span class="sig-paren">(</span><em>index = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.use" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Texture.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.write" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>optional</em>) &#8211; The texture location.
+Same as the integer value that is used for sampler2D uniforms in the shaders.
+The value <code class="docutils literal"><span class="pre">0</span></code> will bind the texture to the <code class="docutils literal"><span class="pre">GL_TEXTURE0</span></code> binding point.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="xref py py-data docutils literal"><span class="pre">None</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.context">
 <code class="descname">context</code><a class="headerlink" href="#ModernGL.Texture.context" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The Context object used for creation.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.height">
@@ -215,10 +216,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Uniform.html" class="btn btn-neutral float-right" title="Uniform" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Renderbuffer.html" class="btn btn-neutral float-right" title="Renderbuffer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Subroutine.html" class="btn btn-neutral" title="Subroutine" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="VertexArray.html" class="btn btn-neutral" title="VertexArray" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

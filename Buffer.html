@@ -38,7 +38,7 @@
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="BufferAccess" href="BufferAccess.html"/>
-        <link rel="prev" title="Attribute" href="Attribute.html"/> 
+        <link rel="prev" title="Shader" href="Shader.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,25 +90,25 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Buffer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 </ul>
 
             
@@ -160,19 +160,20 @@
 <dl class="class">
 <dt id="ModernGL.Buffer">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Buffer</code><a class="headerlink" href="#ModernGL.Buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="ContextMember.html#ModernGL.ContextMember" title="ModernGL.ContextMember"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></a></p>
+<p>Create a <a class="reference internal" href="#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a> using <a class="reference internal" href="Context.html#ModernGL.Context.Buffer" title="ModernGL.Context.Buffer"><code class="xref py py-meth docutils literal"><span class="pre">Buffer()</span></code></a>.</p>
 <dl class="method">
 <dt id="ModernGL.Buffer.access">
-<code class="descname">access</code><span class="sig-paren">(</span><em>size = -1</em>, <em>offset = 0</em>, <em>readonly = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.access" title="Permalink to this definition">¶</a></dt>
+<code class="descname">access</code><span class="sig-paren">(</span><em>size</em>, <em>offset = 0</em>, <em>readonly = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.access" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first last simple">
-<li><strong>size</strong> (<em>int</em>) &#8211; The size.</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; The offset.</li>
-<li><strong>readonly</strong> (<em>bool</em>) &#8211; The readonly.</li>
+<li><strong>size</strong> &#8211; The size.</li>
+<li><strong>offset</strong> &#8211; The offset.</li>
+<li><strong>readonly</strong> &#8211; The readonly.</li>
 </ul>
 </td>
 </tr>
@@ -183,27 +184,25 @@
 <dl class="method">
 <dt id="ModernGL.Buffer.orphan">
 <code class="descname">orphan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.orphan" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Orphan the buffer.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ModernGL.Buffer.read">
-<code class="descname">read</code><span class="sig-paren">(</span><em>size = -1</em>, <em>offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.read" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read</code><span class="sig-paren">(</span><em>size</em>, <em>offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the content.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>int</em>) &#8211; The size. Value <cite>-1</cite> means all.</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; The offset.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; The size. Value <cite>-1</cite> means all.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">binary data</p>
-</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bytes</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">binary data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -212,7 +211,8 @@
 <dl class="method">
 <dt id="ModernGL.Buffer.release">
 <code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.release" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Release the buffer.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="ModernGL.Buffer.write">
@@ -222,14 +222,12 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>int</em>) &#8211; The data.</li>
-<li><strong>offset</strong> (<em>int</em>) &#8211; The offset.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> &#8211; The data.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
 </tbody>
 </table>
@@ -238,7 +236,8 @@
 <dl class="attribute">
 <dt id="ModernGL.Buffer.context">
 <code class="descname">context</code><a class="headerlink" href="#ModernGL.Buffer.context" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The Context object used for creation.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Buffer.dynamic">
@@ -248,10 +247,17 @@
 <dl class="attribute">
 <dt id="ModernGL.Buffer.size">
 <code class="descname">size</code><a class="headerlink" href="#ModernGL.Buffer.size" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The size of the buffer.</p>
+</dd></dl>
 
 </dd></dl>
 
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
+</ul>
+</div>
 </div>
 
 
@@ -264,7 +270,7 @@
         <a href="BufferAccess.html" class="btn btn-neutral float-right" title="BufferAccess" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Attribute.html" class="btn btn-neutral" title="Attribute" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Shader.html" class="btn btn-neutral" title="Shader" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

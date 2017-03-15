@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Shader" href="Shader.html"/>
-        <link rel="prev" title="Primitive" href="Primitive.html"/> 
+        <link rel="next" title="Uniform" href="Uniform.html"/>
+        <link rel="prev" title="Context" href="Context.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,25 +90,29 @@
                 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Program</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attribute.html">Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Varying.html">Varying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProgramMember.html">ProgramMember</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
 </ul>
 
             
@@ -160,61 +164,104 @@
 <dl class="class">
 <dt id="ModernGL.Program">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Program</code><a class="headerlink" href="#ModernGL.Program" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.ContextMember</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.GenericProgram</span></code></p>
 <dl class="method">
 <dt id="ModernGL.Program.release">
 <code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Program.release" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Release the program object.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.attributes">
 <code class="descname">attributes</code><a class="headerlink" href="#ModernGL.Program.attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p>The attributes.</p>
+<dd><p>The program&#8217;s attributes.
+The return value is a dictinary.
+It can be used to access attributes by name.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.context">
 <code class="descname">context</code><a class="headerlink" href="#ModernGL.Program.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Context object used for creation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.fragment_shader">
+<code class="descname">fragment_shader</code><a class="headerlink" href="#ModernGL.Program.fragment_shader" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.geometry_input">
 <code class="descname">geometry_input</code><a class="headerlink" href="#ModernGL.Program.geometry_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>The geometry input.</p>
+<dd><p>The geometry input primitive.
+The GeometryShader&#8217;s input primitive if the GeometryShader is present otherwise <code class="docutils literal"><span class="pre">None</span></code>.
+The geometry input primitive will be used for validation when rendering.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.geometry_output">
 <code class="descname">geometry_output</code><a class="headerlink" href="#ModernGL.Program.geometry_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>The geometry output.</p>
+<dd><p>The geometry output primitive.
+The GeometryShader&#8217;s output primitive if the GeometryShader is present otherwise <code class="docutils literal"><span class="pre">None</span></code>.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.geometry_shader">
+<code class="descname">geometry_shader</code><a class="headerlink" href="#ModernGL.Program.geometry_shader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.shaders">
 <code class="descname">shaders</code><a class="headerlink" href="#ModernGL.Program.shaders" title="Permalink to this definition">¶</a></dt>
-<dd><p>The shaders.</p>
+<dd><p>The shaders.
+The return value is a tuple.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="ModernGL.Program.subroutines">
-<code class="descname">subroutines</code><a class="headerlink" href="#ModernGL.Program.subroutines" title="Permalink to this definition">¶</a></dt>
-<dd><p>The subroutines.</p>
-</dd></dl>
+<dt id="ModernGL.Program.tesselation_control_shader">
+<code class="descname">tesselation_control_shader</code><a class="headerlink" href="#ModernGL.Program.tesselation_control_shader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.tesselation_evaluation_shader">
+<code class="descname">tesselation_evaluation_shader</code><a class="headerlink" href="#ModernGL.Program.tesselation_evaluation_shader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.uniforms">
 <code class="descname">uniforms</code><a class="headerlink" href="#ModernGL.Program.uniforms" title="Permalink to this definition">¶</a></dt>
-<dd><p>The uniforms.</p>
+<dd><p>The program&#8217;s uniforms.
+The return value is a dictinary.
+It can be used to access uniforms by name.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Program.varyings">
 <code class="descname">varyings</code><a class="headerlink" href="#ModernGL.Program.varyings" title="Permalink to this definition">¶</a></dt>
-<dd><p>The varyings.</p>
+<dd><p>The program&#8217;s varyings.
+The return value is a dictinary.
+It can be used to access varyings by name.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.vertex_shader">
+<code class="descname">vertex_shader</code><a class="headerlink" href="#ModernGL.Program.vertex_shader" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Uniform.html">Uniform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Attribute.html">Attribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Varying.html">Varying</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramMember.html">ProgramMember</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -224,10 +271,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Shader.html" class="btn btn-neutral float-right" title="Shader" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Uniform.html" class="btn btn-neutral float-right" title="Uniform" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Primitive.html" class="btn btn-neutral" title="Primitive" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Context.html" class="btn btn-neutral" title="Context" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
