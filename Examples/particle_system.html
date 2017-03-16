@@ -1,0 +1,379 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Particle System &mdash; ModernGL 3.1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="ModernGL 3.1.1 documentation" href="../index.html"/>
+        <link rel="up" title="Examples" href="../Examples.html"/>
+        <link rel="prev" title="Julia Fractal" href="julia_fractal.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01_hello_world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02_uniforms_and_attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_blending.html">03_blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_texture.html">04_texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_perspective.html">05_perspective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">julia_fractal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">particle_system</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">ModernGL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../Examples.html">Examples</a> &raquo;</li>
+      
+    <li>Particle System</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Examples/particle_system.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="particle-system">
+<h1>Particle System<a class="headerlink" href="#particle-system" title="Permalink to this headline">¶</a></h1>
+<div class="align-center figure" id="id1">
+<a class="reference internal image-reference" href="../_images/particle_system.png"><img alt="map to buried treasure" src="../_images/particle_system.png" style="width: 400.0px; height: 300.0px;" /></a>
+<p class="caption"><span class="caption-text">Particle System</span></p>
+</div>
+<div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ModernGL</span><span class="o">,</span> <span class="nn">GLWindow</span>
+<span class="kn">import</span> <span class="nn">struct</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">math</span>
+
+<span class="n">GLWindow</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+
+<span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
+
+<span class="n">tvert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">VertexShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">	#version 330</span>
+
+<span class="s1">	uniform vec2 acc;</span>
+
+<span class="s1">	in vec2 in_pos;</span>
+<span class="s1">	in vec2 in_prev;</span>
+
+<span class="s1">	out vec2 out_pos;</span>
+<span class="s1">	out vec2 out_prev;</span>
+
+<span class="s1">	void main() {</span>
+<span class="s1">		out_pos = in_pos * 2.0 - in_prev + acc;</span>
+<span class="s1">		out_prev = in_pos;</span>
+<span class="s1">	}</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">VertexShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">	#version 330</span>
+
+<span class="s1">	in vec2 vert;</span>
+
+<span class="s1">	void main() {</span>
+<span class="s1">		gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">	}</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">FragmentShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">	#version 330</span>
+
+<span class="s1">	out vec4 color;</span>
+
+<span class="s1">	void main() {</span>
+<span class="s1">		color = vec4(0.30, 0.50, 1.00, 1.0);</span>
+<span class="s1">	}</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
+
+<span class="n">transform</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">tvert</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;out_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;out_prev&#39;</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">particle</span><span class="p">():</span>
+	<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
+	<span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.003</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.008</span><span class="p">)</span>
+
+<span class="n">vbo1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">particle</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">)))</span>
+<span class="n">vbo2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">reserve</span> <span class="o">=</span> <span class="n">vbo1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="n">vao1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
+<span class="n">vao2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">,</span> <span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
+
+<span class="n">render_vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f8x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+
+<span class="n">transform</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">)</span>
+
+<span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">ctx</span><span class="o">.</span><span class="n">point_size</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<span class="k">while</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">Update</span><span class="p">():</span>
+	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+		<span class="n">vbo1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">particle</span><span class="p">(),</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">*</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">))</span>
+		<span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1024</span>
+
+	<span class="n">render_vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+	<span class="n">vao1</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">vbo2</span><span class="p">,</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+	<span class="n">ctx</span><span class="o">.</span><span class="n">copy_buffer</span><span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="julia_fractal.html" class="btn btn-neutral" title="Julia Fractal" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

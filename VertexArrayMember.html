@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>VertexArrayMember &mdash; ModernGL 3.1.0 documentation</title>
+  <title>VertexArrayMember &mdash; ModernGL 3.1.1 documentation</title>
   
 
   
@@ -35,10 +35,10 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
-        <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Constants" href="Constants.html"/>
-        <link rel="prev" title="ContextMember" href="ContextMember.html"/> 
+    <link rel="top" title="ModernGL 3.1.1 documentation" href="index.html"/>
+        <link rel="up" title="Constants" href="Others.html"/>
+        <link rel="next" title="Examples" href="Examples.html"/>
+        <link rel="prev" title="ProgramStageMember" href="ProgramStageMember.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.1.1
               </div>
             
           
@@ -95,14 +95,28 @@
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="Others.html">Others</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Object.html">Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
+<li class="toctree-l3"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Primitive.html">Primitive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Version.html">Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GenericProgram.html">GenericProgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FramebufferAttachment.html">FramebufferAttachment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProgramMember.html">ProgramMember</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProgramStageMember.html">ProgramStageMember</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">VertexArrayMember</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
@@ -138,6 +152,8 @@
       
           <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
       
+          <li><a href="Others.html">Constants</a> &raquo;</li>
+      
     <li>VertexArrayMember</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -154,6 +170,18 @@
             
   <div class="section" id="vertexarraymember">
 <h1>VertexArrayMember<a class="headerlink" href="#vertexarraymember" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ModernGL.VertexArrayMember">
+<em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">VertexArrayMember</code><a class="headerlink" href="#ModernGL.VertexArrayMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="Object.html#ModernGL.Object" title="ModernGL.Object"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></a></p>
+<dl class="attribute">
+<dt id="ModernGL.VertexArrayMember.vertex_array">
+<code class="descname">vertex_array</code><a class="headerlink" href="#ModernGL.VertexArrayMember.vertex_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Program object used for creation.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -163,10 +191,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Constants.html" class="btn btn-neutral float-right" title="Constants" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ContextMember.html" class="btn btn-neutral" title="ContextMember" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ProgramStageMember.html" class="btn btn-neutral" title="ProgramStageMember" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -197,7 +225,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.1.0',
+            VERSION:'3.1.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

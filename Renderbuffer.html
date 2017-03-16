@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Renderbuffer &mdash; ModernGL 3.1.0 documentation</title>
+  <title>Renderbuffer &mdash; ModernGL 3.1.1 documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 3.1.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 3.1.1 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Framebuffer" href="Framebuffer.html"/>
+        <link rel="next" title="MultisampleTexture" href="MultisampleTexture.html"/>
         <link rel="prev" title="Texture" href="Texture.html"/> 
 
   
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                3.1.0
+                3.1.1
               </div>
             
           
@@ -95,14 +95,15 @@
 <li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Renderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Others.html">Others</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
@@ -154,10 +155,35 @@
             
   <div class="section" id="renderbuffer">
 <h1>Renderbuffer<a class="headerlink" href="#renderbuffer" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">Renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>floats = True</em><span class="sig-paren">)</span></dt>
+<dd><p>Create a Renderbuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> &#8211; Width, height.</li>
+<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="class">
 <dt id="ModernGL.Renderbuffer">
 <em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Renderbuffer</code><a class="headerlink" href="#ModernGL.Renderbuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">ModernGL.FramebufferAttachment</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="FramebufferAttachment.html#ModernGL.FramebufferAttachment" title="ModernGL.FramebufferAttachment"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.FramebufferAttachment</span></code></a></p>
 <dl class="method">
 <dt id="ModernGL.Renderbuffer.release">
 <code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Renderbuffer.release" title="Permalink to this definition">¶</a></dt>
@@ -199,7 +225,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Framebuffer.html" class="btn btn-neutral float-right" title="Framebuffer" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MultisampleTexture.html" class="btn btn-neutral float-right" title="MultisampleTexture" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="Texture.html" class="btn btn-neutral" title="Texture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -233,7 +259,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.1.0',
+            VERSION:'3.1.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
