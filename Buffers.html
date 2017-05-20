@@ -1,0 +1,495 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Buffers &mdash; ModernGL 4.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+        <link rel="up" title="ModernGL" href="ModernGL.html"/>
+        <link rel="next" title="VertexArray" href="VertexArrays.html"/>
+        <link rel="prev" title="SubroutineUniforms" href="SubroutineUniforms.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ShadersAndPrograms.html">Shaders and Programs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Buffers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrays.html">VertexArrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Textures.html">Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffers.html">Framebuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
+        
+      <li>Buffers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/Buffers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="buffers">
+<h1>Buffers<a class="headerlink" href="#buffers" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">buffer</code><span class="sig-paren">(</span><em>data=None</em>, <em>reserve=0</em>, <em>dynamic=False</em><span class="sig-paren">)</span> &#x2192; Buffer</dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> (<em>bytes</em>) &#8211; Content of the new buffer.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>reserve</strong> (<em>int</em>) &#8211; The number of bytes to reserve.</li>
+<li><strong>dynamic</strong> (<em>bool</em>) &#8211; Treat buffer as dynamic.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">buffer</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Buffer" title="ModernGL.Buffer">Buffer</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ModernGL.Buffer">
+<em class="property">class </em><code class="descname">Buffer</code><a class="headerlink" href="#ModernGL.Buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buffer Objects are OpenGL Objects that store an array of unformatted memory
+allocated by the OpenGL context, (data allocated on the GPU).
+These can be used to store vertex data, pixel data retrieved from images
+or the framebuffer, and a variety of other things.</p>
+<p>A Buffer object cannot be instantiated directly, it requires a context.
+Use <a class="reference internal" href="Context.html#ModernGL.Context.buffer" title="ModernGL.Context.buffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.buffer()</span></code></a> to create one.</p>
+<p>Copy buffer content using <a class="reference internal" href="Context.html#ModernGL.Context.copy_buffer" title="ModernGL.Context.copy_buffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.copy_buffer()</span></code></a>.</p>
+<dl class="method">
+<dt id="ModernGL.Buffer.access">
+<code class="descname">access</code><span class="sig-paren">(</span><em>size=-1</em>, <em>offset=0</em>, <em>readonly=False</em><span class="sig-paren">)</span> &#x2192; BufferAccess<a class="headerlink" href="#ModernGL.Buffer.access" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.BufferAccess" title="ModernGL.BufferAccess"><code class="xref py py-class docutils literal"><span class="pre">BufferAccess</span></code></a> object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>size</strong> (<em>int</em>) &#8211; The size. Value <cite>-1</cite> means all.</li>
+<li><strong>offset</strong> (<em>int</em>) &#8211; The offset.</li>
+<li><strong>readonly</strong> (<em>bool</em>) &#8211; The readonly.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Simple with statement:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># The buffer will be mapped once and accessed multiple times.</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">with</span> <span class="n">buffer</span><span class="o">.</span><span class="n">access</span><span class="p">()</span> <span class="k">as</span> <span class="n">access</span><span class="p">:</span>
+<span class="o">...</span>     <span class="n">access</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="o">...</span>     <span class="n">access</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Buffer.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>size=-1</em>, <em>offset=0</em><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#ModernGL.Buffer.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>int</em>) &#8211; The size. Value <code class="docutils literal"><span class="pre">-1</span></code> means all.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>offset</strong> (<em>int</em>) &#8211; The offset.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The content of the buffer.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Buffer.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> &#8211; The data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Buffer.orphan">
+<code class="descname">orphan</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.orphan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Orphan the buffer.</p>
+<p>It is also called buffer re-specification.</p>
+<p>Reallocate the buffer object before you start modifying it.</p>
+<p>Since allocating storage is likely faster than the implicit synchronization,
+you gain significant performance advantages over synchronization.</p>
+<p>The old storage will still be used by the OpenGL commands that have been sent previously.
+It is likely that the GL driver will not be doing any allocation at all,
+but will just be pulling an old free block off the unused buffer queue and use it,
+so it is likely to be very efficient.</p>
+<p class="rubric">Examples</p>
+<p>Simple orphaning example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># For simplicity the VertexArray creation is omitted</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">reserve</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+
+<span class="c1"># Fill the buffer</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vbo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">some_temorary_data</span><span class="p">)</span>
+
+<span class="c1"># Issue a render call that uses the vbo</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># Orphan the buffer</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vbo</span><span class="o">.</span><span class="n">orphan</span><span class="p">()</span>
+
+<span class="c1"># Issue another render call without waiting for the previous one</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vbo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">some_temorary_data</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Buffer.bind_to_uniform_block">
+<code class="descname">bind_to_uniform_block</code><span class="sig-paren">(</span><em>location=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.bind_to_uniform_block" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
+<p>Bind the buffer to a uniform block.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> &#8211; The uniform block location.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Buffer.bind_to_storage_buffer">
+<code class="descname">bind_to_storage_buffer</code><span class="sig-paren">(</span><em>location=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Buffer.bind_to_storage_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
+<p>Bind the buffer to a shader storage buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> &#8211; The shader storage location.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ModernGL.BufferAccess">
+<em class="property">class </em><code class="descname">BufferAccess</code><a class="headerlink" href="#ModernGL.BufferAccess" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#ModernGL.BufferAccess" title="ModernGL.BufferAccess"><code class="xref py py-class docutils literal"><span class="pre">BufferAccess</span></code></a> objects are designed to access
+a <a class="reference internal" href="#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a> object&#8217;s content inside a <code class="docutils literal"><span class="pre">with</span></code> statement.
+The buffer is mapped and unmapped only once.</p>
+<p>Use <a class="reference internal" href="#ModernGL.Buffer.access" title="ModernGL.Buffer.access"><code class="xref py py-meth docutils literal"><span class="pre">Buffer.access()</span></code></a> to get a BufferAccess object.</p>
+<dl class="method">
+<dt id="ModernGL.BufferAccess.open">
+<code class="descname">open</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map the buffer.
+This method is called by <code class="docutils literal"><span class="pre">__enter__</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.BufferAccess.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unmap the buffer.
+This method is called by <code class="docutils literal"><span class="pre">__exit__</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.BufferAccess.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>size=-1</em>, <em>offset=0</em><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#ModernGL.BufferAccess.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; The size. Value <cite>-1</cite> means all.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">binary data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.BufferAccess.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.BufferAccess.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; The data.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>offset</strong> &#8211; The offset.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="VertexArrays.html" class="btn btn-neutral float-right" title="VertexArray" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="SubroutineUniforms.html" class="btn btn-neutral" title="SubroutineUniforms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

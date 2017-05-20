@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ModernGL &mdash; ModernGL 3.1.1 documentation</title>
+  <title>ModernGL &mdash; ModernGL 4.0.0 documentation</title>
   
 
+  
+  
   
   
 
@@ -35,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 3.1.1 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
         <link rel="next" title="Context" href="Context.html"/>
         <link rel="prev" title="Welcome to ModernGL’s documentation!" href="index.html"/> 
 
@@ -46,6 +48,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -65,7 +68,7 @@
             
             
               <div class="version">
-                3.1.1
+                4.0.0
               </div>
             
           
@@ -86,26 +89,27 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ModernGL</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ShadersAndPrograms.html">Shaders and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffers.html">Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrays.html">VertexArrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Textures.html">Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffers.html">Framebuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Others.html">Others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Errors.html">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -118,8 +122,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">ModernGL</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
       </nav>
 
 
@@ -128,23 +134,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>ModernGL</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ModernGL</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/ModernGL.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -152,93 +175,70 @@
             
   <div class="section" id="module-ModernGL">
 <span id="moderngl"></span><h1>ModernGL<a class="headerlink" href="#module-ModernGL" title="Permalink to this headline">¶</a></h1>
-<p>ModernGL</p>
-<dl class="function">
-<dt id="ModernGL.create_context">
-<code class="descclassname">ModernGL.</code><code class="descname">create_context</code><span class="sig-paren">(</span><em>require = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.create_context" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><strong>require</strong> (<em>version</em>) &#8211; OpenGL version.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Context.html#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Context</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="ModernGL.create_standalone_context">
-<code class="descclassname">ModernGL.</code><code class="descname">create_standalone_context</code><span class="sig-paren">(</span><em>require = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.create_standalone_context" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><strong>require</strong> (<em>version</em>) &#8211; OpenGL version.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Context.html#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Context</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<p>ModernGL: PyOpenGL alternative</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Classes:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Program.html">Program</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Uniform.html">Uniform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="UniformBlock.html">UniformBlock</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Attribute.html">Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Varying.html">Varying</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ProgramStage.html">ProgramStage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Subroutine.html">Subroutine</a></li>
-<li class="toctree-l3"><a class="reference internal" href="SubroutineUniform.html">SubroutineUniform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Context.html">Context</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ShadersAndPrograms.html">Shaders and Programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Uniforms.html">Uniforms</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="UniformBlocks.html">UniformBlocks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Varyings.html">Varyings</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ProgramStages.html">ProgramStages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Subroutines.html">Subroutines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SubroutineUniforms.html">SubroutineUniforms</a><ul class="simple">
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Buffer.html">Buffer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="BufferAccess.html">BufferAccess</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="VertexArray.html">VertexArray</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="VertexArrayAttribute.html">VertexArrayAttribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArrayListAttribute.html">VertexArrayListAttribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArrayMatrixAttribute.html">VertexArrayMatrixAttribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Buffers.html">Buffers</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VertexArrays.html">VertexArrays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrayAttributes.html">Attributes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Textures.html">Textures</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Framebuffers.html">Framebuffers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a><ul class="simple">
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Constants.html">Constants</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="EnableConstants.html">EnableConstants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="PrimitiveConstants.html">PrimitiveConstants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VersionConstants.html">VersionConstants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html#enable-flags">Enable Flags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html#versions">Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html#primitives">Primitives</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Others.html">Others</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Object.html">Object</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="InvalidObject.html">InvalidObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EnableFlag.html">EnableFlag</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Primitive.html">Primitive</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Version.html">Version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GenericProgram.html">GenericProgram</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FramebufferAttachment.html">FramebufferAttachment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ContextMember.html">ContextMember</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ProgramMember.html">ProgramMember</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ProgramStageMember.html">ProgramStageMember</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArrayMember.html">VertexArrayMember</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Errors.html">Errors</a><ul class="simple">
 </ul>
 </li>
 </ul>
@@ -247,15 +247,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Context.html" class="btn btn-neutral float-right" title="Context" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Context.html" class="btn btn-neutral float-right" title="Context" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to ModernGL’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to ModernGL’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -286,10 +289,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.1.1',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shaders and Programs &mdash; ModernGL 4.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+        <link rel="up" title="ModernGL" href="ModernGL.html"/>
+        <link rel="next" title="Uniform" href="Uniforms.html"/>
+        <link rel="prev" title="Context" href="Context.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Shaders and Programs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Uniforms.html">Uniforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UniformBlocks.html">UniformBlocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Varyings.html">Varyings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ProgramStages.html">ProgramStages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Buffers.html">Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrays.html">VertexArrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Textures.html">Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffers.html">Framebuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
+        
+      <li>Shaders and Programs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ShadersAndPrograms.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shaders-and-programs">
+<h1>Shaders and Programs<a class="headerlink" href="#shaders-and-programs" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">vertex_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader</dt>
+<dd><p>The Vertex Shader is the programmable Shader stage in the rendering pipeline
+that handles the processing of individual vertices.</p>
+<p>Vertex shaders are fed Vertex Attribute data, as specified from a vertex array
+object by a drawing command. A vertex shader receives a single vertex from the
+vertex stream and generates a single vertex to the output vertex stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">vertex shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a simple vertex shader:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_vertex_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    in vec2 vert;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">fragment_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader</dt>
+<dd><p>A Fragment Shader is the Shader stage that will process a Fragment generated by
+the Rasterization into a set of colors and a single depth value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">fragment shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a simple fragment shader:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_fragment_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    out vec4 color;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">geometry_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader</dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">geometry shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">tess_evaluation_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader</dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation evaluation shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">tess_control_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader</dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation control shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Context.</code><code class="descname">program</code><span class="sig-paren">(</span><em>shaders</em>, <em>varyings=()</em><span class="sig-paren">)</span> &#x2192; Program</dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> object.
+Only linked programs will be returned.</p>
+<p>For more information please see: <a class="reference internal" href="#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> and <a class="reference internal" href="#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></p>
+<p>A single shader in the <cite>shaders</cite> parameter is also accepted.
+The varyings are only used when a transform program is created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shaders</strong> (<em>list</em>) &#8211; A list of <cite>Shader</cite> objects.</li>
+<li><strong>varyings</strong> (<em>list</em>) &#8211; A list of varying names.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">program</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Program" title="ModernGL.Program">Program</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>A simple program designed for rendering:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_render_program</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
+<span class="gp">... </span>        <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">                #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                in vec2 vert;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                void main() {</span>
+<span class="gp">... </span><span class="s1">                        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">                }</span>
+<span class="gp">... </span><span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">                #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                out vec4 color;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                void main() {</span>
+<span class="gp">... </span><span class="s1">                        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">                }</span>
+<span class="gp">... </span><span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A simple program designed for transforming:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_vertex_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    in vec4 vert;</span>
+<span class="gp">... </span><span class="s1">    out float vert_length;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        vert_length = length(vert);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_transform_program</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">(</span><span class="n">my_vertex_shader</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert_length&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="ModernGL.Shader">
+<em class="property">class </em><code class="descname">Shader</code><a class="headerlink" href="#ModernGL.Shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shader objects represent compiled GLSL code for a single shader stage.</p>
+<p>A Shader object cannot be instantiated directly, it requires a context.
+Use the following methods to create one:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="Context.html#ModernGL.Context.vertex_shader" title="ModernGL.Context.vertex_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.vertex_shader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.fragment_shader" title="ModernGL.Context.fragment_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.fragment_shader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.geometry_shader" title="ModernGL.Context.geometry_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.geometry_shader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.tess_evaluation_shader" title="ModernGL.Context.tess_evaluation_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.tess_evaluation_shader()</span></code></a></li>
+<li><a class="reference internal" href="Context.html#ModernGL.Context.tess_control_shader" title="ModernGL.Context.tess_control_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.tess_control_shader()</span></code></a></li>
+</ul>
+</div></blockquote>
+<dl class="attribute">
+<dt id="ModernGL.Shader.source">
+<code class="descname">source</code><a class="headerlink" href="#ModernGL.Shader.source" title="Permalink to this definition">¶</a></dt>
+<dd><p>The source code of the shader.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ModernGL.Program">
+<em class="property">class </em><code class="descname">Program</code><a class="headerlink" href="#ModernGL.Program" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Program object represents fully processed executable code
+in the OpenGL Shading Language, for one or more Shader stages.</p>
+<p>In ModernGL, a Program object can be assigned to <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a> objects.
+The VertexArray object  is capable of binding the Program object once the
+<a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">VertexArray.render()</span></code></a> or <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">VertexArray.transform()</span></code></a> is called.</p>
+<p>Program objects has no method called <code class="docutils literal"><span class="pre">use()</span></code>, VertexArrays encapsulate this mechanism.</p>
+<p>A Program object cannot be instantiated directly, it requires a context.
+Use <a class="reference internal" href="Context.html#ModernGL.Context.program" title="ModernGL.Context.program"><code class="xref py py-meth docutils literal"><span class="pre">Context.program()</span></code></a> to create one.</p>
+<dl class="attribute">
+<dt id="ModernGL.Program.uniforms">
+<code class="descname">uniforms</code><a class="headerlink" href="#ModernGL.Program.uniforms" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Uniforms.html#ModernGL.UniformMap" title="ModernGL.UniformMap"><code class="xref py py-class docutils literal"><span class="pre">UniformMap</span></code></a> &#8211; The uniforms of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="Uniforms.html#ModernGL.Uniform" title="ModernGL.Uniform"><code class="xref py py-class docutils literal"><span class="pre">Uniform</span></code></a> objects by name.</p>
+<p class="rubric">Examples</p>
+<p>Set the value of the uniforms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># uniform vec3 eye_pos;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="c1"># uniform sampler2D my_textures[3];</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_texture&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># The values of `my_textures` will be:</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span>             <span class="c1"># GL_TEXTURE0</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span> <span class="o">+</span> <span class="mi">3</span>         <span class="c1"># GL_TEXTURE3</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span> <span class="o">+</span> <span class="mi">2</span>         <span class="c1"># GL_TEXTURE2</span>
+</pre></div>
+</div>
+<p>Get information about the uniforms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span>
+<span class="go">0</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="go">(10.0, 20.0, 0.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_textures&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_textures&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array_length</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.uniform_blocks">
+<code class="descname">uniform_blocks</code><a class="headerlink" href="#ModernGL.Program.uniform_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="UniformBlocks.html#ModernGL.UniformBlockMap" title="ModernGL.UniformBlockMap"><code class="xref py py-class docutils literal"><span class="pre">UniformBlockMap</span></code></a> &#8211; The uniform blocks of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="UniformBlocks.html#ModernGL.UniformBlock" title="ModernGL.UniformBlock"><code class="xref py py-class docutils literal"><span class="pre">UniformBlock</span></code></a> objects by name.</p>
+<p class="rubric">Examples</p>
+<p>Get the location of the uniform block:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># uniform custom_material {</span>
+<span class="c1">#     ...</span>
+<span class="c1"># };</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniform_blocks</span><span class="p">[</span><span class="s1">&#39;custom_material&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span>
+<span class="mi">16</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.attributes">
+<code class="descname">attributes</code><a class="headerlink" href="#ModernGL.Program.attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Attributes.html#ModernGL.AttributeMap" title="ModernGL.AttributeMap"><code class="xref py py-class docutils literal"><span class="pre">AttributeMap</span></code></a> &#8211; The attributes of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="Attributes.html#ModernGL.Attribute" title="ModernGL.Attribute"><code class="xref py py-class docutils literal"><span class="pre">Attribute</span></code></a> objects by name.</p>
+<p class="rubric">Examples</p>
+<p>Set the default value for the attributes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># in vec3 normal;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># in vec2 texture_coordinates[3];</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;texture_coordinates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="p">[</span>
+<span class="o">...</span>     <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="o">...</span>     <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="o">...</span>     <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="o">...</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Get information about the attributes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">default</span>
+<span class="go">(0.0, 0.0, 1.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;normal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;texture_coordinates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">default</span>
+<span class="go">[(0.0, 0.0), (0.0, 0.0), (0.0, 0.0)]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;texture_coordinates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array_length</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;texture_coordinates&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.varyings">
+<code class="descname">varyings</code><a class="headerlink" href="#ModernGL.Program.varyings" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Varyings.html#ModernGL.VaryingMap" title="ModernGL.VaryingMap"><code class="xref py py-class docutils literal"><span class="pre">VaryingMap</span></code></a> &#8211; The varyings of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="Varyings.html#ModernGL.Varying" title="ModernGL.Varying"><code class="xref py py-class docutils literal"><span class="pre">Varying</span></code></a> objects by name.</p>
+<p>The only reason varyings were added to allow verifying
+varyings programatically, they do not hold any other information.</p>
+<p class="rubric">Examples</p>
+<p>Check varyings:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;vertex_out&#39;</span> <span class="ow">in</span> <span class="n">program</span><span class="o">.</span><span class="n">varyings</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.geometry_input">
+<code class="descname">geometry_input</code><a class="headerlink" href="#ModernGL.Program.geometry_input" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Constants.html#ModernGL.Primitive" title="ModernGL.Primitive"><code class="xref py py-class docutils literal"><span class="pre">Primitive</span></code></a> &#8211; The geometry input primitive.
+The GeometryShader&#8217;s input primitive if the GeometryShader exists.
+The geometry input primitive will be used for validation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.geometry_output">
+<code class="descname">geometry_output</code><a class="headerlink" href="#ModernGL.Program.geometry_output" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Constants.html#ModernGL.Primitive" title="ModernGL.Primitive"><code class="xref py py-class docutils literal"><span class="pre">Primitive</span></code></a> &#8211; The geometry output primitive.
+The GeometryShader&#8217;s output primitive if the GeometryShader exists.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.geometry_vertices">
+<code class="descname">geometry_vertices</code><a class="headerlink" href="#ModernGL.Program.geometry_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="xref py py-obj docutils literal"><span class="pre">int</span></code> &#8211; The maximum number of vertices that
+the geometry shader will output.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.vertex_shader">
+<code class="descname">vertex_shader</code><a class="headerlink" href="#ModernGL.Program.vertex_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="ProgramStages.html#ModernGL.ProgramStage" title="ModernGL.ProgramStage"><code class="xref py py-class docutils literal"><span class="pre">ProgramStage</span></code></a> &#8211; The vertex shader program stage.</p>
+<p>The return value is NOT a Shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.fragment_shader">
+<code class="descname">fragment_shader</code><a class="headerlink" href="#ModernGL.Program.fragment_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="ProgramStages.html#ModernGL.ProgramStage" title="ModernGL.ProgramStage"><code class="xref py py-class docutils literal"><span class="pre">ProgramStage</span></code></a> &#8211; The fragment shader program stage.</p>
+<p>The return value is NOT a Shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.geometry_shader">
+<code class="descname">geometry_shader</code><a class="headerlink" href="#ModernGL.Program.geometry_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="ProgramStages.html#ModernGL.ProgramStage" title="ModernGL.ProgramStage"><code class="xref py py-class docutils literal"><span class="pre">ProgramStage</span></code></a> &#8211; The geometry shader program stage.</p>
+<p>The return value is NOT a Shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.tess_evaluation_shader">
+<code class="descname">tess_evaluation_shader</code><a class="headerlink" href="#ModernGL.Program.tess_evaluation_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="ProgramStages.html#ModernGL.ProgramStage" title="ModernGL.ProgramStage"><code class="xref py py-class docutils literal"><span class="pre">ProgramStage</span></code></a> &#8211; The tesselation evaluation shader program stage.</p>
+<p>The return value is NOT a Shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Program.tess_control_shader">
+<code class="descname">tess_control_shader</code><a class="headerlink" href="#ModernGL.Program.tess_control_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="ProgramStages.html#ModernGL.ProgramStage" title="ModernGL.ProgramStage"><code class="xref py py-class docutils literal"><span class="pre">ProgramStage</span></code></a> &#8211; The tesselation control shader program stage.</p>
+<p>The return value is NOT a Shader.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Classes:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Uniforms.html">Uniforms</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UniformBlocks.html">UniformBlocks</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Attributes.html">Attributes</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Varyings.html">Varyings</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ProgramStages.html">ProgramStages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Subroutines.html">Subroutines</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SubroutineUniforms.html">SubroutineUniforms</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Uniforms.html" class="btn btn-neutral float-right" title="Uniform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Context.html" class="btn btn-neutral" title="Context" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.0.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

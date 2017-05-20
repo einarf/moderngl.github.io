@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Context &mdash; ModernGL 3.1.1 documentation</title>
+  <title>Context &mdash; ModernGL 4.0.0 documentation</title>
   
 
+  
+  
   
   
 
@@ -35,9 +37,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 3.1.1 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="Program" href="Program.html"/>
+        <link rel="next" title="Shaders and Programs" href="ShadersAndPrograms.html"/>
         <link rel="prev" title="ModernGL" href="ModernGL.html"/> 
 
   
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                3.1.1
+                4.0.0
               </div>
             
           
@@ -87,26 +90,29 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Context</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ShadersAndPrograms.html">Shaders and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffers.html">Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrays.html">VertexArrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Textures.html">Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffers.html">Framebuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Constants.html">Constants</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Others.html">Others</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Errors.html">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -119,8 +125,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">ModernGL</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
       </nav>
 
 
@@ -129,25 +137,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
           <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
-      
-    <li>Context</li>
+        
+      <li>Context</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/Context.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -155,51 +180,114 @@
             
   <div class="section" id="context">
 <h1>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="ModernGL.create_context">
+<code class="descname">create_context</code><span class="sig-paren">(</span><em>require=None</em><span class="sig-paren">)</span> &#x2192; Context<a class="headerlink" href="#ModernGL.create_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a ModernGL context by loading OpenGL functions from an existing OpenGL context.
+An OpenGL context must exists. If rendering is done without a window please use the
+<a class="reference internal" href="#ModernGL.create_standalone_context" title="ModernGL.create_standalone_context"><code class="xref py py-func docutils literal"><span class="pre">create_standalone_context()</span></code></a> instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) &#8211; OpenGL version.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">context</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ModernGL.Context" title="ModernGL.Context">Context</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ModernGL.create_standalone_context">
+<code class="descname">create_standalone_context</code><span class="sig-paren">(</span><em>size=(256</em>, <em>256)</em>, <em>require=None</em><span class="sig-paren">)</span> &#x2192; Context<a class="headerlink" href="#ModernGL.create_standalone_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a standalone ModernGL context.
+This method will create a hidden window with the
+initial size given in the parameters. This will
+set the  initial viewport as well.</p>
+<p>It is reccommanded to use a separate framebuffer when rendering.</p>
+<p>The size is not really important for the default framebuffer.
+It is only useful to get a viewport with a visible size.
+Size <code class="docutils literal"><span class="pre">(1,</span> <span class="pre">1)</span></code> is great to save memory, however makes harder to
+detect when the viewport was forgotten to set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> (<em>tuple</em>) &#8211; Initial framebuffer size.</li>
+<li><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) &#8211; OpenGL version.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">context</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Context" title="ModernGL.Context">Context</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="class">
 <dt id="ModernGL.Context">
-<em class="property">class </em><code class="descclassname">ModernGL.</code><code class="descname">Context</code><a class="headerlink" href="#ModernGL.Context" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="Object.html#ModernGL.Object" title="ModernGL.Object"><code class="xref py py-class docutils literal"><span class="pre">ModernGL.Object</span></code></a></p>
-<p>Create a <a class="reference internal" href="#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">Context</span></code></a> using:</p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference internal" href="ModernGL.html#ModernGL.create_context" title="ModernGL.create_context"><code class="xref py py-func docutils literal"><span class="pre">create_context()</span></code></a></li>
-<li><a class="reference internal" href="ModernGL.html#ModernGL.create_standalone_context" title="ModernGL.create_standalone_context"><code class="xref py py-func docutils literal"><span class="pre">create_standalone_context()</span></code></a></li>
+<em class="property">class </em><code class="descname">Context</code><a class="headerlink" href="#ModernGL.Context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">Context</span></code></a> using:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ModernGL.create_context" title="ModernGL.create_context"><code class="xref py py-func docutils literal"><span class="pre">ModernGL.create_context()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.create_standalone_context" title="ModernGL.create_standalone_context"><code class="xref py py-func docutils literal"><span class="pre">ModernGL.create_standalone_context()</span></code></a></li>
 </ul>
-</div></blockquote>
+<p>The <a class="reference internal" href="#ModernGL.create_context" title="ModernGL.create_context"><code class="xref py py-func docutils literal"><span class="pre">create_context()</span></code></a> must be used when rendering in a window.
+The <a class="reference internal" href="#ModernGL.create_standalone_context" title="ModernGL.create_standalone_context"><code class="xref py py-func docutils literal"><span class="pre">create_standalone_context()</span></code></a> must be used when rendering
+without a window.</p>
 <p>Members:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference internal" href="#ModernGL.Context.Buffer" title="ModernGL.Context.Buffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Buffer()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.DepthRenderbuffer" title="ModernGL.Context.DepthRenderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.DepthRenderbuffer()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.DepthTexture" title="ModernGL.Context.DepthTexture"><code class="xref py py-meth docutils literal"><span class="pre">Context.DepthTexture()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.Framebuffer" title="ModernGL.Context.Framebuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Framebuffer()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.Program" title="ModernGL.Context.Program"><code class="xref py py-meth docutils literal"><span class="pre">Context.Program()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.Renderbuffer" title="ModernGL.Context.Renderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.Renderbuffer()</span></code></a></li>
-<li><code class="xref py py-meth docutils literal"><span class="pre">Context.Shader()</span></code></li>
-<li><a class="reference internal" href="#ModernGL.Context.SimpleVertexArray" title="ModernGL.Context.SimpleVertexArray"><code class="xref py py-meth docutils literal"><span class="pre">Context.SimpleVertexArray()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.Texture" title="ModernGL.Context.Texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.Texture()</span></code></a></li>
-<li><a class="reference internal" href="#ModernGL.Context.VertexArray" title="ModernGL.Context.VertexArray"><code class="xref py py-meth docutils literal"><span class="pre">Context.VertexArray()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.program" title="ModernGL.Context.program"><code class="xref py py-meth docutils literal"><span class="pre">Context.program()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.vertex_shader" title="ModernGL.Context.vertex_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.vertex_shader()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.fragment_shader" title="ModernGL.Context.fragment_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.fragment_shader()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.geometry_shader" title="ModernGL.Context.geometry_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.geometry_shader()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.tess_evaluation_shader" title="ModernGL.Context.tess_evaluation_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.tess_evaluation_shader()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.tess_control_shader" title="ModernGL.Context.tess_control_shader"><code class="xref py py-meth docutils literal"><span class="pre">Context.tess_control_shader()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.buffer" title="ModernGL.Context.buffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.buffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.simple_vertex_array" title="ModernGL.Context.simple_vertex_array"><code class="xref py py-meth docutils literal"><span class="pre">Context.simple_vertex_array()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.vertex_array" title="ModernGL.Context.vertex_array"><code class="xref py py-meth docutils literal"><span class="pre">Context.vertex_array()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.texture" title="ModernGL.Context.texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.texture()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.depth_texture" title="ModernGL.Context.depth_texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.depth_texture()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.renderbuffer" title="ModernGL.Context.renderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.renderbuffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.depth_renderbuffer" title="ModernGL.Context.depth_renderbuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.depth_renderbuffer()</span></code></a></li>
+<li><a class="reference internal" href="#ModernGL.Context.framebuffer" title="ModernGL.Context.framebuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.framebuffer()</span></code></a></li>
 </ul>
 </div></blockquote>
 <dl class="method">
-<dt id="ModernGL.Context.Buffer">
-<code class="descname">Buffer</code><span class="sig-paren">(</span><em>data</em>, <em>reserve = 0</em>, <em>dynamic = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Buffer.</p>
+<dt id="ModernGL.Context.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>red=0</em>, <em>green=0</em>, <em>blue=0</em>, <em>alpha=0</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the framebuffer.</p>
+<p>Values must be in <code class="docutils literal"><span class="pre">(0,</span> <span class="pre">255)</span></code> range.
+If the <cite>viewport</cite> is not <code class="docutils literal"><span class="pre">None</span></code> then scrissor test
+will be used to clear the given viewport.</p>
+<p>If the <cite>viewport</cite> is a 2-tuple it will clear the
+<code class="docutils literal"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">width,</span> <span class="pre">height)</span></code> where <code class="docutils literal"><span class="pre">(width,</span> <span class="pre">height)</span></code> is the 2-tuple.</p>
+<p>If the <cite>viewport</cite> is a 4-tuple it will clear the given viewport.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> &#8211; Content of the new buffer.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>reserve</strong> &#8211; The number of bytes to reserve.</li>
-<li><strong>dynamic</strong> &#8211; Treat buffer as dynamic.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>red</strong> (<em>int</em>) &#8211; color component.</li>
+<li><strong>green</strong> (<em>int</em>) &#8211; color component.</li>
+<li><strong>blue</strong> (<em>int</em>) &#8211; color component.</li>
+<li><strong>alpha</strong> (<em>int</em>) &#8211; alpha component.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Buffer.html#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a></p>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last"><strong>viewport</strong> (<em>tuple</em>) &#8211; The viewport.</p>
 </td>
 </tr>
 </tbody>
@@ -207,28 +295,167 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.DepthRenderbuffer">
-<code class="descname">DepthRenderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>floats = True</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.DepthRenderbuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Renderbuffer.</p>
+<dt id="ModernGL.Context.enable">
+<code class="descname">enable</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable flags.</p>
+<p>Valid flags are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="Constants.html#ModernGL.BLEND" title="ModernGL.BLEND"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.BLEND</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.DEPTH_TEST" title="ModernGL.DEPTH_TEST"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.DEPTH_TEST</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.CULL_FACE" title="ModernGL.CULL_FACE"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.CULL_FACE</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.MULTISAMPLE" title="ModernGL.MULTISAMPLE"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.MULTISAMPLE</span></code></a></li>
+</ul>
+</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> &#8211; Width, height.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><strong>floats</strong> &#8211; Use floating point precision.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> &#8211; The flag to enable.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.DepthTexture">
-<code class="descname">DepthTexture</code><span class="sig-paren">(</span><em>size</em>, <em>data = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.DepthTexture" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a DepthTexture.</p>
+<dt id="ModernGL.Context.disable">
+<code class="descname">disable</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disable flags.</p>
+<p>Valid flags are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="Constants.html#ModernGL.BLEND" title="ModernGL.BLEND"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.BLEND</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.DEPTH_TEST" title="ModernGL.DEPTH_TEST"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.DEPTH_TEST</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.CULL_FACE" title="ModernGL.CULL_FACE"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.CULL_FACE</span></code></a></li>
+<li><a class="reference internal" href="Constants.html#ModernGL.MULTISAMPLE" title="ModernGL.MULTISAMPLE"><code class="xref py py-data docutils literal"><span class="pre">ModernGL.MULTISAMPLE</span></code></a></li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> &#8211; The flag to disable.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.finish">
+<code class="descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for all drawing commands to finish.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.copy_buffer">
+<code class="descname">copy_buffer</code><span class="sig-paren">(</span><em>dst</em>, <em>src</em>, <em>size=-1</em>, <em>read_offset=0</em>, <em>write_offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy buffer content.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dst</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; Destination buffer.</li>
+<li><strong>src</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; Source buffer.</li>
+<li><strong>size</strong> (<em>int</em>) &#8211; Size to copy.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>read_offset</strong> (<em>int</em>) &#8211; Read offset.</li>
+<li><strong>write_offset</strong> (<em>int</em>) &#8211; Write offset.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.copy_framebuffer">
+<code class="descname">copy_framebuffer</code><span class="sig-paren">(</span><em>dst</em>, <em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy framebuffer content.
+Use this method to blit framebuffers.
+Use this method to copy framebuffer content into a texture.
+Use this method to downsample framebuffers, it will allow
+to read the framebuffer&#8217;s content.
+Use this method to downsample a framebuffer directly to a texture.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dst</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) &#8211; Destination framebuffer or texture.</li>
+<li><strong>src</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a>) &#8211; Source framebuffer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.buffer">
+<code class="descname">buffer</code><span class="sig-paren">(</span><em>data=None</em>, <em>reserve=0</em>, <em>dynamic=False</em><span class="sig-paren">)</span> &#x2192; Buffer<a class="headerlink" href="#ModernGL.Context.buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> (<em>bytes</em>) &#8211; Content of the new buffer.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>reserve</strong> (<em>int</em>) &#8211; The number of bytes to reserve.</li>
+<li><strong>dynamic</strong> (<em>bool</em>) &#8211; Treat buffer as dynamic.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">buffer</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer">Buffer</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.texture">
+<code class="descname">texture</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>data=None</em>, <em>samples=0</em>, <em>floats=False</em><span class="sig-paren">)</span> &#x2192; Texture<a class="headerlink" href="#ModernGL.Context.texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> (<em>tuple</em>) &#8211; Width, height.</li>
+<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
+<li><strong>data</strong> (<em>bytes</em>) &#8211; Content of the image.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first"><strong>floats</strong> (<em>bool</em>) &#8211; Use floating point precision.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">texture</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.depth_texture">
+<code class="descname">depth_texture</code><span class="sig-paren">(</span><em>size</em>, <em>data=None</em>, <em>samples=0</em><span class="sig-paren">)</span> &#x2192; Texture<a class="headerlink" href="#ModernGL.Context.depth_texture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -239,7 +466,10 @@
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">depth texture</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
 </td>
 </tr>
 </tbody>
@@ -247,68 +477,24 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.FragmentShader">
-<code class="descname">FragmentShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.FragmentShader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Shader.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.Framebuffer">
-<code class="descname">Framebuffer</code><span class="sig-paren">(</span><em>attachments</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Framebuffer.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>attachments</strong> &#8211; A list of <a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a> or <a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Framebuffer.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.GeometryShader">
-<code class="descname">GeometryShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.GeometryShader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Shader.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.Program">
-<code class="descname">Program</code><span class="sig-paren">(</span><em>shaders</em>, <em>varyings = None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Program" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Program.</p>
+<dt id="ModernGL.Context.vertex_array">
+<code class="descname">vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>content</em>, <em>index_buffer=None</em><span class="sig-paren">)</span> &#x2192; VertexArray<a class="headerlink" href="#ModernGL.Context.vertex_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>shaders</strong> &#8211; A list of <a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a> objects.</li>
-<li><strong>varyings</strong> (<em>optional</em>) &#8211; A list of varying names.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
+<li><strong>content</strong> (<em>list</em>) &#8211; A list of (buffer, format, attributes).</li>
+<li><strong>index_buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; An index buffer.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Program.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a></p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">vertex array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray">VertexArray</a></p>
 </td>
 </tr>
 </tbody>
@@ -316,24 +502,271 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.Renderbuffer">
-<code class="descname">Renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>floats = True</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Renderbuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Renderbuffer.</p>
+<dt id="ModernGL.Context.simple_vertex_array">
+<code class="descname">simple_vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>attributes</em><span class="sig-paren">)</span> &#x2192; VertexArray<a class="headerlink" href="#ModernGL.Context.simple_vertex_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a>.</p>
+<p>This is an alias for:</p>
+<blockquote>
+<div>format = detect_format(program, attributes)
+vertex_array(program, [(buffer, format, attributes)])</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> &#8211; Width, height.</li>
-<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; The buffer.</li>
+<li><strong>attributes</strong> (<em>list</em>) &#8211; A list of attribute names.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">vertex array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray">VertexArray</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.program">
+<code class="descname">program</code><span class="sig-paren">(</span><em>shaders</em>, <em>varyings=()</em><span class="sig-paren">)</span> &#x2192; Program<a class="headerlink" href="#ModernGL.Context.program" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> object.
+Only linked programs will be returned.</p>
+<p>For more information please see: <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> and <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></p>
+<p>A single shader in the <cite>shaders</cite> parameter is also accepted.
+The varyings are only used when a transform program is created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shaders</strong> (<em>list</em>) &#8211; A list of <cite>Shader</cite> objects.</li>
+<li><strong>varyings</strong> (<em>list</em>) &#8211; A list of varying names.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">program</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program">Program</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>A simple program designed for rendering:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_render_program</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
+<span class="gp">... </span>        <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">                #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                in vec2 vert;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                void main() {</span>
+<span class="gp">... </span><span class="s1">                        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">                }</span>
+<span class="gp">... </span><span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="gp">... </span>        <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">                #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                out vec4 color;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">                void main() {</span>
+<span class="gp">... </span><span class="s1">                        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">                }</span>
+<span class="gp">... </span><span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">])</span>
+</pre></div>
+</div>
+<p>A simple program designed for transforming:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_vertex_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    in vec4 vert;</span>
+<span class="gp">... </span><span class="s1">    out float vert_length;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        vert_length = length(vert);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_transform_program</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">(</span><span class="n">my_vertex_shader</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert_length&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.vertex_shader">
+<code class="descname">vertex_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.vertex_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Vertex Shader is the programmable Shader stage in the rendering pipeline
+that handles the processing of individual vertices.</p>
+<p>Vertex shaders are fed Vertex Attribute data, as specified from a vertex array
+object by a drawing command. A vertex shader receives a single vertex from the
+vertex stream and generates a single vertex to the output vertex stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">vertex shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a simple vertex shader:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_vertex_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    in vec2 vert;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.fragment_shader">
+<code class="descname">fragment_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.fragment_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Fragment Shader is the Shader stage that will process a Fragment generated by
+the Rasterization into a set of colors and a single depth value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">fragment shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a simple fragment shader:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_fragment_shader</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">    #version 330</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    out vec4 color;</span>
+<span class="gp">...</span><span class="s1"></span>
+<span class="gp">... </span><span class="s1">    void main() {</span>
+<span class="gp">... </span><span class="s1">        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="gp">... </span><span class="s1">    }</span>
+<span class="gp">... </span><span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.geometry_shader">
+<code class="descname">geometry_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.geometry_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">geometry shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.tess_evaluation_shader">
+<code class="descname">tess_evaluation_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.tess_evaluation_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation evaluation shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.tess_control_shader">
+<code class="descname">tess_control_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.tess_control_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation control shader</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader">Shader</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.framebuffer">
+<code class="descname">framebuffer</code><span class="sig-paren">(</span><em>color_attachments</em>, <em>depth_attachment</em><span class="sig-paren">)</span> &#x2192; Framebuffer<a class="headerlink" href="#ModernGL.Context.framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>color_attachments</strong> (<em>list</em>) &#8211; A list of <cite>Texture</cite> or <cite>Renderbuffer</cite> objects.</li>
+<li><strong>depth_attachment</strong> (<a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><em>Renderbuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) &#8211; A <cite>Texture</cite> or <cite>Renderbuffer</cite> object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">framebuffer</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer">Framebuffer</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Context.renderbuffer">
+<code class="descname">renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components=4</em>, <em>samples=0</em>, <em>floats=True</em><span class="sig-paren">)</span> &#x2192; Renderbuffer<a class="headerlink" href="#ModernGL.Context.renderbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</li>
+<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>floats</strong> &#8211; Use floating point precision.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Renderbuffer.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a></p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">renderbuffer</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer">Renderbuffer</a></p>
 </td>
 </tr>
 </tbody>
@@ -341,252 +774,49 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.SimpleVertexArray">
-<code class="descname">SimpleVertexArray</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>format</em>, <em>attributes</em>, <em>index_buffer = None</em>, <em>skip_errors = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.SimpleVertexArray" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a SimpleVertexArray.</p>
+<dt id="ModernGL.Context.depth_renderbuffer">
+<code class="descname">depth_renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>samples=0</em><span class="sig-paren">)</span> &#x2192; Renderbuffer<a class="headerlink" href="#ModernGL.Context.depth_renderbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> &#8211; The program used by <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
-<li><strong>buffer</strong> &#8211; The buffer.</li>
-<li><strong>format</strong> &#8211; The buffer format string.</li>
-<li><strong>attributes</strong> &#8211; A list of attribute names.</li>
-<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; An index buffer.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; Ignore missing attributes.</p>
-</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArray.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a></p>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">depth renderbuffer</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer">Renderbuffer</a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="ModernGL.Context.TessControlShader">
-<code class="descname">TessControlShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.TessControlShader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Shader.</p>
+<dt id="ModernGL.Context.compute_shader">
+<code class="descname">compute_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; ComputeShader<a class="headerlink" href="#ModernGL.Context.compute_shader" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
+<p>Create a <a class="reference internal" href="ComputeShaders.html#ModernGL.ComputeShader" title="ModernGL.ComputeShader"><code class="xref py py-class docutils literal"><span class="pre">ComputeShader</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source of the compute shader.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">compute shader program</td>
 </tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.TessEvaluationShader">
-<code class="descname">TessEvaluationShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.TessEvaluationShader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Shader.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="ComputeShaders.html#ModernGL.ComputeShader" title="ModernGL.ComputeShader">ComputeShader</a></td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.Texture">
-<code class="descname">Texture</code><span class="sig-paren">(</span><em>size</em>, <em>components</em>, <em>data = None</em>, <em>floats = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.Texture" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Texture.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> &#8211; Width, height.</li>
-<li><strong>components</strong> &#8211; The number of components 1, 2, 3 or 4.</li>
-<li><strong>data</strong> (<em>optional</em>) &#8211; Content of the image.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>floats</strong> &#8211; Use floating point precision.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Texture.html#ModernGL.Texture" title="ModernGL.Texture"><code class="xref py py-class docutils literal"><span class="pre">Texture</span></code></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.VertexArray">
-<code class="descname">VertexArray</code><span class="sig-paren">(</span><em>program</em>, <em>content</em>, <em>index_buffer = None</em>, <em>skip_errors = False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.VertexArray" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a VertexArray.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> &#8211; The program used by <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and <a class="reference internal" href="VertexArray.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
-<li><strong>content</strong> &#8211; A list of (buffer, format, attributes).</li>
-<li><strong>index_buffer</strong> (<em>optional</em>) &#8211; An index buffer.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>skip_errors</strong> &#8211; Ignore missing attributes.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="VertexArray.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.VertexShader">
-<code class="descname">VertexShader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.VertexShader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a Shader.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> &#8211; The source code in GLSL.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="Shader.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><em>r = 0</em>, <em>g = 0</em>, <em>b = 0</em>, <em>a = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clear the framebuffer.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>r</strong><strong>, </strong><strong>g</strong><strong>, </strong><strong>b</strong> (<em>optional</em>) &#8211; color components.</li>
-<li><strong>a</strong> (<em>optional</em>) &#8211; alpha component.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.copy_buffer">
-<code class="descname">copy_buffer</code><span class="sig-paren">(</span><em>dst</em>, <em>src</em>, <em>size</em>, <em>read_offset = 0</em>, <em>write_offset = 0</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Copy buffer content.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dst</strong> &#8211; Destination buffer.</li>
-<li><strong>src</strong> &#8211; Source buffer.</li>
-<li><strong>size</strong> (<em>optional</em>) &#8211; Size to copy.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>read_offset</strong> &#8211; Read offset.</li>
-<li><strong>write_offset</strong> &#8211; Write offset.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">None</span></code></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.copy_texture">
-<code class="descname">copy_texture</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_texture" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.disable">
-<code class="descname">disable</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.disable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Disable flags.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to disable.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.enable">
-<code class="descname">enable</code><span class="sig-paren">(</span><em>flags</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.enable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable flags.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flags</strong> &#8211; flags to enable.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">None</span></code></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.finish">
-<code class="descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.finish" title="Permalink to this definition">¶</a></dt>
-<dd><p>Not used.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="ModernGL.Context.release">
-<code class="descname">release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.release" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ModernGL.Context.default_framebuffer">
-<code class="descname">default_framebuffer</code><a class="headerlink" href="#ModernGL.Context.default_framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ModernGL.Context.default_texture_unit">
-<code class="descname">default_texture_unit</code><a class="headerlink" href="#ModernGL.Context.default_texture_unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>The default texture unit.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.line_width">
 <code class="descname">line_width</code><a class="headerlink" href="#ModernGL.Context.line_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the default line width.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="ModernGL.Context.max_texture_units">
-<code class="descname">max_texture_units</code><a class="headerlink" href="#ModernGL.Context.max_texture_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The max texture units.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -599,28 +829,90 @@
 <dt id="ModernGL.Context.viewport">
 <code class="descname">viewport</code><a class="headerlink" href="#ModernGL.Context.viewport" title="Permalink to this definition">¶</a></dt>
 <dd><p>The viewport.</p>
+<p>Reading this property may force the GPU to sync.
+Use this property to set the viewport only.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="ModernGL.Context.vsync">
-<code class="descname">vsync</code><a class="headerlink" href="#ModernGL.Context.vsync" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="ModernGL.Context.default_texture_unit">
+<code class="descname">default_texture_unit</code><a class="headerlink" href="#ModernGL.Context.default_texture_unit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default texture unit.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.max_texture_units">
+<code class="descname">max_texture_units</code><a class="headerlink" href="#ModernGL.Context.max_texture_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>The max texture units.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.default_framebuffer">
+<code class="descname">default_framebuffer</code><a class="headerlink" href="#ModernGL.Context.default_framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The default framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.vendor">
+<code class="descname">vendor</code><a class="headerlink" href="#ModernGL.Context.vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vendor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.renderer">
+<code class="descname">renderer</code><a class="headerlink" href="#ModernGL.Context.renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The renderer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.version">
+<code class="descname">version</code><a class="headerlink" href="#ModernGL.Context.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The OpenGL version.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Program.html" class="btn btn-neutral float-right" title="Program" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ShadersAndPrograms.html" class="btn btn-neutral float-right" title="Shaders and Programs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ModernGL.html" class="btn btn-neutral" title="ModernGL" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ModernGL.html" class="btn btn-neutral" title="ModernGL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -651,10 +943,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.1.1',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

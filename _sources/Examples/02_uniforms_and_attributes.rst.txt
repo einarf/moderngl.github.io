@@ -3,11 +3,11 @@
 
 .. figure:: images/02_uniforms_and_attributes.png
 	:scale: 50 %
-	:alt: map to buried treasure
+	:alt: 02_uniforms_and_attributes
 	:align: center
 	:figclass: align-center
 
 	Uniforms and Attributes
 
-.. literalinclude:: ../../../examples/GLWindow/02_uniforms_and_attributes.py
+.. literalinclude:: ../../examples/GLWindow/02_uniforms_and_attributes.py
 	:linenos:

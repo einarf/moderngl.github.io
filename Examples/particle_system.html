@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Particle System &mdash; ModernGL 3.1.1 documentation</title>
+  <title>Particle System &mdash; ModernGL 4.0.0 documentation</title>
   
 
+  
+  
   
   
 
@@ -35,8 +37,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 3.1.1 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
+        <link rel="next" title="Contributing" href="../Contributing.html"/>
         <link rel="prev" title="Julia Fractal" href="julia_fractal.html"/> 
 
   
@@ -46,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -65,7 +69,7 @@
             
             
               <div class="version">
-                3.1.1
+                4.0.0
               </div>
             
           
@@ -86,7 +90,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
@@ -99,6 +106,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">particle_system</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -111,8 +119,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">ModernGL</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ModernGL</a>
+        
       </nav>
 
 
@@ -121,25 +131,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../Examples.html">Examples</a> &raquo;</li>
-      
-    <li>Particle System</li>
+        
+      <li>Particle System</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/Examples/particle_system.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -148,7 +175,7 @@
   <div class="section" id="particle-system">
 <h1>Particle System<a class="headerlink" href="#particle-system" title="Permalink to this headline">¶</a></h1>
 <div class="align-center figure" id="id1">
-<a class="reference internal image-reference" href="../_images/particle_system.png"><img alt="map to buried treasure" src="../_images/particle_system.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/particle_system.png"><img alt="particle_system" src="../_images/particle_system.png" style="width: 400.0px; height: 300.0px;" /></a>
 <p class="caption"><span class="caption-text">Particle System</span></p>
 </div>
 <div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -228,14 +255,27 @@
 75
 76
 77
-78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ModernGL</span><span class="o">,</span> <span class="nn">GLWindow</span>
-<span class="kn">import</span> <span class="nn">struct</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">math</span>
+78
+79
+80
+81
+82
+83
+84
+85
+86</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">struct</span>
 
-<span class="n">GLWindow</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">GLWindow</span>
+<span class="kn">import</span> <span class="nn">ModernGL</span>
 
+<span class="c1"># Window &amp; Context</span>
+
+<span class="n">wnd</span> <span class="o">=</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">create_window</span><span class="p">()</span>
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
 
-<span class="n">tvert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">VertexShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">tvert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">	#version 330</span>
 
 <span class="s1">	uniform vec2 acc;</span>
@@ -252,7 +292,7 @@
 <span class="s1">	}</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">VertexShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">	#version 330</span>
 
 <span class="s1">	in vec2 vert;</span>
@@ -262,7 +302,7 @@
 <span class="s1">	}</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">FragmentShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">	#version 330</span>
 
 <span class="s1">	out vec4 color;</span>
@@ -272,9 +312,9 @@
 <span class="s1">	}</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
+<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
 
-<span class="n">transform</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Program</span><span class="p">(</span><span class="n">tvert</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;out_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;out_prev&#39;</span><span class="p">])</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">(</span><span class="n">tvert</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;out_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;out_prev&#39;</span><span class="p">])</span>
 
 <span class="k">def</span> <span class="nf">particle</span><span class="p">():</span>
 	<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
@@ -282,13 +322,15 @@
 
 	<span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.003</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.008</span><span class="p">)</span>
 
-<span class="n">vbo1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">particle</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">)))</span>
-<span class="n">vbo2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">reserve</span> <span class="o">=</span> <span class="n">vbo1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">vbo1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">particle</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">)))</span>
+<span class="n">vbo2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">reserve</span> <span class="o">=</span> <span class="n">vbo1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 
-<span class="n">vao1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
-<span class="n">vao2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">,</span> <span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
+<span class="n">vao1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
+<span class="n">vao2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
 
-<span class="n">render_vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f8x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+<span class="n">render_vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="p">[</span>
+	<span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f8x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">]),</span>
+<span class="p">])</span>
 
 <span class="n">transform</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">)</span>
 
@@ -296,7 +338,8 @@
 
 <span class="n">ctx</span><span class="o">.</span><span class="n">point_size</span> <span class="o">=</span> <span class="mf">5.0</span>
 
-<span class="k">while</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">Update</span><span class="p">():</span>
+<span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
+	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
 	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
 
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
@@ -312,13 +355,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../Contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="julia_fractal.html" class="btn btn-neutral" title="Julia Fractal" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="julia_fractal.html" class="btn btn-neutral" title="Julia Fractal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -349,10 +397,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.1',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

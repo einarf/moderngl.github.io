@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Constants &mdash; ModernGL 3.1.1 documentation</title>
+  <title>Constants &mdash; ModernGL 4.0.0 documentation</title>
   
 
+  
+  
   
   
 
@@ -35,10 +37,10 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 3.1.1 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
-        <link rel="next" title="EnableConstants" href="EnableConstants.html"/>
-        <link rel="prev" title="ComputeShader" href="ComputeShader.html"/> 
+        <link rel="next" title="Error" href="Errors.html"/>
+        <link rel="prev" title="InvalidObject" href="InvalidObjects.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                3.1.1
+                4.0.0
               </div>
             
           
@@ -87,31 +90,34 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="ModernGL.html">ModernGL</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Context.html">Context</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Program.html">Program</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Shader.html">Shader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Buffer.html">Buffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="VertexArray.html">VertexArray</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Framebuffer.html">Framebuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Texture.html">Texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Renderbuffer.html">Renderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleTexture.html">MultisampleTexture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MultisampleRenderbuffer.html">MultisampleRenderbuffer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ComputeShader.html">ComputeShader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ShadersAndPrograms.html">Shaders and Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Buffers.html">Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VertexArrays.html">VertexArrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Textures.html">Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Framebuffers.html">Framebuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Renderbuffers.html">Renderbuffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ComputeShaders.html">ComputeShaders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="InvalidObjects.html">InvalidObjects</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Constants</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="EnableConstants.html">EnableConstants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="PrimitiveConstants.html">PrimitiveConstants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VersionConstants.html">VersionConstants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-flags">Enable Flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versions">Versions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#primitives">Primitives</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Error.html">Error</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Others.html">Others</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Errors.html">Errors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -124,8 +130,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">ModernGL</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
       </nav>
 
 
@@ -134,25 +142,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
           <li><a href="ModernGL.html">ModernGL</a> &raquo;</li>
-      
-    <li>Constants</li>
+        
+      <li>Constants</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/Constants.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -160,27 +185,185 @@
             
   <div class="section" id="constants">
 <h1>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enable-flags">
+<h2>Enable Flags<a class="headerlink" href="#enable-flags" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="ModernGL.BLEND">
+<code class="descname">BLEND</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.BLEND" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_BLEND</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.DEPTH_TEST">
+<code class="descname">DEPTH_TEST</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.DEPTH_TEST" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_DEPTH_TEST</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CULL_FACE">
+<code class="descname">CULL_FACE</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.CULL_FACE" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_CULL_FACE</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.MULTISAMPLE">
+<code class="descname">MULTISAMPLE</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.MULTISAMPLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_MULTISAMPLE</p>
+</dd></dl>
+
+</div>
+<div class="section" id="versions">
+<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ModernGL.Version">
+<em class="property">class </em><code class="descname">Version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Version" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="ModernGL.Version.major">
+<code class="descname">major</code><a class="headerlink" href="#ModernGL.Version.major" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Version.minor">
+<code class="descname">minor</code><a class="headerlink" href="#ModernGL.Version.minor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_330">
+<code class="descname">CORE_330</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_330" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 3.3</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_400">
+<code class="descname">CORE_400</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_400" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.0</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_410">
+<code class="descname">CORE_410</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_410" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.1</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_420">
+<code class="descname">CORE_420</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_420" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.2</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_430">
+<code class="descname">CORE_430</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_430" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.3</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_440">
+<code class="descname">CORE_440</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_440" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.4</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.CORE_450">
+<code class="descname">CORE_450</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_450" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenGL 4.5</p>
+</dd></dl>
+
+</div>
+<div class="section" id="primitives">
+<h2>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ModernGL.Primitive">
+<em class="property">class </em><code class="descname">Primitive</code><a class="headerlink" href="#ModernGL.Primitive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLES">
+<code class="descname">TRIANGLES</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_TRIANGLES</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_STRIP">
+<code class="descname">TRIANGLE_STRIP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_TRIANGLE_STRIP</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_FAN">
+<code class="descname">TRIANGLE_FAN</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_FAN" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_TRIANGLE_FAN</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.LINES">
+<code class="descname">LINES</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINES" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_LINES</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.LINE_STRIP">
+<code class="descname">LINE_STRIP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_LINE_STRIP</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.LINE_LOOP">
+<code class="descname">LINE_LOOP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_LOOP" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_LINE_LOOP</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.POINTS">
+<code class="descname">POINTS</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.POINTS" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_POINTS</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.LINE_STRIP_ADJACENCY">
+<code class="descname">LINE_STRIP_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_LINE_STRIP_ADJACENCY</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.LINES_ADJACENCY">
+<code class="descname">LINES_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_LINES_ADJACENCY</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLE_STRIP_ADJACENCY">
+<code class="descname">TRIANGLE_STRIP_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_TRIANGLE_STRIP_ADJACENCY</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="ModernGL.TRIANGLES_ADJACENCY">
+<code class="descname">TRIANGLES_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<dd><p>GL_TRIANGLES_ADJACENCY</p>
+</dd></dl>
+
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Classes:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="EnableConstants.html">EnableConstants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="PrimitiveConstants.html">PrimitiveConstants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="VersionConstants.html">VersionConstants</a></li>
-</ul>
+</div>
 </div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="EnableConstants.html" class="btn btn-neutral float-right" title="EnableConstants" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Errors.html" class="btn btn-neutral float-right" title="Error" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="ComputeShader.html" class="btn btn-neutral" title="ComputeShader" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="InvalidObjects.html" class="btn btn-neutral" title="InvalidObject" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -211,10 +394,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'3.1.1',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

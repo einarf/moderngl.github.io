@@ -8,9 +8,11 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>05. Perspective &mdash; ModernGL 3.1.1 documentation</title>
+  <title>05. Perspective &mdash; ModernGL 4.0.0 documentation</title>
   
 
+  
+  
   
   
 
@@ -35,7 +37,7 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 3.1.1 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
         <link rel="next" title="Julia Fractal" href="julia_fractal.html"/>
         <link rel="prev" title="04. Texture" href="04_texture.html"/> 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -66,7 +69,7 @@
             
             
               <div class="version">
-                3.1.1
+                4.0.0
               </div>
             
           
@@ -87,7 +90,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Contents:</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
@@ -100,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="particle_system.html">particle_system</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
 </ul>
 
             
@@ -112,8 +119,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">ModernGL</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ModernGL</a>
+        
       </nav>
 
 
@@ -122,25 +131,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../Examples.html">Examples</a> &raquo;</li>
-      
-    <li>05. Perspective</li>
+        
+      <li>05. Perspective</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../_sources/Examples/05_perspective.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -149,7 +175,7 @@
   <div class="section" id="perspective">
 <h1>05. Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">¶</a></h1>
 <div class="align-center figure" id="id1">
-<a class="reference internal image-reference" href="../_images/05_perspective.png"><img alt="map to buried treasure" src="../_images/05_perspective.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/05_perspective.png"><img alt="05_perspective" src="../_images/05_perspective.png" style="width: 400.0px; height: 300.0px;" /></a>
 <p class="caption"><span class="caption-text">Perspective projection</span></p>
 </div>
 <div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -237,14 +263,21 @@
 83
 84
 85
-86</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ModernGL</span><span class="o">,</span> <span class="nn">GLWindow</span>
-<span class="kn">import</span> <span class="nn">struct</span>
+86
+87
+88
+89
+90</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
 
-<span class="n">GLWindow</span><span class="o">.</span><span class="n">Init</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">GLWindow</span>
+<span class="kn">import</span> <span class="nn">ModernGL</span>
 
+<span class="c1"># Window &amp; Context</span>
+
+<span class="n">wnd</span> <span class="o">=</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">create_window</span><span class="p">()</span>
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
 
-<span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">VertexShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">	#version 330</span>
 
 <span class="s1">	in vec3 vert;</span>
@@ -288,7 +321,7 @@
 <span class="s1">	}</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">FragmentShader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">	#version 330</span>
 
 <span class="s1">	out vec4 color;</span>
@@ -298,9 +331,9 @@
 <span class="s1">	}</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
-<span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">GetSize</span><span class="p">()</span>
+<span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">size</span>
 
-<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
+<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
 
 <span class="n">prog</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;znear&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">prog</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;zfar&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">1000.0</span>
@@ -317,10 +350,11 @@
 	<span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 	<span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 
-<span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">Buffer</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
-<span class="n">vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">SimpleVertexArray</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="s1">&#39;3f&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+<span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<span class="n">vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
 
-<span class="k">while</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">Update</span><span class="p">():</span>
+<span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
+	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
 	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
 	<span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">LINES</span><span class="p">,</span> <span class="mi">65</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
@@ -329,15 +363,18 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="julia_fractal.html" class="btn btn-neutral float-right" title="Julia Fractal" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="julia_fractal.html" class="btn btn-neutral float-right" title="Julia Fractal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="04_texture.html" class="btn btn-neutral" title="04. Texture" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="04_texture.html" class="btn btn-neutral" title="04. Texture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -368,10 +405,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.1.1',
+            VERSION:'4.0.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
