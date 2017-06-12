@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>05. Perspective &mdash; ModernGL 4.0.0 documentation</title>
+  <title>05. Perspective &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,10 +37,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
         <link rel="next" title="Julia Fractal" href="julia_fractal.html"/>
-        <link rel="prev" title="04. Texture" href="04_texture.html"/> 
+        <link rel="prev" title="04. Texture" href="04_textures.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -97,16 +97,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01_hello_world</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02_uniforms_and_attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_blending.html">03_blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_texture.html">04_texture</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">05_perspective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">julia_fractal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="particle_system.html">particle_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01. Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02. Uniforms and Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alpha_blending.html">03. Alpha Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_textures.html">04. Textures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">05. Perspective Projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">Julia Fractal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle_system.html">Particle System</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -159,7 +161,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Examples/05_perspective.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Examples/05_perspective_projection.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,8 +177,8 @@
   <div class="section" id="perspective">
 <h1>05. Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">¶</a></h1>
 <div class="align-center figure" id="id1">
-<a class="reference internal image-reference" href="../_images/05_perspective.png"><img alt="05_perspective" src="../_images/05_perspective.png" style="width: 400.0px; height: 300.0px;" /></a>
-<p class="caption"><span class="caption-text">Perspective projection</span></p>
+<a class="reference internal image-reference" href="../_images/05_perspective_projection.png"><img alt="05_perspective_projection" src="../_images/05_perspective_projection.png" style="width: 400.0px; height: 300.0px;" /></a>
+<p class="caption"><span class="caption-text">Perspective Projection</span></p>
 </div>
 <div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -278,57 +280,57 @@
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
 
 <span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	in vec3 vert;</span>
+<span class="s1">    in vec3 vert;</span>
 
-<span class="s1">	uniform float znear;</span>
-<span class="s1">	uniform float zfar;</span>
-<span class="s1">	uniform float fovy;</span>
-<span class="s1">	uniform float ratio;</span>
+<span class="s1">    uniform float znear;</span>
+<span class="s1">    uniform float zfar;</span>
+<span class="s1">    uniform float fovy;</span>
+<span class="s1">    uniform float ratio;</span>
 
-<span class="s1">	uniform vec3 center;</span>
-<span class="s1">	uniform vec3 eye;</span>
-<span class="s1">	uniform vec3 up;</span>
+<span class="s1">    uniform vec3 center;</span>
+<span class="s1">    uniform vec3 eye;</span>
+<span class="s1">    uniform vec3 up;</span>
 
-<span class="s1">	mat4 perspective() {</span>
-<span class="s1">		float zmul = (-2.0 * znear * zfar) / (zfar - znear);</span>
-<span class="s1">		float ymul = 1.0 / tan(fovy * 3.14159265 / 360);</span>
-<span class="s1">		float xmul = ymul / ratio;</span>
+<span class="s1">    mat4 perspective() {</span>
+<span class="s1">        float zmul = (-2.0 * znear * zfar) / (zfar - znear);</span>
+<span class="s1">        float ymul = 1.0 / tan(fovy * 3.14159265 / 360);</span>
+<span class="s1">        float xmul = ymul / ratio;</span>
 
-<span class="s1">		return mat4(</span>
-<span class="s1">			xmul, 0.0, 0.0, 0.0,</span>
-<span class="s1">			0.0, ymul, 0.0, 0.0,</span>
-<span class="s1">			0.0, 0.0, -1.0, -1.0,</span>
-<span class="s1">			0.0, 0.0, zmul, 0.0</span>
-<span class="s1">		);</span>
-<span class="s1">	}</span>
+<span class="s1">        return mat4(</span>
+<span class="s1">            xmul, 0.0, 0.0, 0.0,</span>
+<span class="s1">            0.0, ymul, 0.0, 0.0,</span>
+<span class="s1">            0.0, 0.0, -1.0, -1.0,</span>
+<span class="s1">            0.0, 0.0, zmul, 0.0</span>
+<span class="s1">        );</span>
+<span class="s1">    }</span>
 
-<span class="s1">	mat4 lookat() {</span>
-<span class="s1">		vec3 forward = normalize(center - eye);</span>
-<span class="s1">		vec3 side = normalize(cross(forward, up));</span>
-<span class="s1">		vec3 upward = cross(side, forward);</span>
-<span class="s1">		return mat4(</span>
-<span class="s1">			side.x, upward.x, -forward.x, 0,</span>
-<span class="s1">			side.y, upward.y, -forward.y, 0,</span>
-<span class="s1">			side.z, upward.z, -forward.z, 0,</span>
-<span class="s1">			-dot(eye, side), -dot(eye, upward), dot(eye, forward), 1</span>
-<span class="s1">		);</span>
-<span class="s1">	}</span>
+<span class="s1">    mat4 lookat() {</span>
+<span class="s1">        vec3 forward = normalize(center - eye);</span>
+<span class="s1">        vec3 side = normalize(cross(forward, up));</span>
+<span class="s1">        vec3 upward = cross(side, forward);</span>
+<span class="s1">        return mat4(</span>
+<span class="s1">            side.x, upward.x, -forward.x, 0,</span>
+<span class="s1">            side.y, upward.y, -forward.y, 0,</span>
+<span class="s1">            side.z, upward.z, -forward.z, 0,</span>
+<span class="s1">            -dot(eye, side), -dot(eye, upward), dot(eye, forward), 1</span>
+<span class="s1">        );</span>
+<span class="s1">    }</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		gl_Position = perspective() * lookat() * vec4(vert, 1.0);</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        gl_Position = perspective() * lookat() * vec4(vert, 1.0);</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	out vec4 color;</span>
+<span class="s1">    out vec4 color;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		color = vec4(0.04, 0.04, 0.04, 1.0);</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        color = vec4(0.04, 0.04, 0.04, 1.0);</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">size</span>
@@ -347,16 +349,16 @@
 <span class="n">grid</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">65</span><span class="p">):</span>
-	<span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-	<span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">grid</span> <span class="o">+=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">32.0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 
 <span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 <span class="n">vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
 
 <span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
-	<span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">LINES</span><span class="p">,</span> <span class="mi">65</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">LINES</span><span class="p">,</span> <span class="mi">65</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -374,7 +376,7 @@
         <a href="julia_fractal.html" class="btn btn-neutral float-right" title="Julia Fractal" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="04_texture.html" class="btn btn-neutral" title="04. Texture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="04_textures.html" class="btn btn-neutral" title="04. Texture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -405,7 +407,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Framebuffers &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Framebuffers &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="Renderbuffers" href="Renderbuffers.html"/>
         <link rel="prev" title="Textures" href="Textures.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -112,7 +112,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -182,15 +184,16 @@
 <h1>Framebuffers<a class="headerlink" href="#framebuffers" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt>
-<code class="descclassname">Context.</code><code class="descname">framebuffer</code><span class="sig-paren">(</span><em>color_attachments</em>, <em>depth_attachment</em><span class="sig-paren">)</span> &#x2192; Framebuffer</dt>
-<dd><p>Create a <a class="reference internal" href="#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a>.</p>
+<code class="descclassname">Context.</code><code class="descname">framebuffer</code><span class="sig-paren">(</span><em>color_attachments</em>, <em>depth_attachment=None</em><span class="sig-paren">)</span> &#x2192; Framebuffer</dt>
+<dd><p>A <a class="reference internal" href="#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> is a collection of buffers that can be used as the destination for rendering.
+The buffers for Framebuffer objects reference images from either Textures or Renderbuffers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>color_attachments</strong> (<em>list</em>) &#8211; A list of <cite>Texture</cite> or <cite>Renderbuffer</cite> objects.</li>
-<li><strong>depth_attachment</strong> (<a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><em>Renderbuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) &#8211; A <cite>Texture</cite> or <cite>Renderbuffer</cite> object.</li>
+<li><strong>color_attachments</strong> (<em>list</em>) – A list of <cite>Texture</cite> or <cite>Renderbuffer</cite> objects.</li>
+<li><strong>depth_attachment</strong> (<a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><em>Renderbuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) – A <cite>Texture</cite> or <cite>Renderbuffer</cite> object.</li>
 </ul>
 </td>
 </tr>
@@ -207,12 +210,145 @@
 <dl class="class">
 <dt id="ModernGL.Framebuffer">
 <em class="property">class </em><code class="descname">Framebuffer</code><a class="headerlink" href="#ModernGL.Framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> using <a class="reference internal" href="Context.html#ModernGL.Context.framebuffer" title="ModernGL.Context.framebuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.framebuffer()</span></code></a>.</p>
+<dd><p>A <a class="reference internal" href="#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> is a collection of buffers that can be used as the destination for rendering.
+The buffers for Framebuffer objects reference images from either Textures or Renderbuffers.</p>
+<p>Create a <a class="reference internal" href="#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> using <a class="reference internal" href="Context.html#ModernGL.Context.framebuffer" title="ModernGL.Context.framebuffer"><code class="xref py py-meth docutils literal"><span class="pre">Context.framebuffer()</span></code></a>.</p>
+<dl class="method">
+<dt id="ModernGL.Framebuffer.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>red=0.0</em>, <em>green=0.0</em>, <em>blue=0.0</em>, <em>alpha=0.0</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Framebuffer.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear the framebuffer.</p>
+<p>Values must be in <code class="docutils literal"><span class="pre">(0,</span> <span class="pre">255)</span></code> range.
+If the <cite>viewport</cite> is not <code class="docutils literal"><span class="pre">None</span></code> then scrissor test
+will be used to clear the given viewport.</p>
+<p>If the <cite>viewport</cite> is a 2-tuple it will clear the
+<code class="docutils literal"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">width,</span> <span class="pre">height)</span></code> where <code class="docutils literal"><span class="pre">(width,</span> <span class="pre">height)</span></code> is the 2-tuple.</p>
+<p>If the <cite>viewport</cite> is a 4-tuple it will clear the given viewport.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>red</strong> (<em>float</em>) – color component.</li>
+<li><strong>green</strong> (<em>float</em>) – color component.</li>
+<li><strong>blue</strong> (<em>float</em>) – color component.</li>
+<li><strong>alpha</strong> (<em>float</em>) – alpha component.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last"><strong>viewport</strong> (<em>tuple</em>) – The viewport.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="ModernGL.Framebuffer.use">
 <code class="descname">use</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Framebuffer.use" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bind the framebuffer. Set the target for the
 <cite>VertexArray.render</cite> or <cite>VertexArray.transform</cite> methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Framebuffer.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>viewport=None</em>, <em>components=3</em>, <em>attachment=0</em>, <em>alignment=1</em>, <em>floats=False</em><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#ModernGL.Framebuffer.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content of the framebuffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>viewport</strong> (<em>tuple</em>) – The viewport.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components to read.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>attachment</strong> (<em>int</em>) – The color attachment.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment of the pixels.</li>
+<li><strong>floats</strong> (<em>bool</em>) – The precision of the pixels.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the pixels</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bytes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Framebuffer.read_into">
+<code class="descname">read_into</code><span class="sig-paren">(</span><em>buffer</em>, <em>viewport=None</em>, <em>components=3</em>, <em>attachment=0</em>, <em>alignment=1</em>, <em>floats=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Framebuffer.read_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content of the framebuffer into a buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>buffer</strong> (<em>bytearray</em>) – The buffer that will receive the pixels.</li>
+<li><strong>viewport</strong> (<em>tuple</em>) – The viewport.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components to read.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
+<li><strong>attachment</strong> (<em>int</em>) – The color attachment.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment of the pixels.</li>
+<li><strong>floats</strong> (<em>bool</em>) – The precision of the pixels.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.viewport">
+<code class="descname">viewport</code><a class="headerlink" href="#ModernGL.Framebuffer.viewport" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – The viewport of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.color_mask">
+<code class="descname">color_mask</code><a class="headerlink" href="#ModernGL.Framebuffer.color_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – The color mask of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.depth_mask">
+<code class="descname">depth_mask</code><a class="headerlink" href="#ModernGL.Framebuffer.depth_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – The depth mask of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.width">
+<code class="descname">width</code><a class="headerlink" href="#ModernGL.Framebuffer.width" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – The width of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.height">
+<code class="descname">height</code><a class="headerlink" href="#ModernGL.Framebuffer.height" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – The height of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.size">
+<code class="descname">size</code><a class="headerlink" href="#ModernGL.Framebuffer.size" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – The size of the framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Framebuffer.samples">
+<code class="descname">samples</code><a class="headerlink" href="#ModernGL.Framebuffer.samples" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – The samples of the framebuffer.</p>
 </dd></dl>
 
 </dd></dl>
@@ -265,7 +401,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

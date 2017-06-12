@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>03. Blending &mdash; ModernGL 4.0.0 documentation</title>
+  <title>03. Blending &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,9 +37,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
-        <link rel="next" title="04. Texture" href="04_texture.html"/>
+        <link rel="next" title="04. Texture" href="04_textures.html"/>
         <link rel="prev" title="02. Uniforms and Attributes" href="02_uniforms_and_attributes.html"/> 
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -97,16 +97,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01_hello_world</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02_uniforms_and_attributes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">03_blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_texture.html">04_texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_perspective.html">05_perspective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">julia_fractal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="particle_system.html">particle_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01. Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02. Uniforms and Attributes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">03. Alpha Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_textures.html">04. Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_perspective_projection.html">05. Perspective Projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">Julia Fractal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle_system.html">Particle System</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -159,7 +161,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/Examples/03_blending.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Examples/03_alpha_blending.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,8 +177,8 @@
   <div class="section" id="blending">
 <h1>03. Blending<a class="headerlink" href="#blending" title="Permalink to this headline">¶</a></h1>
 <div class="align-center figure" id="id1">
-<a class="reference internal image-reference" href="../_images/03_blending.png"><img alt="03_blending" src="../_images/03_blending.png" style="width: 400.0px; height: 300.0px;" /></a>
-<p class="caption"><span class="caption-text">Blending</span></p>
+<a class="reference internal image-reference" href="../_images/03_alpha_blending1.png"><img alt="03_alpha_blending" src="../_images/03_alpha_blending1.png" style="width: 400.0px; height: 300.0px;" /></a>
+<p class="caption"><span class="caption-text">Alpha Blending</span></p>
 </div>
 <div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -253,7 +255,9 @@
 73
 74
 75
-76</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+76
+77
+78</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
 
 <span class="kn">import</span> <span class="nn">GLWindow</span>
 <span class="kn">import</span> <span class="nn">ModernGL</span>
@@ -266,34 +270,34 @@
 <span class="c1"># Shaders &amp; Program</span>
 
 <span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">		#version 330</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        #version 330</span>
 
-<span class="s1">		in vec2 vert;</span>
+<span class="s1">        in vec2 vert;</span>
 
-<span class="s1">		in vec4 vert_color;</span>
-<span class="s1">		out vec4 frag_color;</span>
+<span class="s1">        in vec4 vert_color;</span>
+<span class="s1">        out vec4 frag_color;</span>
 
-<span class="s1">		uniform vec2 scale;</span>
-<span class="s1">		uniform float rotation;</span>
+<span class="s1">        uniform vec2 scale;</span>
+<span class="s1">        uniform float rotation;</span>
 
-<span class="s1">		void main() {</span>
-<span class="s1">			frag_color = vert_color;</span>
-<span class="s1">			float r = rotation * (0.5 + gl_InstanceID * 0.05);</span>
-<span class="s1">			mat2 rot = mat2(cos(r), sin(r), -sin(r), cos(r));</span>
-<span class="s1">			gl_Position = vec4((rot * vert) * scale, 0.0, 1.0);</span>
-<span class="s1">		}</span>
-<span class="s1">	&#39;&#39;&#39;</span><span class="p">),</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">		#version 330</span>
+<span class="s1">        void main() {</span>
+<span class="s1">            frag_color = vert_color;</span>
+<span class="s1">            float r = rotation * (0.5 + gl_InstanceID * 0.05);</span>
+<span class="s1">            mat2 rot = mat2(cos(r), sin(r), -sin(r), cos(r));</span>
+<span class="s1">            gl_Position = vec4((rot * vert) * scale, 0.0, 1.0);</span>
+<span class="s1">        }</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">),</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">        #version 330</span>
 
-<span class="s1">		in vec4 frag_color;</span>
-<span class="s1">		out vec4 color;</span>
+<span class="s1">        in vec4 frag_color;</span>
+<span class="s1">        out vec4 color;</span>
 
-<span class="s1">		void main() {</span>
-<span class="s1">			color = vec4(frag_color);</span>
-<span class="s1">		}</span>
-<span class="s1">	&#39;&#39;&#39;</span><span class="p">),</span>
+<span class="s1">        void main() {</span>
+<span class="s1">            color = vec4(frag_color);</span>
+<span class="s1">        }</span>
+<span class="s1">    &#39;&#39;&#39;</span><span class="p">),</span>
 <span class="p">])</span>
 
 <span class="c1"># Uniforms</span>
@@ -306,15 +310,17 @@
 
 <span class="c1"># Buffer</span>
 
-<span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;18f&#39;</span><span class="p">,</span>
-	<span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
-	<span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+<span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span>
+    <span class="s1">&#39;18f&#39;</span><span class="p">,</span>
 
-	<span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">,</span>
-	<span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
 
-	<span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.86</span><span class="p">,</span>
-	<span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">,</span>
+    <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
+
+    <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.86</span><span class="p">,</span>
+    <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span>
 <span class="p">))</span>
 
 <span class="c1"># Put everything together</span>
@@ -324,11 +330,11 @@
 <span class="c1"># Main loop</span>
 
 <span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">BLEND</span><span class="p">)</span>
-	<span class="n">rotation</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">time</span>
-	<span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">instances</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">BLEND</span><span class="p">)</span>
+    <span class="n">rotation</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">time</span>
+    <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">instances</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -343,7 +349,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="04_texture.html" class="btn btn-neutral float-right" title="04. Texture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="04_textures.html" class="btn btn-neutral float-right" title="04. Texture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="02_uniforms_and_attributes.html" class="btn btn-neutral" title="02. Uniforms and Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -377,7 +383,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

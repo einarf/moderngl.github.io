@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Context &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Context &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="Shaders and Programs" href="ShadersAndPrograms.html"/>
         <link rel="prev" title="ModernGL" href="ModernGL.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -112,7 +112,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -191,7 +193,7 @@ An OpenGL context must exists. If rendering is done without a window please use 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) &#8211; OpenGL version.</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) – OpenGL version.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">context</td>
 </tr>
@@ -219,8 +221,8 @@ detect when the viewport was forgotten to set.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>tuple</em>) &#8211; Initial framebuffer size.</li>
-<li><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) &#8211; OpenGL version.</li>
+<li><strong>size</strong> (<em>tuple</em>) – Initial framebuffer size.</li>
+<li><strong>require</strong> (<a class="reference internal" href="Constants.html#ModernGL.Version" title="ModernGL.Version"><em>Version</em></a>) – OpenGL version.</li>
 </ul>
 </td>
 </tr>
@@ -266,7 +268,7 @@ without a window.</p>
 </div></blockquote>
 <dl class="method">
 <dt id="ModernGL.Context.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><em>red=0</em>, <em>green=0</em>, <em>blue=0</em>, <em>alpha=0</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><em>red=0.0</em>, <em>green=0.0</em>, <em>blue=0.0</em>, <em>alpha=0.0</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the framebuffer.</p>
 <p>Values must be in <code class="docutils literal"><span class="pre">(0,</span> <span class="pre">255)</span></code> range.
 If the <cite>viewport</cite> is not <code class="docutils literal"><span class="pre">None</span></code> then scrissor test
@@ -279,15 +281,15 @@ will be used to clear the given viewport.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>red</strong> (<em>int</em>) &#8211; color component.</li>
-<li><strong>green</strong> (<em>int</em>) &#8211; color component.</li>
-<li><strong>blue</strong> (<em>int</em>) &#8211; color component.</li>
-<li><strong>alpha</strong> (<em>int</em>) &#8211; alpha component.</li>
+<li><strong>red</strong> (<em>float</em>) – color component.</li>
+<li><strong>green</strong> (<em>float</em>) – color component.</li>
+<li><strong>blue</strong> (<em>float</em>) – color component.</li>
+<li><strong>alpha</strong> (<em>float</em>) – alpha component.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last"><strong>viewport</strong> (<em>tuple</em>) &#8211; The viewport.</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last"><strong>viewport</strong> (<em>tuple</em>) – The viewport.</p>
 </td>
 </tr>
 </tbody>
@@ -311,7 +313,7 @@ will be used to clear the given viewport.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> &#8211; The flag to enable.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> (<em>EnableFlag</em>) – The flag to enable.</td>
 </tr>
 </tbody>
 </table>
@@ -334,7 +336,7 @@ will be used to clear the given viewport.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> &#8211; The flag to disable.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> (<em>EnableFlag</em>) – The flag to disable.</td>
 </tr>
 </tbody>
 </table>
@@ -355,16 +357,16 @@ will be used to clear the given viewport.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>dst</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; Destination buffer.</li>
-<li><strong>src</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; Source buffer.</li>
-<li><strong>size</strong> (<em>int</em>) &#8211; Size to copy.</li>
+<li><strong>dst</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – Destination buffer.</li>
+<li><strong>src</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – Source buffer.</li>
+<li><strong>size</strong> (<em>int</em>) – Size to copy.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>read_offset</strong> (<em>int</em>) &#8211; Read offset.</li>
-<li><strong>write_offset</strong> (<em>int</em>) &#8211; Write offset.</li>
+<li><strong>read_offset</strong> (<em>int</em>) – Read offset.</li>
+<li><strong>write_offset</strong> (<em>int</em>) – Write offset.</li>
 </ul>
 </td>
 </tr>
@@ -375,19 +377,23 @@ will be used to clear the given viewport.</p>
 <dl class="method">
 <dt id="ModernGL.Context.copy_framebuffer">
 <code class="descname">copy_framebuffer</code><span class="sig-paren">(</span><em>dst</em>, <em>src</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Context.copy_framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Copy framebuffer content.
-Use this method to blit framebuffers.
-Use this method to copy framebuffer content into a texture.
-Use this method to downsample framebuffers, it will allow
-to read the framebuffer&#8217;s content.
-Use this method to downsample a framebuffer directly to a texture.</p>
+<dd><p>Copy framebuffer content.</p>
+<p>Use this method to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>blit framebuffers.</li>
+<li>copy framebuffer content into a texture.</li>
+<li>downsample framebuffers. (it will allow to read the framebuffer’s content)</li>
+<li>downsample a framebuffer directly to a texture.</li>
+</ul>
+</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>dst</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) &#8211; Destination framebuffer or texture.</li>
-<li><strong>src</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a>) &#8211; Source framebuffer.</li>
+<li><strong>dst</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) – Destination framebuffer or texture.</li>
+<li><strong>src</strong> (<a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><em>Framebuffer</em></a>) – Source framebuffer.</li>
 </ul>
 </td>
 </tr>
@@ -403,13 +409,13 @@ Use this method to downsample a framebuffer directly to a texture.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> (<em>bytes</em>) &#8211; Content of the new buffer.</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data</strong> (<em>bytes</em>) – Content of the new buffer.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>reserve</strong> (<em>int</em>) &#8211; The number of bytes to reserve.</li>
-<li><strong>dynamic</strong> (<em>bool</em>) &#8211; Treat buffer as dynamic.</li>
+<li><strong>reserve</strong> (<em>int</em>) – The number of bytes to reserve.</li>
+<li><strong>dynamic</strong> (<em>bool</em>) – Treat buffer as dynamic.</li>
 </ul>
 </td>
 </tr>
@@ -432,14 +438,18 @@ Use this method to downsample a framebuffer directly to a texture.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>tuple</em>) &#8211; Width, height.</li>
-<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
-<li><strong>data</strong> (<em>bytes</em>) &#8211; Content of the image.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the texture.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components 1, 2, 3 or 4.</li>
+<li><strong>data</strong> (<em>bytes</em>) – Content of the texture.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first"><strong>floats</strong> (<em>bool</em>) &#8211; Use floating point precision.</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment 1, 2, 4 or 8.</li>
+<li><strong>floats</strong> (<em>bool</em>) – Use floating point precision.</li>
+</ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">texture</p>
@@ -461,15 +471,22 @@ Use this method to downsample a framebuffer directly to a texture.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> &#8211; The width and height.</li>
-<li><strong>data</strong> (<em>optional</em>) &#8211; The pixels.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the texture.</li>
+<li><strong>data</strong> (<em>bytes</em>) – Content of the texture.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">depth texture</p>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment 1, 2, 4 or 8.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">depth texture</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
 </td>
 </tr>
 </tbody>
@@ -485,9 +502,10 @@ Use this method to downsample a framebuffer directly to a texture.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
-<li><strong>content</strong> (<em>list</em>) &#8211; A list of (buffer, format, attributes).</li>
-<li><strong>index_buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; An index buffer.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) – The program used by <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and
+<a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>content</strong> (<em>list</em>) – A list of (buffer, format, attributes).</li>
+<li><strong>index_buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – An index buffer.</li>
 </ul>
 </td>
 </tr>
@@ -506,17 +524,19 @@ Use this method to downsample a framebuffer directly to a texture.</p>
 <code class="descname">simple_vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>attributes</em><span class="sig-paren">)</span> &#x2192; VertexArray<a class="headerlink" href="#ModernGL.Context.simple_vertex_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a>.</p>
 <p>This is an alias for:</p>
-<blockquote>
-<div>format = detect_format(program, attributes)
-vertex_array(program, [(buffer, format, attributes)])</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span> <span class="o">=</span> <span class="n">detect_format</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+<span class="n">vertex_array</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="p">[(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)])</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
-<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; The buffer.</li>
-<li><strong>attributes</strong> (<em>list</em>) &#8211; A list of attribute names.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) – The program used by <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and
+<a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – The buffer.</li>
+<li><strong>attributes</strong> (<em>list</em>) – A list of attribute names.</li>
 </ul>
 </td>
 </tr>
@@ -533,8 +553,8 @@ vertex_array(program, [(buffer, format, attributes)])</div></blockquote>
 <dl class="method">
 <dt id="ModernGL.Context.program">
 <code class="descname">program</code><span class="sig-paren">(</span><em>shaders</em>, <em>varyings=()</em><span class="sig-paren">)</span> &#x2192; Program<a class="headerlink" href="#ModernGL.Context.program" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> object.
-Only linked programs will be returned.</p>
+<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> object.</p>
+<p>Only linked programs will be returned.</p>
 <p>For more information please see: <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> and <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a></p>
 <p>A single shader in the <cite>shaders</cite> parameter is also accepted.
 The varyings are only used when a transform program is created.</p>
@@ -543,8 +563,8 @@ The varyings are only used when a transform program is created.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>shaders</strong> (<em>list</em>) &#8211; A list of <cite>Shader</cite> objects.</li>
-<li><strong>varyings</strong> (<em>list</em>) &#8211; A list of varying names.</li>
+<li><strong>shaders</strong> (<em>list</em>) – A list of <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a> objects.</li>
+<li><strong>varyings</strong> (<em>list</em>) – A list of varying names.</li>
 </ul>
 </td>
 </tr>
@@ -600,7 +620,7 @@ The varyings are only used when a transform program is created.</p>
 <dl class="method">
 <dt id="ModernGL.Context.vertex_shader">
 <code class="descname">vertex_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.vertex_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Vertex Shader is the programmable Shader stage in the rendering pipeline
+<dd><p>The Vertex Shader is a programmable Shader stage in the rendering pipeline
 that handles the processing of individual vertices.</p>
 <p>Vertex shaders are fed Vertex Attribute data, as specified from a vertex array
 object by a drawing command. A vertex shader receives a single vertex from the
@@ -609,7 +629,7 @@ vertex stream and generates a single vertex to the output vertex stream.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source code in GLSL.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">vertex shader</td>
 </tr>
@@ -641,7 +661,7 @@ the Rasterization into a set of colors and a single depth value.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source code in GLSL.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">fragment shader</td>
 </tr>
@@ -667,12 +687,15 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="method">
 <dt id="ModernGL.Context.geometry_shader">
 <code class="descname">geometry_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.geometry_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<dd><p>A Geometry Shader is a Shader program written in GLSL that governs the processing of Primitives.
+Geometry shaders reside between the Vertex Shaders (or the optional Tessellation stage) and the
+fixed-function Vertex Post-Processing stage.</p>
+<p>A geometry shader is optional and does not have to be used.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source code in GLSL.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">geometry shader</td>
 </tr>
@@ -685,12 +708,15 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="method">
 <dt id="ModernGL.Context.tess_evaluation_shader">
 <code class="descname">tess_evaluation_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.tess_evaluation_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<dd><p>Tessellation is the Vertex Processing stage in the OpenGL rendering pipeline where
+patches of vertex data are subdivided into smaller Primitives.</p>
+<p>The Tessellation Evaluation Shader takes the tessellated patch and computes
+the vertex values for each generated vertex.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source code in GLSL.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation evaluation shader</td>
 </tr>
@@ -703,12 +729,14 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="method">
 <dt id="ModernGL.Context.tess_control_shader">
 <code class="descname">tess_control_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; Shader<a class="headerlink" href="#ModernGL.Context.tess_control_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Shader" title="ModernGL.Shader"><code class="xref py py-class docutils literal"><span class="pre">Shader</span></code></a>.</p>
+<dd><p>The Tessellation Control Shader (TCS) determines how much tessellation to do.
+It can also adjust the actual patch data, as well as feed additional patch data to later stages.
+The Tessellation Control Shader is optional.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source code in GLSL.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source code in GLSL.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">tesselation control shader</td>
 </tr>
@@ -720,15 +748,16 @@ the Rasterization into a set of colors and a single depth value.</p>
 
 <dl class="method">
 <dt id="ModernGL.Context.framebuffer">
-<code class="descname">framebuffer</code><span class="sig-paren">(</span><em>color_attachments</em>, <em>depth_attachment</em><span class="sig-paren">)</span> &#x2192; Framebuffer<a class="headerlink" href="#ModernGL.Context.framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a>.</p>
+<code class="descname">framebuffer</code><span class="sig-paren">(</span><em>color_attachments</em>, <em>depth_attachment=None</em><span class="sig-paren">)</span> &#x2192; Framebuffer<a class="headerlink" href="#ModernGL.Context.framebuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> is a collection of buffers that can be used as the destination for rendering.
+The buffers for Framebuffer objects reference images from either Textures or Renderbuffers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>color_attachments</strong> (<em>list</em>) &#8211; A list of <cite>Texture</cite> or <cite>Renderbuffer</cite> objects.</li>
-<li><strong>depth_attachment</strong> (<a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><em>Renderbuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) &#8211; A <cite>Texture</cite> or <cite>Renderbuffer</cite> object.</li>
+<li><strong>color_attachments</strong> (<em>list</em>) – A list of <cite>Texture</cite> or <cite>Renderbuffer</cite> objects.</li>
+<li><strong>depth_attachment</strong> (<a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><em>Renderbuffer</em></a><em> or </em><a class="reference internal" href="Textures.html#ModernGL.Texture" title="ModernGL.Texture"><em>Texture</em></a>) – A <cite>Texture</cite> or <cite>Renderbuffer</cite> object.</li>
 </ul>
 </td>
 </tr>
@@ -744,22 +773,23 @@ the Rasterization into a set of colors and a single depth value.</p>
 
 <dl class="method">
 <dt id="ModernGL.Context.renderbuffer">
-<code class="descname">renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components=4</em>, <em>samples=0</em>, <em>floats=True</em><span class="sig-paren">)</span> &#x2192; Renderbuffer<a class="headerlink" href="#ModernGL.Context.renderbuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
+<code class="descname">renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components=4</em>, <em>samples=0</em>, <em>floats=False</em><span class="sig-paren">)</span> &#x2192; Renderbuffer<a class="headerlink" href="#ModernGL.Context.renderbuffer" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects are OpenGL objects that contain images.
+They are created and used specifically with <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</li>
-<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the renderbuffer.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components 1, 2, 3 or 4.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</li>
-<li><strong>floats</strong> &#8211; Use floating point precision.</li>
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>floats</strong> (<em>bool</em>) – Use floating point precision.</li>
 </ul>
 </td>
 </tr>
@@ -776,15 +806,16 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="method">
 <dt id="ModernGL.Context.depth_renderbuffer">
 <code class="descname">depth_renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>samples=0</em><span class="sig-paren">)</span> &#x2192; Renderbuffer<a class="headerlink" href="#ModernGL.Context.depth_renderbuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a <a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
+<dd><p><a class="reference internal" href="Renderbuffers.html#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects are OpenGL objects that contain images.
+They are created and used specifically with <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>tuple</em>) – The width and height of the renderbuffer.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">depth renderbuffer</td>
 </tr>
@@ -797,13 +828,13 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="method">
 <dt id="ModernGL.Context.compute_shader">
 <code class="descname">compute_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; ComputeShader<a class="headerlink" href="#ModernGL.Context.compute_shader" title="Permalink to this definition">¶</a></dt>
-<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
-<p>Create a <a class="reference internal" href="ComputeShaders.html#ModernGL.ComputeShader" title="ModernGL.ComputeShader"><code class="xref py py-class docutils literal"><span class="pre">ComputeShader</span></code></a>.</p>
+<dd><p>A <a class="reference internal" href="ComputeShaders.html#ModernGL.ComputeShader" title="ModernGL.ComputeShader"><code class="xref py py-class docutils literal"><span class="pre">ComputeShader</span></code></a> is a Shader Stage that is used entirely for computing arbitrary information.
+While it can do rendering, it is generally used for tasks not directly related to drawing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source of the compute shader.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source of the compute shader.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">compute shader program</td>
 </tr>
@@ -816,19 +847,19 @@ the Rasterization into a set of colors and a single depth value.</p>
 <dl class="attribute">
 <dt id="ModernGL.Context.line_width">
 <code class="descname">line_width</code><a class="headerlink" href="#ModernGL.Context.line_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default line width.</p>
+<dd><p><em>float</em> – Set the default line width.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.point_size">
 <code class="descname">point_size</code><a class="headerlink" href="#ModernGL.Context.point_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default point size.</p>
+<dd><p><em>float</em> – Set the default point size.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.viewport">
 <code class="descname">viewport</code><a class="headerlink" href="#ModernGL.Context.viewport" title="Permalink to this definition">¶</a></dt>
-<dd><p>The viewport.</p>
+<dd><p><em>tuple</em> – The viewport.</p>
 <p>Reading this property may force the GPU to sync.
 Use this property to set the viewport only.</p>
 </dd></dl>
@@ -836,61 +867,56 @@ Use this property to set the viewport only.</p>
 <dl class="attribute">
 <dt id="ModernGL.Context.default_texture_unit">
 <code class="descname">default_texture_unit</code><a class="headerlink" href="#ModernGL.Context.default_texture_unit" title="Permalink to this definition">¶</a></dt>
-<dd><p>The default texture unit.</p>
+<dd><p><em>int</em> – The default texture unit.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.max_texture_units">
 <code class="descname">max_texture_units</code><a class="headerlink" href="#ModernGL.Context.max_texture_units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The max texture units.</p>
+<dd><p><em>int</em> – The max texture units.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.default_framebuffer">
 <code class="descname">default_framebuffer</code><a class="headerlink" href="#ModernGL.Context.default_framebuffer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The default framebuffer.</p>
+<dd><p><em>Framebuffer</em> – The default framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.wireframe">
+<code class="descname">wireframe</code><a class="headerlink" href="#ModernGL.Context.wireframe" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – The default framebuffer.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.error">
+<code class="descname">error</code><a class="headerlink" href="#ModernGL.Context.error" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The result of glGetError() but human readable.
+This values is provided for debug purposes only.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.vendor">
 <code class="descname">vendor</code><a class="headerlink" href="#ModernGL.Context.vendor" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vendor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
-</tr>
-</tbody>
-</table>
+<dd><p><em>str</em> – The vendor.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.renderer">
 <code class="descname">renderer</code><a class="headerlink" href="#ModernGL.Context.renderer" title="Permalink to this definition">¶</a></dt>
-<dd><p>The renderer.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
-</tr>
-</tbody>
-</table>
+<dd><p><em>str</em> – The renderer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Context.version">
 <code class="descname">version</code><a class="headerlink" href="#ModernGL.Context.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The OpenGL version.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
-</tr>
-</tbody>
-</table>
+<dd><p><em>str</em> – The OpenGL version.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Context.version_code">
+<code class="descname">version_code</code><a class="headerlink" href="#ModernGL.Context.version_code" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> – The OpenGL version.</p>
 </dd></dl>
 
 </dd></dl>
@@ -943,7 +969,7 @@ Use this property to set the viewport only.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

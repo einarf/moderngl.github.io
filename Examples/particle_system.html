@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Particle System &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Particle System &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,9 +37,9 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
-        <link rel="next" title="Contributing" href="../Contributing.html"/>
+        <link rel="next" title="Tutorials" href="../Tutorials.html"/>
         <link rel="prev" title="Julia Fractal" href="julia_fractal.html"/> 
 
   
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -97,16 +97,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01_hello_world</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02_uniforms_and_attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_blending.html">03_blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_texture.html">04_texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_perspective.html">05_perspective</a></li>
-<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">julia_fractal</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">particle_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01. Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02. Uniforms and Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alpha_blending.html">03. Alpha Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_textures.html">04. Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_perspective_projection.html">05. Perspective Projection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="julia_fractal.html">Julia Fractal</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Particle System</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -263,7 +265,9 @@
 83
 84
 85
-86</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+86
+87
+88</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">import</span> <span class="nn">struct</span>
 
@@ -276,60 +280,62 @@
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
 
 <span class="n">tvert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	uniform vec2 acc;</span>
+<span class="s1">    uniform vec2 acc;</span>
 
-<span class="s1">	in vec2 in_pos;</span>
-<span class="s1">	in vec2 in_prev;</span>
+<span class="s1">    in vec2 in_pos;</span>
+<span class="s1">    in vec2 in_prev;</span>
 
-<span class="s1">	out vec2 out_pos;</span>
-<span class="s1">	out vec2 out_prev;</span>
+<span class="s1">    out vec2 out_pos;</span>
+<span class="s1">    out vec2 out_prev;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		out_pos = in_pos * 2.0 - in_prev + acc;</span>
-<span class="s1">		out_prev = in_pos;</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        out_pos = in_pos * 2.0 - in_prev + acc;</span>
+<span class="s1">        out_prev = in_pos;</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	in vec2 vert;</span>
+<span class="s1">    in vec2 vert;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		gl_Position = vec4(vert, 0.0, 1.0);</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	out vec4 color;</span>
+<span class="s1">    out vec4 color;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		color = vec4(0.30, 0.50, 1.00, 1.0);</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        color = vec4(0.30, 0.50, 1.00, 1.0);</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
 
 <span class="n">transform</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">(</span><span class="n">tvert</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;out_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;out_prev&#39;</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">particle</span><span class="p">():</span>
-	<span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
-	<span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
 
-	<span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.003</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.008</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">particle</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.003</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">r</span> <span class="o">-</span> <span class="mf">0.008</span><span class="p">)</span>
+
 
 <span class="n">vbo1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">particle</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1024</span><span class="p">)))</span>
-<span class="n">vbo2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">reserve</span> <span class="o">=</span> <span class="n">vbo1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">vbo2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">reserve</span><span class="o">=</span><span class="n">vbo1</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 
 <span class="n">vao1</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
 <span class="n">vao2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;in_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;in_prev&#39;</span><span class="p">])</span>
 
 <span class="n">render_vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="p">[</span>
-	<span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f8x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">]),</span>
+    <span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="s1">&#39;2f8x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">]),</span>
 <span class="p">])</span>
 
 <span class="n">transform</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0001</span><span class="p">)</span>
@@ -339,16 +345,16 @@
 <span class="n">ctx</span><span class="o">.</span><span class="n">point_size</span> <span class="o">=</span> <span class="mf">5.0</span>
 
 <span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
 
-	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
-		<span class="n">vbo1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">particle</span><span class="p">(),</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">*</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">))</span>
-		<span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1024</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+        <span class="n">vbo1</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">particle</span><span class="p">(),</span> <span class="n">offset</span><span class="o">=</span><span class="n">idx</span> <span class="o">*</span> <span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s1">&#39;2f2f&#39;</span><span class="p">))</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">1024</span>
 
-	<span class="n">render_vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
-	<span class="n">vao1</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">vbo2</span><span class="p">,</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">copy_buffer</span><span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">)</span>
+    <span class="n">render_vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="n">vao1</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">vbo2</span><span class="p">,</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">POINTS</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">copy_buffer</span><span class="p">(</span><span class="n">vbo1</span><span class="p">,</span> <span class="n">vbo2</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -363,7 +369,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Tutorials.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="julia_fractal.html" class="btn btn-neutral" title="Julia Fractal" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -397,7 +403,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

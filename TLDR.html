@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TL;DR &mdash; ModernGL 4.1.6 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
+        <link rel="prev" title="Contributing" href="Contributing.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ModernGL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.1.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ModernGL.html">ModernGL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TL;DR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#choose-a-window">Choose a Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#snippets">Snippets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linting">Linting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hello-world-with-pyqt5">Hello World with PyQt5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hello-world-with-glwindow">Hello World with GLWindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#help">Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rendering">Rendering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#context">Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#program">Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#buffer">Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vertexarray">VertexArray</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ModernGL</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>TL;DR</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/TLDR.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tl-dr">
+<h1>TL;DR<a class="headerlink" href="#tl-dr" title="Permalink to this headline">¶</a></h1>
+<p>For those who want to learn from examples.</p>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install ModernGL
+pip install Pillow numpy
+</pre></div>
+</div>
+</div>
+<div class="section" id="choose-a-window">
+<h2>Choose a Window<a class="headerlink" href="#choose-a-window" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>pip install PyQt5
+pip install GLWindow
+pip install pygame
+pip install pyglet
+pip install PyOpenGL
+</pre></div>
+</div>
+</div>
+<div class="section" id="snippets">
+<h2>Snippets<a class="headerlink" href="#snippets" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download the <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/blob/master/extras/vscode/python.json">vscode snippets</a></li>
+<li>Open vscode</li>
+<li>Press <code class="docutils literal"><span class="pre">ctrl+shift+P</span></code></li>
+<li>Select <code class="docutils literal"><span class="pre">Open</span> <span class="pre">User</span> <span class="pre">Snippets</span></code></li>
+<li>Select <code class="docutils literal"><span class="pre">Python</span></code></li>
+<li>Paste some snippets from <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/blob/master/extras/vscode/python.json">vscode snippets</a></li>
+</ol>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not replace the <strong>python.json</strong> if you have python snippets already.</p>
+</div>
+<ol class="arabic simple" start="7">
+<li>Create a new python file</li>
+<li>Type <code class="docutils literal"><span class="pre">mgl_new_</span></code> (not working? -&gt; see the note below)</li>
+</ol>
+<div class="align-center figure">
+<img alt="new_example_snippet" src="_images/new_example_snippet.png" />
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="simple">
+<li>Press <code class="docutils literal"><span class="pre">ctrl+space</span></code> to trigger suggestions.</li>
+<li>Try to save an empty file with <code class="docutils literal"><span class="pre">.py</span></code> ending.</li>
+<li>Select the language in the right left corner of the window.</li>
+<li>Make sure you have pasted the snipptes correctly.</li>
+<li>Press <code class="docutils literal"><span class="pre">ctrl+shift+P</span></code> then select <code class="docutils literal"><span class="pre">Insert</span> <span class="pre">Snippet</span></code> then type <code class="docutils literal"><span class="pre">mgl_new_</span></code></li>
+</ul>
+<p class="last">All the ModernGL snippets starts with <code class="docutils literal"><span class="pre">mgl_</span></code></p>
+</div>
+</div>
+<div class="section" id="linting">
+<h2>Linting<a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
+<p>Full linting support is provided:</p>
+<div class="align-center figure">
+<img alt="ModernGL linted" src="_images/linting_buffer.png" />
+</div>
+</div>
+<div class="section" id="hello-world-with-pyqt5">
+<h2>Hello World with PyQt5<a class="headerlink" href="#hello-world-with-pyqt5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="kn">import</span> <span class="nn">ModernGL</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtOpenGL</span><span class="p">,</span> <span class="n">QtWidgets</span>
+
+
+<span class="k">class</span> <span class="nc">QGLControllerWidget</span><span class="p">(</span><span class="n">QtOpenGL</span><span class="o">.</span><span class="n">QGLWidget</span><span class="p">):</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">fmt</span> <span class="o">=</span> <span class="n">QtOpenGL</span><span class="o">.</span><span class="n">QGLFormat</span><span class="p">()</span>
+                <span class="n">fmt</span><span class="o">.</span><span class="n">setVersion</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+                <span class="n">fmt</span><span class="o">.</span><span class="n">setProfile</span><span class="p">(</span><span class="n">QtOpenGL</span><span class="o">.</span><span class="n">QGLFormat</span><span class="o">.</span><span class="n">CoreProfile</span><span class="p">)</span>
+                <span class="n">fmt</span><span class="o">.</span><span class="n">setSampleBuffers</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+                <span class="nb">super</span><span class="p">(</span><span class="n">QGLControllerWidget</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fmt</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">initializeGL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
+
+                <span class="n">prog</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                                #version 330</span>
+<span class="s1">                                in vec2 vert;</span>
+<span class="s1">                                void main() {</span>
+<span class="s1">                                        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">                                }</span>
+<span class="s1">                        &#39;&#39;&#39;</span><span class="p">),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                                #version 330</span>
+<span class="s1">                                out vec4 color;</span>
+<span class="s1">                                void main() {</span>
+<span class="s1">                                        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="s1">                                }</span>
+<span class="s1">                        &#39;&#39;&#39;</span><span class="p">),</span>
+                <span class="p">])</span>
+
+                <span class="n">vbo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vao</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+
+        <span class="k">def</span> <span class="nf">paintGL</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QApplication</span><span class="p">([])</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">QGLControllerWidget</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hello-world-with-glwindow">
+<h2>Hello World with GLWindow<a class="headerlink" href="#hello-world-with-glwindow" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">struct</span>
+
+<span class="kn">import</span> <span class="nn">GLWindow</span>
+<span class="kn">import</span> <span class="nn">ModernGL</span>
+
+<span class="n">wnd</span> <span class="o">=</span> <span class="n">GLWindow</span><span class="o">.</span><span class="n">create_window</span><span class="p">()</span>
+<span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
+
+<span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                #version 330</span>
+<span class="s1">                in vec2 vert;</span>
+<span class="s1">                void main() {</span>
+<span class="s1">                        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">                }</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                #version 330</span>
+<span class="s1">                out vec4 color;</span>
+<span class="s1">                void main() {</span>
+<span class="s1">                        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="s1">                }</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="p">])</span>
+
+<span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">))</span>
+<span class="n">vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+
+<span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+        <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="help">
+<h2>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For rendering without a window please see: <a class="reference external" href="#">Rendering to a pillow image?</a></li>
+<li>If you are not familiar with <strong>modern OpenGL</strong> please see: <a class="reference external" href="#">How to render?</a></li>
+</ul>
+</div>
+<div class="section" id="rendering">
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
+<p>To render we will need:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="Context.html#ModernGL.Context" title="ModernGL.Context"><code class="xref py py-class docutils literal"><span class="pre">Context</span></code></a> — OpenGL support</li>
+<li><a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a> — Shaders</li>
+<li><a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a> filled with the vertex data.</li>
+<li><a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a> to connect the buffer and the program.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The ModernGL implementation of the <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a> stores a reference to the program,
+the original OpenGL implementation for Vertex Arrays does not provide this.</p>
+<p class="last">To see what other things are different please see: <a class="reference external" href="#">ModernGL vs OpenGL</a></p>
+</div>
+<div class="section" id="context">
+<h3>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h3>
+<p>The context can be created once the window is ready.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">ctx</span></code> provides functionality to create the <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><code class="xref py py-class docutils literal"><span class="pre">Program</span></code></a>, <a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><code class="xref py py-class docutils literal"><span class="pre">Buffer</span></code></a> and <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a></p>
+</div>
+<div class="section" id="program">
+<h3>Program<a class="headerlink" href="#program" title="Permalink to this headline">¶</a></h3>
+<p>A Program Object represents fully processed executable code, in the OpenGL Shading Language.</p>
+<p>We will create a simple program from a vertex and fragment shader.</p>
+<p><strong>Vertex Shader</strong></p>
+<p>Takes the vertices as the input.</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="cp">#version 330</span>
+<span class="k">in</span> <span class="k">vec2</span> <span class="n">vert</span><span class="p">;</span>
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">gl_Position</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="n">vert</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Fragment Shader</strong></p>
+<p>Writes the output to the screen.</p>
+<div class="highlight-glsl"><div class="highlight"><pre><span></span><span class="cp">#version 330</span>
+<span class="k">out</span> <span class="k">vec4</span> <span class="n">color</span><span class="p">;</span>
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The entire program can be created:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                #version 330</span>
+<span class="s1">                in vec2 vert;</span>
+<span class="s1">                void main() {</span>
+<span class="s1">                        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">                }</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+        <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">                #version 330</span>
+<span class="s1">                out vec4 color;</span>
+<span class="s1">                void main() {</span>
+<span class="s1">                        color = vec4(0.3, 0.5, 1.0, 1.0);</span>
+<span class="s1">                }</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">),</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="buffer">
+<h3>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h3>
+<p>The buffer in the example is created with the following line of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vbo</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;6f&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The triangle is given as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#   x     y</span>
+   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.8</span>
+  <span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span>
+   <span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span>
+</pre></div>
+</div>
+<div class="align-center figure" id="id2">
+<img alt="Window Coordinates" src="_images/window_coordinates.png" />
+<p class="caption"><span class="caption-text">The window coordinates</span></p>
+</div>
+<div class="align-center figure" id="id3">
+<img alt="Triangle in Window Coordinates" src="_images/window_coordinates_triangle.png" />
+<p class="caption"><span class="caption-text">The triangle in window coordinates</span></p>
+</div>
+</div>
+<div class="section" id="vertexarray">
+<h3>VertexArray<a class="headerlink" href="#vertexarray" title="Permalink to this headline">¶</a></h3>
+<p>We want the following to happen:</p>
+<ol class="arabic simple">
+<li>Feed the vertex shader with the coordinates of the triangle.</li>
+<li>The vertex shader transforms the triangle to screen coordinates. (we gave the vertices in window coordinates so the vertex shader just passes the coordinates towards)</li>
+<li>The triangle will be rasterized.</li>
+<li>The triangle gets “painted” with the color given in the fragment shader.</li>
+</ol>
+<p>In the example the VertexArray is created with the following line of code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vao</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">simple_vertex_array</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="n">vbo</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;vert&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="Context.html#ModernGL.Context.simple_vertex_array" title="ModernGL.Context.simple_vertex_array"><code class="xref py py-meth docutils literal"><span class="pre">simple_vertex_array()</span></code></a> creates a <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a> object.
+The VertexArray will ensure that the <code class="docutils literal"><span class="pre">prog</span></code> program object will be used when rendering.
+Additionally detects the format of the <code class="docutils literal"><span class="pre">in</span> <span class="pre">vec2</span> <span class="pre">vert</span></code> and binds the attribute to the buffer.</p>
+<p>Then finally the rendering is done by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The expression above expands to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">TRIANGLES</span><span class="p">,</span> <span class="n">vertices</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> method’s first parameter is the rendering mode (by default <code class="docutils literal"><span class="pre">ModernGL.TRIANGLES</span></code> are rendered).
+The numer of vertices to render is detected form the size of the buffer assigned to the <code class="docutils literal"><span class="pre">vert</span></code> vertex attribute.
+The <code class="docutils literal"><span class="pre">vbo</span></code> has <code class="docutils literal"><span class="pre">6f</span></code> (six floats), with the total of 24 bytes, The <code class="docutils literal"><span class="pre">vert</span></code> vertex attribute is a <code class="docutils literal"><span class="pre">vec2</span></code> with the size of 8 bytes.
+The number of vertices detected is <code class="docutils literal"><span class="pre">24</span> <span class="pre">/</span> <span class="pre">8</span> <span class="pre">=</span> <span class="pre">3</span></code>. It can be read/changed programatically by using the <a class="reference internal" href="VertexArrays.html#ModernGL.VertexArray.vertices" title="ModernGL.VertexArray.vertices"><code class="xref py py-attr docutils literal"><span class="pre">VertexArray.vertices</span></code></a> attibute.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>To create a complex VertexArray use the <a class="reference internal" href="Context.html#ModernGL.Context.vertex_array" title="ModernGL.Context.vertex_array"><code class="xref py py-meth docutils literal"><span class="pre">Context.vertex_array()</span></code></a> method.</p>
+<ul class="last simple">
+<li>Multiple buffers can be used to create VertexArrays.</li>
+<li>Padding, Per Vertex, Per Instance and Per Render attributes are also supported.</li>
+<li>Individual vertex attributes can be bound to different buffers with a custom offset, stride and divisor specified.</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Contributing.html" class="btn btn-neutral" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Szabolcs Dombi.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4.1.6',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

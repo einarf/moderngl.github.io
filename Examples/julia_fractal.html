@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Julia Fractal &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Julia Fractal &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,10 +37,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="../index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="../index.html"/>
         <link rel="up" title="Examples" href="../Examples.html"/>
         <link rel="next" title="Particle System" href="particle_system.html"/>
-        <link rel="prev" title="05. Perspective" href="05_perspective.html"/> 
+        <link rel="prev" title="05. Perspective" href="05_perspective_projection.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -97,16 +97,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Examples.html">Examples</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01_hello_world</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02_uniforms_and_attributes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_blending.html">03_blending</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_texture.html">04_texture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_perspective.html">05_perspective</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">julia_fractal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="particle_system.html">particle_system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_hello_world.html">01. Hello World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_uniforms_and_attributes.html">02. Uniforms and Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_alpha_blending.html">03. Alpha Blending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_textures.html">04. Textures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_perspective_projection.html">05. Perspective Projection</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Julia Fractal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="particle_system.html">Particle System</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -175,7 +177,7 @@
   <div class="section" id="julia-fractal">
 <h1>Julia Fractal<a class="headerlink" href="#julia-fractal" title="Permalink to this headline">¶</a></h1>
 <div class="align-center figure" id="id1">
-<a class="reference internal image-reference" href="../_images/julia_fractal.png"><img alt="julia_fractal" src="../_images/julia_fractal.png" style="width: 400.0px; height: 300.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/julia_fractal1.png"><img alt="julia_fractal" src="../_images/julia_fractal1.png" style="width: 400.0px; height: 300.0px;" /></a>
 <p class="caption"><span class="caption-text">Julia Fractal</span></p>
 </div>
 <div class="highlight-default"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -263,48 +265,48 @@
 <span class="n">ctx</span> <span class="o">=</span> <span class="n">ModernGL</span><span class="o">.</span><span class="n">create_context</span><span class="p">()</span>
 
 <span class="n">vert</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">vertex_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	in vec2 vert;</span>
-<span class="s1">	out vec2 tex;</span>
+<span class="s1">    in vec2 vert;</span>
+<span class="s1">    out vec2 tex;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		gl_Position = vec4(vert, 0.0, 1.0);</span>
-<span class="s1">		tex = vert / 2.0 + vec2(0.5, 0.5);</span>
-<span class="s1">	}</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        gl_Position = vec4(vert, 0.0, 1.0);</span>
+<span class="s1">        tex = vert / 2.0 + vec2(0.5, 0.5);</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">frag</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">fragment_shader</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">	#version 330</span>
+<span class="s1">    #version 330</span>
 
-<span class="s1">	in vec2 tex;</span>
-<span class="s1">	out vec4 color;</span>
+<span class="s1">    in vec2 tex;</span>
+<span class="s1">    out vec4 color;</span>
 
-<span class="s1">	uniform vec2 center;</span>
-<span class="s1">	uniform int iter;</span>
+<span class="s1">    uniform vec2 center;</span>
+<span class="s1">    uniform int iter;</span>
 
-<span class="s1">	void main() {</span>
-<span class="s1">		vec2 z = vec2(5.0 * (tex.x - 0.5), 3.0 * (tex.y - 0.5));</span>
-<span class="s1">		vec2 c = center;</span>
+<span class="s1">    void main() {</span>
+<span class="s1">        vec2 z = vec2(5.0 * (tex.x - 0.5), 3.0 * (tex.y - 0.5));</span>
+<span class="s1">        vec2 c = center;</span>
 
-<span class="s1">		int i;</span>
-<span class="s1">		for(i = 0; i &lt; iter; i++) {</span>
-<span class="s1">			vec2 v = vec2(</span>
-<span class="s1">				(z.x * z.x - z.y * z.y) + c.x,</span>
-<span class="s1">				(z.y * z.x + z.x * z.y) + c.y</span>
-<span class="s1">			);</span>
-<span class="s1">			if (dot(v, v) &gt; 4.0) break;</span>
-<span class="s1">			z = v;</span>
-<span class="s1">		}</span>
+<span class="s1">        int i;</span>
+<span class="s1">        for(i = 0; i &lt; iter; i++) {</span>
+<span class="s1">            vec2 v = vec2(</span>
+<span class="s1">                (z.x * z.x - z.y * z.y) + c.x,</span>
+<span class="s1">                (z.y * z.x + z.x * z.y) + c.y</span>
+<span class="s1">            );</span>
+<span class="s1">            if (dot(v, v) &gt; 4.0) break;</span>
+<span class="s1">            z = v;</span>
+<span class="s1">        }</span>
 
-<span class="s1">		float cm = fract((i == iter ? 0.0 : float(i)) * 10 / iter);</span>
-<span class="s1">		color = vec4(</span>
-<span class="s1">			fract(cm + 0.0 / 3.0),</span>
-<span class="s1">			fract(cm + 1.0 / 3.0),</span>
-<span class="s1">			fract(cm + 2.0 / 3.0),</span>
-<span class="s1">			1.0</span>
-<span class="s1">		);</span>
-<span class="s1">	}</span>
+<span class="s1">        float cm = fract((i == iter ? 0.0 : float(i)) * 10 / iter);</span>
+<span class="s1">        color = vec4(</span>
+<span class="s1">            fract(cm + 0.0 / 3.0),</span>
+<span class="s1">            fract(cm + 1.0 / 3.0),</span>
+<span class="s1">            fract(cm + 2.0 / 3.0),</span>
+<span class="s1">            1.0</span>
+<span class="s1">        );</span>
+<span class="s1">    }</span>
 <span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
 
 <span class="n">prog</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">program</span><span class="p">([</span><span class="n">vert</span><span class="p">,</span> <span class="n">frag</span><span class="p">])</span>
@@ -319,14 +321,14 @@
 <span class="n">wnd</span><span class="o">.</span><span class="n">grab_mouse</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">while</span> <span class="n">wnd</span><span class="o">.</span><span class="n">update</span><span class="p">():</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
-	<span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
-	<span class="n">mx</span><span class="p">,</span> <span class="n">my</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">mouse_delta</span>
-	<span class="n">x</span> <span class="o">-=</span> <span class="n">mx</span> <span class="o">/</span> <span class="mi">100</span>
-	<span class="n">y</span> <span class="o">-=</span> <span class="n">my</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">viewport</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">mx</span><span class="p">,</span> <span class="n">my</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">mouse_delta</span>
+    <span class="n">x</span> <span class="o">-=</span> <span class="n">mx</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">y</span> <span class="o">-=</span> <span class="n">my</span> <span class="o">/</span> <span class="mi">100</span>
 
-	<span class="n">prog</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-	<span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">TRIANGLE_STRIP</span><span class="p">)</span>
+    <span class="n">prog</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">vao</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">ModernGL</span><span class="o">.</span><span class="n">TRIANGLE_STRIP</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -344,7 +346,7 @@
         <a href="particle_system.html" class="btn btn-neutral float-right" title="Particle System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="05_perspective.html" class="btn btn-neutral" title="05. Perspective" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="05_perspective_projection.html" class="btn btn-neutral" title="05. Perspective" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -375,7 +377,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

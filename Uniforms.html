@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Uniform &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Uniform &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="Shaders and Programs" href="ShadersAndPrograms.html"/>
         <link rel="next" title="Uniform Blocks" href="UniformBlocks.html"/>
         <link rel="prev" title="Shaders and Programs" href="ShadersAndPrograms.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -119,7 +119,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -192,13 +194,25 @@
 <dl class="class">
 <dt id="ModernGL.Uniform">
 <em class="property">class </em><code class="descname">Uniform</code><a class="headerlink" href="#ModernGL.Uniform" title="Permalink to this definition">¶</a></dt>
-<dd><p>A uniform is a global GLSL variable declared with the &#8220;uniform&#8221; storage qualifier.
+<dd><p>A uniform is a global GLSL variable declared with the “uniform” storage qualifier.
 These act as parameters that the user of a shader program can pass to that program.</p>
 <p>In ModernGL, Uniforms can be accessed using <a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program.uniforms" title="ModernGL.Program.uniforms"><code class="xref py py-attr docutils literal"><span class="pre">Program.uniforms</span></code></a></p>
+<dl class="method">
+<dt id="ModernGL.Uniform.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#ModernGL.Uniform.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the value of the uniform.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Uniform.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Uniform.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the value of the uniform.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="ModernGL.Uniform.name">
 <code class="descname">name</code><a class="headerlink" href="#ModernGL.Uniform.name" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>str</em> &#8211; The name of the uniform.
+<dd><p><em>str</em> – The name of the uniform.
 The name does not contain leading <cite>[0]</cite>.
 The name may contain <cite>[ ]</cite> when the uniform is part of a struct.</p>
 </dd></dl>
@@ -206,13 +220,13 @@ The name may contain <cite>[ ]</cite> when the uniform is part of a struct.</p>
 <dl class="attribute">
 <dt id="ModernGL.Uniform.location">
 <code class="descname">location</code><a class="headerlink" href="#ModernGL.Uniform.location" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The location of the uniform.</p>
+<dd><p><em>int</em> – The location of the uniform.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Uniform.dimension">
 <code class="descname">dimension</code><a class="headerlink" href="#ModernGL.Uniform.dimension" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The dimension of the uniform.</p>
+<dd><p><em>int</em> – The dimension of the uniform.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="61%" />
@@ -354,7 +368,7 @@ The name may contain <cite>[ ]</cite> when the uniform is part of a struct.</p>
 <dl class="attribute">
 <dt id="ModernGL.Uniform.array_length">
 <code class="descname">array_length</code><a class="headerlink" href="#ModernGL.Uniform.array_length" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The length of the array of the uniform.
+<dd><p><em>int</em> – The length of the array of the uniform.
 The array_length is <cite>1</cite> for non array uniforms.</p>
 </dd></dl>
 
@@ -372,7 +386,8 @@ The value must be a list of tuples for array uniforms.</p>
 <dl class="class">
 <dt id="ModernGL.UniformMap">
 <em class="property">class </em><code class="descname">UniformMap</code><a class="headerlink" href="#ModernGL.UniformMap" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>UniformMap is a dictionary like object.</p>
+<dl class="method">
 <dt id="ModernGL.UniformMap.__getitem__">
 <code class="descname">__getitem__</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; Uniform<a class="headerlink" href="#ModernGL.UniformMap.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -427,7 +442,7 @@ The value must be a list of tuples for array uniforms.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Textures &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Textures &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="Framebuffers" href="Framebuffers.html"/>
         <link rel="prev" title="VertexArrayAttributes" href="VertexArrayAttributes.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -112,7 +112,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -189,14 +191,18 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>tuple</em>) &#8211; Width, height.</li>
-<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
-<li><strong>data</strong> (<em>bytes</em>) &#8211; Content of the image.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the texture.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components 1, 2, 3 or 4.</li>
+<li><strong>data</strong> (<em>bytes</em>) – Content of the texture.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first"><strong>floats</strong> (<em>bool</em>) &#8211; Use floating point precision.</p>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment 1, 2, 4 or 8.</li>
+<li><strong>floats</strong> (<em>bool</em>) – Use floating point precision.</li>
+</ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">texture</p>
@@ -218,15 +224,22 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> &#8211; The width and height.</li>
-<li><strong>data</strong> (<em>optional</em>) &#8211; The pixels.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the texture.</li>
+<li><strong>data</strong> (<em>bytes</em>) – Content of the texture.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">depth texture</p>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>alignment</strong> (<em>int</em>) – The byte alignment 1, 2, 4 or 8.</li>
+</ul>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">depth texture</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#ModernGL.Texture" title="ModernGL.Texture">Texture</a></p>
 </td>
 </tr>
 </tbody>
@@ -244,9 +257,65 @@ as a render target.</p>
 Use <a class="reference internal" href="Context.html#ModernGL.Context.texture" title="ModernGL.Context.texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.texture()</span></code></a> or <a class="reference internal" href="Context.html#ModernGL.Context.depth_texture" title="ModernGL.Context.depth_texture"><code class="xref py py-meth docutils literal"><span class="pre">Context.depth_texture()</span></code></a>
 to create one.</p>
 <dl class="method">
+<dt id="ModernGL.Texture.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>viewport=None</em>, <em>alignment=1</em><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#ModernGL.Texture.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content of the texture into a buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>buffer</strong> (<em>bytearray</em>) – The buffer that will receive the pixels.</li>
+<li><strong>viewport</strong> (<em>tuple</em>) – The viewport.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first"><strong>alignment</strong> (<em>int</em>) – The byte alignment of the pixels.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the pixels</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bytes</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Texture.read_into">
+<code class="descname">read_into</code><span class="sig-paren">(</span><em>buffer</em>, <em>viewport=None</em>, <em>alignment=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.read_into" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the content of the texture into a buffer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>buffer</strong> (<em>bytearray</em>) – The buffer that will receive the pixels.</li>
+<li><strong>viewport</strong> (<em>tuple</em>) – The viewport.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last"><strong>alignment</strong> (<em>int</em>) – The byte alignment of the pixels.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="ModernGL.Texture.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>self</em>, <em>data</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.write" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write</code><span class="sig-paren">(</span><em>data</em>, <em>viewport=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the content of the texture.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ModernGL.Texture.build_mipmaps">
+<code class="descname">build_mipmaps</code><span class="sig-paren">(</span><em>base=0</em>, <em>max_level=1000</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Texture.build_mipmaps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate mipmaps.</p>
 </dd></dl>
 
 <dl class="method">
@@ -257,7 +326,7 @@ to create one.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>int</em>) &#8211; The texture location.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location</strong> (<em>int</em>) – The texture location.
 Same as the integer value that is used for sampler2D
 uniforms in the shaders. The value <code class="docutils literal"><span class="pre">0</span></code> will bind the
 texture to the <code class="docutils literal"><span class="pre">GL_TEXTURE0</span></code> binding point.</td>
@@ -267,39 +336,63 @@ texture to the <code class="docutils literal"><span class="pre">GL_TEXTURE0</spa
 </dd></dl>
 
 <dl class="attribute">
+<dt id="ModernGL.Texture.repeat_x">
+<code class="descname">repeat_x</code><a class="headerlink" href="#ModernGL.Texture.repeat_x" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – The repeat_x of the texture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Texture.repeat_y">
+<code class="descname">repeat_y</code><a class="headerlink" href="#ModernGL.Texture.repeat_y" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>bool</em> – The repeat_y of the texture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Texture.filter">
+<code class="descname">filter</code><a class="headerlink" href="#ModernGL.Texture.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>TextureFilter</em> – The filter of the texture.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.Texture.swizzle">
+<code class="descname">swizzle</code><a class="headerlink" href="#ModernGL.Texture.swizzle" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>str</em> – The swizzle of the texture.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="ModernGL.Texture.width">
 <code class="descname">width</code><a class="headerlink" href="#ModernGL.Texture.width" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The width of the texture.</p>
+<dd><p><em>int</em> – The width of the texture.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.height">
 <code class="descname">height</code><a class="headerlink" href="#ModernGL.Texture.height" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The height of the texture.</p>
+<dd><p><em>int</em> – The height of the texture.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.size">
 <code class="descname">size</code><a class="headerlink" href="#ModernGL.Texture.size" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>tuple</em> &#8211; The size of the texture.</p>
+<dd><p><em>tuple</em> – The size of the texture.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.samples">
 <code class="descname">samples</code><a class="headerlink" href="#ModernGL.Texture.samples" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The number of samples of the texture.</p>
+<dd><p><em>int</em> – The number of samples of the texture.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.components">
 <code class="descname">components</code><a class="headerlink" href="#ModernGL.Texture.components" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The number of components of the texture.</p>
+<dd><p><em>int</em> – The number of components of the texture.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Texture.depth">
 <code class="descname">depth</code><a class="headerlink" href="#ModernGL.Texture.depth" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Is the texture a depth texture?</p>
+<dd><p><em>bool</em> – Is the texture a depth texture?</p>
 </dd></dl>
 
 </dd></dl>
@@ -352,7 +445,7 @@ texture to the <code class="docutils literal"><span class="pre">GL_TEXTURE0</spa
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

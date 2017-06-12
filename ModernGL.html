@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ModernGL &mdash; ModernGL 4.0.0 documentation</title>
+  <title>ModernGL &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="next" title="Context" href="Context.html"/>
         <link rel="prev" title="Welcome to ModernGL’s documentation!" href="index.html"/> 
 
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -109,7 +109,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -173,11 +175,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-ModernGL">
-<span id="moderngl"></span><h1>ModernGL<a class="headerlink" href="#module-ModernGL" title="Permalink to this headline">¶</a></h1>
-<p>ModernGL: PyOpenGL alternative</p>
+  <div class="section" id="moderngl">
+<h1>ModernGL<a class="headerlink" href="#moderngl" title="Permalink to this headline">¶</a></h1>
+<p>ModernGL on <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL">Github</a></p>
+<p>If you have less time to read docs go to the <a class="reference external" href="TLDR.html">TL;DR</a> section.</p>
+<p class="rubric">ModernGL and OpenGL</p>
+<p>OpenGL is a great environment for developing portable, platform independent,
+interactive 2D and 3D graphics applications. The API implementation in Python is cumbersome,
+resulting in applications with high latency. To solve this problem we have developed ModernGL,
+a wrapper over OpenGL that simplifies the creation of simple graphics applications like
+scientific simulations, small games or user interfaces. Usually, acquiring in-depth knowledge
+of OpenGL requires a steep learning curve. In contrast, ModernGL is easy to learn and use,
+moreover it is capable of rendering with the same performance and quality, with less code written.</p>
+<p class="rubric">How to install?</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ModernGL</span></code></p>
+<p class="rubric">How to create a window?</p>
+<p>ModernGL encapsulates the use of the OpenGL API, a separate module must be used for creating a window.
+ModernGL can be integrated easily in <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/tree/master/examples/GLWindow">GLWindow</a>, <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/tree/master/examples/PyQt5">PyQt5</a>, <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/tree/master/examples/pyglet">pyglet</a>, <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/tree/master/examples/pygame">pygame</a>, <a class="reference external" href="https://github.com/cprogrammer1994/ModernGL/tree/master/examples/PyOpenGL">GLUT</a> and many more.</p>
+<p class="rubric">How to create a context?</p>
+<ul class="simple">
+<li>Create a window</li>
+<li>Call <a class="reference internal" href="Context.html#ModernGL.create_context" title="ModernGL.create_context"><code class="xref py py-func docutils literal"><span class="pre">ModernGL.create_context()</span></code></a></li>
+</ul>
+<span class="target" id="module-ModernGL"></span><p>ModernGL: PyOpenGL alternative</p>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Classes:</span></p>
+<p class="caption"><span class="caption-text">API Documentation:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Context.html">Context</a><ul class="simple">
 </ul>
@@ -289,7 +311,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Constants &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Constants &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="Error" href="Errors.html"/>
         <link rel="prev" title="InvalidObject" href="InvalidObjects.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -117,7 +117,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -189,25 +191,25 @@
 <h2>Enable Flags<a class="headerlink" href="#enable-flags" title="Permalink to this headline">¶</a></h2>
 <dl class="data">
 <dt id="ModernGL.BLEND">
-<code class="descname">BLEND</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.BLEND" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BLEND</code><em class="property"> = ModernGL.BLEND</em><a class="headerlink" href="#ModernGL.BLEND" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_BLEND</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.DEPTH_TEST">
-<code class="descname">DEPTH_TEST</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.DEPTH_TEST" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DEPTH_TEST</code><em class="property"> = ModernGL.DEPTH_TEST</em><a class="headerlink" href="#ModernGL.DEPTH_TEST" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_DEPTH_TEST</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CULL_FACE">
-<code class="descname">CULL_FACE</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.CULL_FACE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CULL_FACE</code><em class="property"> = ModernGL.CULL_FACE</em><a class="headerlink" href="#ModernGL.CULL_FACE" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_CULL_FACE</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.MULTISAMPLE">
-<code class="descname">MULTISAMPLE</code><em class="property"> = &lt;ModernGL.common.EnableFlag object&gt;</em><a class="headerlink" href="#ModernGL.MULTISAMPLE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">MULTISAMPLE</code><em class="property"> = ModernGL.MULTISAMPLE</em><a class="headerlink" href="#ModernGL.MULTISAMPLE" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_MULTISAMPLE</p>
 </dd></dl>
 
@@ -217,57 +219,47 @@
 <dl class="class">
 <dt id="ModernGL.Version">
 <em class="property">class </em><code class="descname">Version</code><span class="sig-paren">(</span><em>major</em>, <em>minor</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.Version" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
-<dt id="ModernGL.Version.major">
-<code class="descname">major</code><a class="headerlink" href="#ModernGL.Version.major" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="attribute">
-<dt id="ModernGL.Version.minor">
-<code class="descname">minor</code><a class="headerlink" href="#ModernGL.Version.minor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_330">
-<code class="descname">CORE_330</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_330" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_330</code><em class="property"> = ModernGL.CORE_330</em><a class="headerlink" href="#ModernGL.CORE_330" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 3.3</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_400">
-<code class="descname">CORE_400</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_400" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_400</code><em class="property"> = ModernGL.CORE_400</em><a class="headerlink" href="#ModernGL.CORE_400" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.0</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_410">
-<code class="descname">CORE_410</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_410" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_410</code><em class="property"> = ModernGL.CORE_410</em><a class="headerlink" href="#ModernGL.CORE_410" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.1</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_420">
-<code class="descname">CORE_420</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_420" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_420</code><em class="property"> = ModernGL.CORE_420</em><a class="headerlink" href="#ModernGL.CORE_420" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.2</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_430">
-<code class="descname">CORE_430</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_430" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_430</code><em class="property"> = ModernGL.CORE_430</em><a class="headerlink" href="#ModernGL.CORE_430" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.3</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_440">
-<code class="descname">CORE_440</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_440" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_440</code><em class="property"> = ModernGL.CORE_440</em><a class="headerlink" href="#ModernGL.CORE_440" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.4</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.CORE_450">
-<code class="descname">CORE_450</code><em class="property"> = &lt;ModernGL.common.Version object&gt;</em><a class="headerlink" href="#ModernGL.CORE_450" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CORE_450</code><em class="property"> = ModernGL.CORE_450</em><a class="headerlink" href="#ModernGL.CORE_450" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpenGL 4.5</p>
 </dd></dl>
 
@@ -281,67 +273,67 @@
 
 <dl class="data">
 <dt id="ModernGL.TRIANGLES">
-<code class="descname">TRIANGLES</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TRIANGLES</code><em class="property"> = ModernGL.TRIANGLES</em><a class="headerlink" href="#ModernGL.TRIANGLES" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_TRIANGLES</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.TRIANGLE_STRIP">
-<code class="descname">TRIANGLE_STRIP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TRIANGLE_STRIP</code><em class="property"> = ModernGL.TRIANGLE_STRIP</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_TRIANGLE_STRIP</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.TRIANGLE_FAN">
-<code class="descname">TRIANGLE_FAN</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_FAN" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TRIANGLE_FAN</code><em class="property"> = ModernGL.TRIANGLE_FAN</em><a class="headerlink" href="#ModernGL.TRIANGLE_FAN" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_TRIANGLE_FAN</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.LINES">
-<code class="descname">LINES</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LINES</code><em class="property"> = ModernGL.LINES</em><a class="headerlink" href="#ModernGL.LINES" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_LINES</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.LINE_STRIP">
-<code class="descname">LINE_STRIP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LINE_STRIP</code><em class="property"> = ModernGL.LINE_STRIP</em><a class="headerlink" href="#ModernGL.LINE_STRIP" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_LINE_STRIP</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.LINE_LOOP">
-<code class="descname">LINE_LOOP</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_LOOP" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LINE_LOOP</code><em class="property"> = ModernGL.LINE_LOOP</em><a class="headerlink" href="#ModernGL.LINE_LOOP" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_LINE_LOOP</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.POINTS">
-<code class="descname">POINTS</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.POINTS" title="Permalink to this definition">¶</a></dt>
+<code class="descname">POINTS</code><em class="property"> = ModernGL.POINTS</em><a class="headerlink" href="#ModernGL.POINTS" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_POINTS</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.LINE_STRIP_ADJACENCY">
-<code class="descname">LINE_STRIP_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LINE_STRIP_ADJACENCY</code><em class="property"> = ModernGL.LINE_STRIP_ADJACENCY</em><a class="headerlink" href="#ModernGL.LINE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_LINE_STRIP_ADJACENCY</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.LINES_ADJACENCY">
-<code class="descname">LINES_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.LINES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LINES_ADJACENCY</code><em class="property"> = ModernGL.LINES_ADJACENCY</em><a class="headerlink" href="#ModernGL.LINES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_LINES_ADJACENCY</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.TRIANGLE_STRIP_ADJACENCY">
-<code class="descname">TRIANGLE_STRIP_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TRIANGLE_STRIP_ADJACENCY</code><em class="property"> = ModernGL.TRIANGLE_STRIP_ADJACENCY</em><a class="headerlink" href="#ModernGL.TRIANGLE_STRIP_ADJACENCY" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_TRIANGLE_STRIP_ADJACENCY</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="ModernGL.TRIANGLES_ADJACENCY">
-<code class="descname">TRIANGLES_ADJACENCY</code><em class="property"> = &lt;ModernGL.common.Primitive object&gt;</em><a class="headerlink" href="#ModernGL.TRIANGLES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
+<code class="descname">TRIANGLES_ADJACENCY</code><em class="property"> = ModernGL.TRIANGLES_ADJACENCY</em><a class="headerlink" href="#ModernGL.TRIANGLES_ADJACENCY" title="Permalink to this definition">¶</a></dt>
 <dd><p>GL_TRIANGLES_ADJACENCY</p>
 </dd></dl>
 
@@ -394,7 +386,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

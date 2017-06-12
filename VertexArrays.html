@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>VertexArray &mdash; ModernGL 4.0.0 documentation</title>
+  <title>VertexArray &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="VertexArrayAttributes" href="VertexArrayAttributes.html"/>
         <link rel="prev" title="Buffers" href="Buffers.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -113,7 +113,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -183,20 +185,22 @@
 <h1>VertexArray<a class="headerlink" href="#vertexarray" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt>
-<code class="descclassname">Context.</code><code class="descname">simple_vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>attributes</em><span class="sig-paren">)</span> &#x2192; ModernGL.vertex_arrays.VertexArray</dt>
+<code class="descclassname">Context.</code><code class="descname">simple_vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>buffer</em>, <em>attributes</em><span class="sig-paren">)</span> &#x2192; VertexArray</dt>
 <dd><p>Create a <a class="reference internal" href="#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a>.</p>
 <p>This is an alias for:</p>
-<blockquote>
-<div>format = detect_format(program, attributes)
-vertex_array(program, [(buffer, format, attributes)])</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">format</span> <span class="o">=</span> <span class="n">detect_format</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+<span class="n">vertex_array</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="p">[(</span><span class="n">buffer</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)])</span>
+</pre></div>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
-<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; The buffer.</li>
-<li><strong>attributes</strong> (<em>list</em>) &#8211; A list of attribute names.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) – The program used by <a class="reference internal" href="#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and
+<a class="reference internal" href="#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – The buffer.</li>
+<li><strong>attributes</strong> (<em>list</em>) – A list of attribute names.</li>
 </ul>
 </td>
 </tr>
@@ -212,16 +216,17 @@ vertex_array(program, [(buffer, format, attributes)])</div></blockquote>
 
 <dl class="method">
 <dt>
-<code class="descclassname">Context.</code><code class="descname">vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>content</em>, <em>index_buffer=None</em><span class="sig-paren">)</span> &#x2192; ModernGL.vertex_arrays.VertexArray</dt>
+<code class="descclassname">Context.</code><code class="descname">vertex_array</code><span class="sig-paren">(</span><em>program</em>, <em>content</em>, <em>index_buffer=None</em><span class="sig-paren">)</span> &#x2192; VertexArray</dt>
 <dd><p>Create a <a class="reference internal" href="#ModernGL.VertexArray" title="ModernGL.VertexArray"><code class="xref py py-class docutils literal"><span class="pre">VertexArray</span></code></a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) &#8211; The program used by <cite>render</cite> and <cite>transform</cite>.</li>
-<li><strong>content</strong> (<em>list</em>) &#8211; A list of (buffer, format, attributes).</li>
-<li><strong>index_buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) &#8211; An index buffer.</li>
+<li><strong>program</strong> (<a class="reference internal" href="ShadersAndPrograms.html#ModernGL.Program" title="ModernGL.Program"><em>Program</em></a>) – The program used by <a class="reference internal" href="#ModernGL.VertexArray.render" title="ModernGL.VertexArray.render"><code class="xref py py-meth docutils literal"><span class="pre">render()</span></code></a> and
+<a class="reference internal" href="#ModernGL.VertexArray.transform" title="ModernGL.VertexArray.transform"><code class="xref py py-meth docutils literal"><span class="pre">transform()</span></code></a>.</li>
+<li><strong>content</strong> (<em>list</em>) – A list of (buffer, format, attributes).</li>
+<li><strong>index_buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – An index buffer.</li>
 </ul>
 </td>
 </tr>
@@ -256,15 +261,15 @@ the input primitive of the GeometryShader.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>mode</strong> &#8211; By default <cite>TRIANGLES</cite> will be used.</li>
-<li><strong>vertices</strong> &#8211; The number of vertices to transform.</li>
+<li><strong>mode</strong> (<a class="reference internal" href="Constants.html#ModernGL.Primitive" title="ModernGL.Primitive"><em>Primitive</em></a>) – By default <cite>TRIANGLES</cite> will be used.</li>
+<li><strong>vertices</strong> (<em>int</em>) – The number of vertices to transform.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>first</strong> &#8211; The index of the first vertex to start with.</li>
-<li><strong>instances</strong> &#8211; The number of instances.</li>
+<li><strong>first</strong> (<em>int</em>) – The index of the first vertex to start with.</li>
+<li><strong>instances</strong> (<em>int</em>) – The number of instances.</li>
 </ul>
 </td>
 </tr>
@@ -284,16 +289,16 @@ the input primitive of the GeometryShader.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>buffer</strong> &#8211; The buffer to store the output.</li>
-<li><strong>mode</strong> &#8211; By default <cite>TRIANGLES</cite> will be used.</li>
-<li><strong>vertices</strong> &#8211; The number of vertices to transform.</li>
+<li><strong>buffer</strong> (<a class="reference internal" href="Buffers.html#ModernGL.Buffer" title="ModernGL.Buffer"><em>Buffer</em></a>) – The buffer to store the output.</li>
+<li><strong>mode</strong> (<a class="reference internal" href="Constants.html#ModernGL.Primitive" title="ModernGL.Primitive"><em>Primitive</em></a>) – By default <cite>TRIANGLES</cite> will be used.</li>
+<li><strong>vertices</strong> (<em>int</em>) – The number of vertices to transform.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first last simple">
-<li><strong>first</strong> &#8211; The index of the first vertex to start with.</li>
-<li><strong>instances</strong> &#8211; The number of instances.</li>
+<li><strong>first</strong> (<em>int</em>) – The index of the first vertex to start with.</li>
+<li><strong>instances</strong> (<em>int</em>) – The number of instances.</li>
 </ul>
 </td>
 </tr>
@@ -304,14 +309,14 @@ the input primitive of the GeometryShader.</p>
 <dl class="attribute">
 <dt id="ModernGL.VertexArray.program">
 <code class="descname">program</code><a class="headerlink" href="#ModernGL.VertexArray.program" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Program</em> &#8211; The program assinged to the VertexArray.
+<dd><p><em>Program</em> – The program assinged to the VertexArray.
 The program used when rendering or transforming primitives.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.VertexArray.attributes">
 <code class="descname">attributes</code><a class="headerlink" href="#ModernGL.VertexArray.attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>VertexArrayAttributeMap</em> &#8211; Individual vertex attributes.
+<dd><p><em>VertexArrayAttributeMap</em> – Individual vertex attributes.
 Use the <a class="reference internal" href="VertexArrayAttributes.html#ModernGL.VertexArrayAttribute.bind" title="ModernGL.VertexArrayAttribute.bind"><code class="xref py py-meth docutils literal"><span class="pre">VertexArrayAttribute.bind()</span></code></a> method
 to assign vertex attributes to buffers.</p>
 </dd></dl>
@@ -319,16 +324,23 @@ to assign vertex attributes to buffers.</p>
 <dl class="attribute">
 <dt id="ModernGL.VertexArray.index_buffer">
 <code class="descname">index_buffer</code><a class="headerlink" href="#ModernGL.VertexArray.index_buffer" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>Buffer</em> &#8211; The index buffer if the index_buffer is set, otherwise <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<dd><p><em>Buffer</em> – The index buffer if the index_buffer is set, otherwise <code class="docutils literal"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.VertexArray.vertices">
 <code class="descname">vertices</code><a class="headerlink" href="#ModernGL.VertexArray.vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The number of vertices detected.
+<dd><p><em>int</em> – The number of vertices detected.
 This is the minimum of the number of vertices possible per Buffer.
 The size of the index_buffer determines the number of vertices.
 Per instance vertex attributes does not affect this number.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.VertexArray.subroutines">
+<code class="descname">subroutines</code><a class="headerlink" href="#ModernGL.VertexArray.subroutines" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – The subroutines assinged to the VertexArray.
+The subroutines used when rendering or transforming primitives.</p>
 </dd></dl>
 
 </dd></dl>
@@ -387,7 +399,7 @@ Per instance vertex attributes does not affect this number.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

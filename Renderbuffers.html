@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Renderbuffers &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Renderbuffers &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="ComputeShaders" href="ComputeShaders.html"/>
         <link rel="prev" title="Framebuffers" href="Framebuffers.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -112,7 +112,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -183,21 +185,22 @@
 <dl class="method">
 <dt>
 <code class="descclassname">Context.</code><code class="descname">renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>components=4</em>, <em>samples=0</em>, <em>floats=True</em><span class="sig-paren">)</span> &#x2192; Renderbuffer</dt>
-<dd><p>Create a <a class="reference internal" href="#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
+<dd><p><a class="reference internal" href="#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects are OpenGL objects that contain images.
+They are created and used specifically with <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</li>
-<li><strong>components</strong> (<em>int</em>) &#8211; The number of components 1, 2, 3 or 4.</li>
+<li><strong>size</strong> (<em>tuple</em>) – The width and height of the renderbuffer.</li>
+<li><strong>components</strong> (<em>int</em>) – The number of components 1, 2, 3 or 4.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body"><ul class="first simple">
-<li><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</li>
-<li><strong>floats</strong> &#8211; Use floating point precision.</li>
+<li><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</li>
+<li><strong>floats</strong> (<em>bool</em>) – Use floating point precision.</li>
 </ul>
 </td>
 </tr>
@@ -214,15 +217,16 @@
 <dl class="method">
 <dt>
 <code class="descclassname">Context.</code><code class="descname">depth_renderbuffer</code><span class="sig-paren">(</span><em>size</em>, <em>samples=0</em><span class="sig-paren">)</span> &#x2192; Renderbuffer</dt>
-<dd><p>Create a <a class="reference internal" href="#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a>.</p>
+<dd><p><a class="reference internal" href="#ModernGL.Renderbuffer" title="ModernGL.Renderbuffer"><code class="xref py py-class docutils literal"><span class="pre">Renderbuffer</span></code></a> objects are OpenGL objects that contain images.
+They are created and used specifically with <a class="reference internal" href="Framebuffers.html#ModernGL.Framebuffer" title="ModernGL.Framebuffer"><code class="xref py py-class docutils literal"><span class="pre">Framebuffer</span></code></a> objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>tuple</em>) &#8211; The width and height.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>size</strong> (<em>tuple</em>) – The width and height of the renderbuffer.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>samples</strong> &#8211; The number of samples. Value <cite>0</cite> means no multisample format.</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><strong>samples</strong> (<em>int</em>) – The number of samples. Value <cite>0</cite> means no multisample format.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">depth renderbuffer</td>
 </tr>
@@ -247,37 +251,37 @@ to create one.</p>
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.width">
 <code class="descname">width</code><a class="headerlink" href="#ModernGL.Renderbuffer.width" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The width of the renderbuffer.</p>
+<dd><p><em>int</em> – The width of the renderbuffer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.height">
 <code class="descname">height</code><a class="headerlink" href="#ModernGL.Renderbuffer.height" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The height of the renderbuffer.</p>
+<dd><p><em>int</em> – The height of the renderbuffer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.size">
 <code class="descname">size</code><a class="headerlink" href="#ModernGL.Renderbuffer.size" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>tuple</em> &#8211; The size of the renderbuffer.</p>
+<dd><p><em>tuple</em> – The size of the renderbuffer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.samples">
 <code class="descname">samples</code><a class="headerlink" href="#ModernGL.Renderbuffer.samples" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The samples of the renderbuffer.</p>
+<dd><p><em>int</em> – The samples of the renderbuffer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.components">
 <code class="descname">components</code><a class="headerlink" href="#ModernGL.Renderbuffer.components" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> &#8211; The components of the renderbuffer.</p>
+<dd><p><em>int</em> – The components of the renderbuffer.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.Renderbuffer.depth">
 <code class="descname">depth</code><a class="headerlink" href="#ModernGL.Renderbuffer.depth" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>bool</em> &#8211; Is the renderbuffer a depth renderbuffer?</p>
+<dd><p><em>bool</em> – Is the renderbuffer a depth renderbuffer?</p>
 </dd></dl>
 
 </dd></dl>
@@ -330,7 +334,7 @@ to create one.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

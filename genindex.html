@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; ModernGL 4.0.0 documentation</title>
+  <title>Index &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
         <link rel="index" title="Index"
               href="#"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/> 
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -95,7 +95,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ModernGL.html">ModernGL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -239,6 +241,8 @@
 </li>
       <li><a href="Buffers.html#ModernGL.Buffer.bind_to_uniform_block">bind_to_uniform_block() (Buffer method)</a>
 </li>
+      <li><a href="UniformBlocks.html#ModernGL.UniformBlock.binding">binding (UniformBlock attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Constants.html#ModernGL.BLEND">BLEND (in module ModernGL)</a>
@@ -249,6 +253,8 @@
 </li>
       <li><a href="Buffers.html#ModernGL.BufferAccess">BufferAccess (class in ModernGL)</a>
 </li>
+      <li><a href="Textures.html#ModernGL.Texture.build_mipmaps">build_mipmaps() (Texture method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -256,8 +262,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Context.html#ModernGL.Context.clear">clear() (Context method)</a>
+
+      <ul>
+        <li><a href="Framebuffers.html#ModernGL.Framebuffer.clear">(Framebuffer method)</a>
 </li>
+      </ul></li>
       <li><a href="Buffers.html#ModernGL.BufferAccess.close">close() (BufferAccess method)</a>
+</li>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.color_mask">color_mask (Framebuffer attribute)</a>
 </li>
       <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.components">components (Renderbuffer attribute)</a>
 
@@ -273,10 +285,10 @@
 </li>
       <li><a href="Context.html#ModernGL.Context.copy_buffer">copy_buffer() (Context method)</a>
 </li>
-      <li><a href="Context.html#ModernGL.Context.copy_framebuffer">copy_framebuffer() (Context method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="Context.html#ModernGL.Context.copy_framebuffer">copy_framebuffer() (Context method)</a>
+</li>
       <li><a href="Constants.html#ModernGL.CORE_330">CORE_330 (in module ModernGL)</a>
 </li>
       <li><a href="Constants.html#ModernGL.CORE_400">CORE_400 (in module ModernGL)</a>
@@ -303,8 +315,6 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="VertexArrayAttributes.html#ModernGL.VertexArrayAttribute.default">default (VertexArrayAttribute attribute)</a>
-</li>
       <li><a href="Context.html#ModernGL.Context.default_framebuffer">default_framebuffer (Context attribute)</a>
 </li>
       <li><a href="Context.html#ModernGL.Context.default_texture_unit">default_texture_unit (Context attribute)</a>
@@ -315,6 +325,8 @@
         <li><a href="Textures.html#ModernGL.Texture.depth">(Texture attribute)</a>
 </li>
       </ul></li>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.depth_mask">depth_mask (Framebuffer attribute)</a>
+</li>
       <li><a href="Context.html#ModernGL.Context.depth_renderbuffer">depth_renderbuffer() (Context method)</a>
 </li>
   </ul></td>
@@ -355,12 +367,16 @@
 </li>
       <li><a href="Errors.html#ModernGL.Error">Error</a>
 </li>
+      <li><a href="Context.html#ModernGL.Context.error">error (Context attribute)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="Textures.html#ModernGL.Texture.filter">filter (Texture attribute)</a>
+</li>
       <li><a href="Context.html#ModernGL.Context.finish">finish() (Context method)</a>
 </li>
       <li><a href="ShadersAndPrograms.html#ModernGL.Program.fragment_shader">fragment_shader (Program attribute)</a>
@@ -397,9 +413,11 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.height">height (Renderbuffer attribute)</a>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.height">height (Framebuffer attribute)</a>
 
       <ul>
+        <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.height">(Renderbuffer attribute)</a>
+</li>
         <li><a href="Textures.html#ModernGL.Texture.height">(Texture attribute)</a>
 </li>
       </ul></li>
@@ -410,7 +428,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Subroutines.html#ModernGL.Subroutine.index">index (Subroutine attribute)</a>
+
+      <ul>
+        <li><a href="UniformBlocks.html#ModernGL.UniformBlock.index">(UniformBlock attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="VertexArrays.html#ModernGL.VertexArray.index_buffer">index_buffer (VertexArray attribute)</a>
@@ -444,8 +466,6 @@
 </li>
         <li><a href="Uniforms.html#ModernGL.Uniform.location">(Uniform attribute)</a>
 </li>
-        <li><a href="UniformBlocks.html#ModernGL.UniformBlock.location">(UniformBlock attribute)</a>
-</li>
         <li><a href="VertexArrayAttributes.html#ModernGL.VertexArrayAttribute.location">(VertexArrayAttribute attribute)</a>
 </li>
       </ul></li>
@@ -455,14 +475,10 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="Constants.html#ModernGL.Version.major">major (Version attribute)</a>
-</li>
       <li><a href="Context.html#ModernGL.Context.max_texture_units">max_texture_units (Context attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="Constants.html#ModernGL.Version.minor">minor (Version attribute)</a>
-</li>
       <li><a href="ModernGL.html#module-ModernGL">ModernGL (module)</a>
 </li>
       <li><a href="Constants.html#ModernGL.MULTISAMPLE">MULTISAMPLE (in module ModernGL)</a>
@@ -536,16 +552,36 @@
       <ul>
         <li><a href="Buffers.html#ModernGL.BufferAccess.read">(BufferAccess method)</a>
 </li>
-      </ul></li>
-      <li><a href="VertexArrays.html#ModernGL.VertexArray.render">render() (VertexArray method)</a>
+        <li><a href="Framebuffers.html#ModernGL.Framebuffer.read">(Framebuffer method)</a>
 </li>
+        <li><a href="Textures.html#ModernGL.Texture.read">(Texture method)</a>
+</li>
+        <li><a href="Uniforms.html#ModernGL.Uniform.read">(Uniform method)</a>
+</li>
+      </ul></li>
+      <li><a href="Buffers.html#ModernGL.Buffer.read_into">read_into() (Buffer method)</a>
+
+      <ul>
+        <li><a href="Buffers.html#ModernGL.BufferAccess.read_into">(BufferAccess method)</a>
+</li>
+        <li><a href="Framebuffers.html#ModernGL.Framebuffer.read_into">(Framebuffer method)</a>
+</li>
+        <li><a href="Textures.html#ModernGL.Texture.read_into">(Texture method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="VertexArrays.html#ModernGL.VertexArray.render">render() (VertexArray method)</a>
+</li>
       <li><a href="Renderbuffers.html#ModernGL.Renderbuffer">Renderbuffer (class in ModernGL)</a>
 </li>
       <li><a href="Context.html#ModernGL.Context.renderbuffer">renderbuffer() (Context method)</a>
 </li>
       <li><a href="Context.html#ModernGL.Context.renderer">renderer (Context attribute)</a>
+</li>
+      <li><a href="Textures.html#ModernGL.Texture.repeat_x">repeat_x (Texture attribute)</a>
+</li>
+      <li><a href="Textures.html#ModernGL.Texture.repeat_y">repeat_y (Texture attribute)</a>
 </li>
       <li><a href="ComputeShaders.html#ModernGL.ComputeShader.run">run() (ComputeShader method)</a>
 </li>
@@ -555,9 +591,11 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.samples">samples (Renderbuffer attribute)</a>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.samples">samples (Framebuffer attribute)</a>
 
       <ul>
+        <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.samples">(Renderbuffer attribute)</a>
+</li>
         <li><a href="Textures.html#ModernGL.Texture.samples">(Texture attribute)</a>
 </li>
       </ul></li>
@@ -565,10 +603,14 @@
 </li>
       <li><a href="Context.html#ModernGL.Context.simple_vertex_array">simple_vertex_array() (Context method)</a>
 </li>
-      <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.size">size (Renderbuffer attribute)</a>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.size">size (Framebuffer attribute)</a>
 
       <ul>
+        <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.size">(Renderbuffer attribute)</a>
+</li>
         <li><a href="Textures.html#ModernGL.Texture.size">(Texture attribute)</a>
+</li>
+        <li><a href="UniformBlocks.html#ModernGL.UniformBlock.size">(UniformBlock attribute)</a>
 </li>
       </ul></li>
       <li><a href="ComputeShaders.html#ModernGL.ComputeShader.source">source (ComputeShader attribute)</a>
@@ -588,10 +630,16 @@
       <li><a href="Subroutines.html#ModernGL.SubroutineMap">SubroutineMap (class in ModernGL)</a>
 </li>
       <li><a href="ProgramStages.html#ModernGL.ProgramStage.subroutines">subroutines (ProgramStage attribute)</a>
+
+      <ul>
+        <li><a href="VertexArrays.html#ModernGL.VertexArray.subroutines">(VertexArray attribute)</a>
 </li>
+      </ul></li>
       <li><a href="SubroutineUniforms.html#ModernGL.SubroutineUniform">SubroutineUniform (class in ModernGL)</a>
 </li>
       <li><a href="SubroutineUniforms.html#ModernGL.SubroutineUniformMap">SubroutineUniformMap (class in ModernGL)</a>
+</li>
+      <li><a href="Textures.html#ModernGL.Texture.swizzle">swizzle (Texture attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -633,8 +681,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Uniforms.html#ModernGL.Uniform">Uniform (class in ModernGL)</a>
 </li>
-      <li><a href="ShadersAndPrograms.html#ModernGL.Program.uniform_blocks">uniform_blocks (Program attribute)</a>
+      <li><a href="ComputeShaders.html#ModernGL.ComputeShader.uniform_blocks">uniform_blocks (ComputeShader attribute)</a>
+
+      <ul>
+        <li><a href="ShadersAndPrograms.html#ModernGL.Program.uniform_blocks">(Program attribute)</a>
 </li>
+      </ul></li>
       <li><a href="UniformBlocks.html#ModernGL.UniformBlock">UniformBlock (class in ModernGL)</a>
 </li>
       <li><a href="UniformBlocks.html#ModernGL.UniformBlockMap">UniformBlockMap (class in ModernGL)</a>
@@ -643,8 +695,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Uniforms.html#ModernGL.UniformMap">UniformMap (class in ModernGL)</a>
 </li>
-      <li><a href="ShadersAndPrograms.html#ModernGL.Program.uniforms">uniforms (Program attribute)</a>
+      <li><a href="ComputeShaders.html#ModernGL.ComputeShader.uniforms">uniforms (ComputeShader attribute)</a>
+
+      <ul>
+        <li><a href="ShadersAndPrograms.html#ModernGL.Program.uniforms">(Program attribute)</a>
 </li>
+      </ul></li>
       <li><a href="Framebuffers.html#ModernGL.Framebuffer.use">use() (Framebuffer method)</a>
 
       <ul>
@@ -671,6 +727,8 @@
 </li>
       <li><a href="Context.html#ModernGL.Context.version">version (Context attribute)</a>
 </li>
+      <li><a href="Context.html#ModernGL.Context.version_code">version_code (Context attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Context.html#ModernGL.Context.vertex_array">vertex_array() (Context method)</a>
@@ -686,19 +744,27 @@
       <li><a href="VertexArrays.html#ModernGL.VertexArray.vertices">vertices (VertexArray attribute)</a>
 </li>
       <li><a href="Context.html#ModernGL.Context.viewport">viewport (Context attribute)</a>
+
+      <ul>
+        <li><a href="Framebuffers.html#ModernGL.Framebuffer.viewport">(Framebuffer attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.width">width (Renderbuffer attribute)</a>
+      <li><a href="Framebuffers.html#ModernGL.Framebuffer.width">width (Framebuffer attribute)</a>
 
       <ul>
+        <li><a href="Renderbuffers.html#ModernGL.Renderbuffer.width">(Renderbuffer attribute)</a>
+</li>
         <li><a href="Textures.html#ModernGL.Texture.width">(Texture attribute)</a>
 </li>
       </ul></li>
+      <li><a href="Context.html#ModernGL.Context.wireframe">wireframe (Context attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="Buffers.html#ModernGL.Buffer.write">write() (Buffer method)</a>
@@ -707,6 +773,8 @@
         <li><a href="Buffers.html#ModernGL.BufferAccess.write">(BufferAccess method)</a>
 </li>
         <li><a href="Textures.html#ModernGL.Texture.write">(Texture method)</a>
+</li>
+        <li><a href="Uniforms.html#ModernGL.Uniform.write">(Uniform method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -748,7 +816,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

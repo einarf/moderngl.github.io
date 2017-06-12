@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ComputeShaders &mdash; ModernGL 4.0.0 documentation</title>
+  <title>ComputeShaders &mdash; ModernGL 4.1.6 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ModernGL 4.0.0 documentation" href="index.html"/>
+    <link rel="top" title="ModernGL 4.1.6 documentation" href="index.html"/>
         <link rel="up" title="ModernGL" href="ModernGL.html"/>
         <link rel="next" title="InvalidObject" href="InvalidObjects.html"/>
         <link rel="prev" title="Renderbuffers" href="Renderbuffers.html"/> 
@@ -69,7 +69,7 @@
             
             
               <div class="version">
-                4.0.0
+                4.1.6
               </div>
             
           
@@ -112,7 +112,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TLDR.html">TL;DR</a></li>
 </ul>
 
             
@@ -183,13 +185,13 @@
 <dl class="method">
 <dt>
 <code class="descclassname">Context.</code><code class="descname">compute_shader</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span> &#x2192; ModernGL.programs.ComputeShader</dt>
-<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
-<p>Create a <a class="reference internal" href="#ModernGL.ComputeShader" title="ModernGL.ComputeShader"><code class="xref py py-class docutils literal"><span class="pre">ComputeShader</span></code></a>.</p>
+<dd><p>A <a class="reference internal" href="#ModernGL.ComputeShader" title="ModernGL.ComputeShader"><code class="xref py py-class docutils literal"><span class="pre">ComputeShader</span></code></a> is a Shader Stage that is used entirely for computing arbitrary information.
+While it can do rendering, it is generally used for tasks not directly related to drawing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) &#8211; The source of the compute shader.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>source</strong> (<em>str</em>) – The source of the compute shader.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">compute shader program</td>
 </tr>
@@ -202,19 +204,88 @@
 <dl class="class">
 <dt id="ModernGL.ComputeShader">
 <em class="property">class </em><code class="descname">ComputeShader</code><a class="headerlink" href="#ModernGL.ComputeShader" title="Permalink to this definition">¶</a></dt>
-<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
-<p>ComputeShader</p>
+<dd><p>A Compute Shader is a Shader Stage that is used entirely for computing arbitrary information.
+While it can do rendering, it is generally used for tasks not directly related to drawing.</p>
 <dl class="method">
 <dt id="ModernGL.ComputeShader.run">
-<code class="descname">run</code><span class="sig-paren">(</span><em>size_x=1</em>, <em>size_y=1</em>, <em>size_z=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.ComputeShader.run" title="Permalink to this definition">¶</a></dt>
-<dd><p><code class="docutils literal"><span class="pre">NYI</span></code></p>
-<p>Run the compute shader.</p>
+<code class="descname">run</code><span class="sig-paren">(</span><em>group_x=1</em>, <em>group_y=1</em>, <em>group_z=1</em><span class="sig-paren">)</span><a class="headerlink" href="#ModernGL.ComputeShader.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the compute shader.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group_x</strong> (<em>int</em>) – The number of work groups to be launched in the X dimension.</li>
+<li><strong>group_y</strong> (<em>int</em>) – The number of work groups to be launched in the Y dimension.</li>
+<li><strong>group_z</strong> (<em>int</em>) – The number of work groups to be launched in the Z dimension.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="ModernGL.ComputeShader.source">
 <code class="descname">source</code><a class="headerlink" href="#ModernGL.ComputeShader.source" title="Permalink to this definition">¶</a></dt>
-<dd><p>The source code of the compute shader.</p>
+<dd><p><em>str</em> – The source code of the compute shader.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.ComputeShader.uniforms">
+<code class="descname">uniforms</code><a class="headerlink" href="#ModernGL.ComputeShader.uniforms" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="Uniforms.html#ModernGL.UniformMap" title="ModernGL.UniformMap"><code class="xref py py-class docutils literal"><span class="pre">UniformMap</span></code></a> – The uniforms of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="Uniforms.html#ModernGL.Uniform" title="ModernGL.Uniform"><code class="xref py py-class docutils literal"><span class="pre">Uniform</span></code></a> objects by name.</p>
+<p class="rubric">Examples</p>
+<p>Set the value of the uniforms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># uniform vec3 eye_pos;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+<span class="c1"># uniform sampler2D my_textures[3];</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_texture&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># The values of `my_textures` will be:</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span>             <span class="c1"># GL_TEXTURE0</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span> <span class="o">+</span> <span class="mi">3</span>         <span class="c1"># GL_TEXTURE3</span>
+<span class="n">my_textures</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">GL_TEXTURE0</span> <span class="o">+</span> <span class="mi">2</span>         <span class="c1"># GL_TEXTURE2</span>
+</pre></div>
+</div>
+<p>Get information about the uniforms:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span>
+<span class="go">0</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">3</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;eye_pos&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="go">(10.0, 20.0, 0.0)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_textures&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dimension</span>
+<span class="go">1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span><span class="o">.</span><span class="n">uniforms</span><span class="p">[</span><span class="s1">&#39;my_textures&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">array_length</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ModernGL.ComputeShader.uniform_blocks">
+<code class="descname">uniform_blocks</code><a class="headerlink" href="#ModernGL.ComputeShader.uniform_blocks" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="UniformBlocks.html#ModernGL.UniformBlockMap" title="ModernGL.UniformBlockMap"><code class="xref py py-class docutils literal"><span class="pre">UniformBlockMap</span></code></a> – The uniform blocks of the program.
+The return value is a dictinary like object.
+It can be used to access <a class="reference internal" href="UniformBlocks.html#ModernGL.UniformBlock" title="ModernGL.UniformBlock"><code class="xref py py-class docutils literal"><span class="pre">UniformBlock</span></code></a> objects by name.</p>
+<p class="rubric">Examples</p>
+<p>Get the location of the uniform block:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># uniform custom_material {</span>
+<span class="c1">#     ...</span>
+<span class="c1"># };</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">program</span><span class="o">.</span><span class="n">uniform_blocks</span><span class="p">[</span><span class="s1">&#39;custom_material&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span>
+<span class="mi">16</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -267,7 +338,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'4.0.0',
+            VERSION:'4.1.6',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
